@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProcessThroughputDataSet" targetNamespace="http://tempuri.org/ProcessThroughputDataSet.xsd" xmlns:mstns="http://tempuri.org/ProcessThroughputDataSet.xsd" xmlns="http://tempuri.org/ProcessThroughputDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EmissionsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EmissionsConnectionString (MySettings)" PropertyReference="ApplicationSettings.APCD.EmissionsInventory.My.MySettings.GlobalReference.Default.EmissionsConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="qryProcessAddFormThroughputTableAdapter" GeneratorDataComponentClassName="qryProcessAddFormThroughputTableAdapter" Name="qryProcessAddFormThroughput" UserDataComponentName="qryProcessAddFormThroughputTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmissionsConnectionString (MySettings)" DbObjectName="qryProcessAddFormThroughput" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ProcessDetailPeriodID, ProcessID, EmissionYear, EmissionPeriodTypeID, EmissionPeriodTypeName, ProcessParameterTypeID, ProcessParameterTypeName, ProcessParameterValue, UnitOfMeasurementID, UnitOfMeasurementName FROM qryProcessAddFormThroughput</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ProcessDetailPeriodID" DataSetColumn="ProcessDetailPeriodID" />
+              <Mapping SourceColumn="ProcessID" DataSetColumn="ProcessID" />
+              <Mapping SourceColumn="EmissionYear" DataSetColumn="EmissionYear" />
+              <Mapping SourceColumn="EmissionPeriodTypeID" DataSetColumn="EmissionPeriodTypeID" />
+              <Mapping SourceColumn="EmissionPeriodTypeName" DataSetColumn="EmissionPeriodTypeName" />
+              <Mapping SourceColumn="ProcessParameterTypeID" DataSetColumn="ProcessParameterTypeID" />
+              <Mapping SourceColumn="ProcessParameterTypeName" DataSetColumn="ProcessParameterTypeName" />
+              <Mapping SourceColumn="ProcessParameterValue" DataSetColumn="ProcessParameterValue" />
+              <Mapping SourceColumn="UnitOfMeasurementID" DataSetColumn="UnitOfMeasurementID" />
+              <Mapping SourceColumn="UnitOfMeasurementName" DataSetColumn="UnitOfMeasurementName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProcessThroughputDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ProcessThroughputDataSet" msprop:Generator_UserDSName="ProcessThroughputDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="qryProcessAddFormThroughput" msprop:Generator_TableClassName="qryProcessAddFormThroughputDataTable" msprop:Generator_TableVarName="tableqryProcessAddFormThroughput" msprop:Generator_TablePropName="qryProcessAddFormThroughput" msprop:Generator_RowDeletingName="qryProcessAddFormThroughputRowDeleting" msprop:Generator_UserTableName="qryProcessAddFormThroughput" msprop:Generator_RowChangingName="qryProcessAddFormThroughputRowChanging" msprop:Generator_RowEvHandlerName="qryProcessAddFormThroughputRowChangeEventHandler" msprop:Generator_RowDeletedName="qryProcessAddFormThroughputRowDeleted" msprop:Generator_RowEvArgName="qryProcessAddFormThroughputRowChangeEvent" msprop:Generator_RowChangedName="qryProcessAddFormThroughputRowChanged" msprop:Generator_RowClassName="qryProcessAddFormThroughputRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProcessDetailPeriodID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProcessDetailPeriodID" msprop:Generator_ColumnPropNameInRow="ProcessDetailPeriodID" msprop:Generator_ColumnPropNameInTable="ProcessDetailPeriodIDColumn" msprop:Generator_UserColumnName="ProcessDetailPeriodID" type="xs:int" minOccurs="0" />
+              <xs:element name="ProcessID" msprop:Generator_ColumnVarNameInTable="columnProcessID" msprop:Generator_ColumnPropNameInRow="ProcessID" msprop:Generator_ColumnPropNameInTable="ProcessIDColumn" msprop:Generator_UserColumnName="ProcessID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmissionYear" msprop:Generator_ColumnVarNameInTable="columnEmissionYear" msprop:Generator_ColumnPropNameInRow="EmissionYear" msprop:Generator_ColumnPropNameInTable="EmissionYearColumn" msprop:Generator_UserColumnName="EmissionYear" type="xs:short" minOccurs="0" />
+              <xs:element name="EmissionPeriodTypeID" msprop:Generator_ColumnVarNameInTable="columnEmissionPeriodTypeID" msprop:Generator_ColumnPropNameInRow="EmissionPeriodTypeID" msprop:Generator_ColumnPropNameInTable="EmissionPeriodTypeIDColumn" msprop:Generator_UserColumnName="EmissionPeriodTypeID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmissionPeriodTypeName" msprop:Generator_ColumnVarNameInTable="columnEmissionPeriodTypeName" msprop:Generator_ColumnPropNameInRow="EmissionPeriodTypeName" msprop:Generator_ColumnPropNameInTable="EmissionPeriodTypeNameColumn" msprop:Generator_UserColumnName="EmissionPeriodTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProcessParameterTypeID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProcessParameterTypeID" msprop:Generator_ColumnPropNameInRow="ProcessParameterTypeID" msprop:Generator_ColumnPropNameInTable="ProcessParameterTypeIDColumn" msprop:Generator_UserColumnName="ProcessParameterTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="ProcessParameterTypeName" msprop:Generator_ColumnVarNameInTable="columnProcessParameterTypeName" msprop:Generator_ColumnPropNameInRow="ProcessParameterTypeName" msprop:Generator_ColumnPropNameInTable="ProcessParameterTypeNameColumn" msprop:Generator_UserColumnName="ProcessParameterTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProcessParameterValue" msprop:Generator_ColumnVarNameInTable="columnProcessParameterValue" msprop:Generator_ColumnPropNameInRow="ProcessParameterValue" msprop:Generator_ColumnPropNameInTable="ProcessParameterValueColumn" msprop:Generator_UserColumnName="ProcessParameterValue" type="xs:double" minOccurs="0" />
+              <xs:element name="UnitOfMeasurementID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUnitOfMeasurementID" msprop:Generator_ColumnPropNameInRow="UnitOfMeasurementID" msprop:Generator_ColumnPropNameInTable="UnitOfMeasurementIDColumn" msprop:Generator_UserColumnName="UnitOfMeasurementID" type="xs:int" minOccurs="0" />
+              <xs:element name="UnitOfMeasurementName" msprop:Generator_ColumnVarNameInTable="columnUnitOfMeasurementName" msprop:Generator_ColumnPropNameInRow="UnitOfMeasurementName" msprop:Generator_ColumnPropNameInTable="UnitOfMeasurementNameColumn" msprop:Generator_UserColumnName="UnitOfMeasurementName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

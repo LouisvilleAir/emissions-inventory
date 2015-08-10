@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A02F69E1-9251-4A34-9DDA-8B82B65C5A62}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>APCD.EmissionsInventory.My.MyApplication</StartupObject>
+    <RootNamespace>APCD.EmissionsInventory</RootNamespace>
+    <AssemblyName>APCD.EmissionsInventory</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>http://apcbar02tryand1/InstallEmissionsInventory/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://apcbar02tryand1/APCDApplicationAndPCSupport/EmissionsInventory/emissionsInventoryHome.htm</SupportUrl>
+    <ProductName>APCD Emissions Inventory</ProductName>
+    <PublisherName>APCD</PublisherName>
+    <MinimumRequiredVersion>1.2.0.68</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>default.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>68</ApplicationRevision>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Absolute</BootstrapperComponentsLocation>
+    <BootstrapperComponentsUrl>\\svfs05\apcddata\PC Support\Installations\VisualStudioApplications\CommonPrerequisites</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>APCD.EmissionsInventory.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>APCD.EmissionsInventory.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Stacks.ICO</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CD2326224A65ABC384207EDFA6AD8A81E7126E2A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>APCD.EmissionsInventory_3_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="APCD.AirPollutionLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.AirPollutionLibrary\1.0.0.0\APCD.AirPollutionLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.Common.Applications, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.Common.Applications\1.2.0.0\APCD.Common.Applications.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.Controls, Version=1.0.4513.25355, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Controls\APCD.Controls\1.0.0.1\APCD.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.DataProviderLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.DataProviderLibrary\1.0.0.0\APCD.DataProviderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.EmissionsEIS_FacilityExport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.EmissionsEIS_FacilityExport\1.0.0.0\APCD.EmissionsEIS_FacilityExport.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.EmissionsLibrary, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.EmissionsLibrary\1.3.0.0\APCD.EmissionsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.EmissionsPointExport, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.EmissionsPointExport\1.0.0.1\APCD.EmissionsPointExport.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.FacilitiesLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.Facilities\1.0.0.0\APCD.FacilitiesLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.PeopleLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.PeopleLibrary\1.0.0.0\APCD.PeopleLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="APCD.Tools, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\Information Systems\Code Library\Libraries\APCD.Tools\1.0.0.2\APCD.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AirPollutionDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirPollutionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ControlMeasureHelper.vb" />
+    <Compile Include="Classes\GlobalMethods.vb" />
+    <Compile Include="Classes\GlobalVariables.vb" />
+    <Compile Include="Classes\O3DPollutants.vb" />
+    <Compile Include="Classes\ProcessHelper.vb" />
+    <Compile Include="Classes\ReleasePointHelper.vb" />
+    <Compile Include="ControlMeasureDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlMeasureDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlMeasureUserControl.Designer.vb">
+      <DependentUpon>ControlMeasureUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlMeasureUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EmissionUnitUserControl.Designer.vb">
+      <DependentUpon>EmissionUnitUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EmissionUnitUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PlantUserControl.Designer.vb">
+      <DependentUpon>PlantUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlantUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProcessUserControl.Designer.vb">
+      <DependentUpon>ProcessUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProcessUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ReleasePointUserControl.Designer.vb">
+      <DependentUpon>ReleasePointUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReleasePointUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmissionsDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmissionsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmissionsDataSet.vb">
+      <DependentUpon>EmissionsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ApproveForm.Designer.vb">
+      <DependentUpon>ApproveForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ApproveForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ApprovePlantForm.Designer.vb">
+      <DependentUpon>ApprovePlantForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ApprovePlantForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Automation\AnnualNotification.Designer.vb">
+      <DependentUpon>AnnualNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Automation\AnnualNotification.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Billing\GeneratePreBill.Designer.vb">
+      <DependentUpon>GeneratePreBill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Billing\GeneratePreBill.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ControlMeasurePollutantAddEditForm.Designer.vb">
+      <DependentUpon>ControlMeasurePollutantAddEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ControlMeasurePollutantAddEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CopyPollutantsToAnotherProcessForm.Designer.vb">
+      <DependentUpon>CopyPollutantsToAnotherProcessForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CopyPollutantsToAnotherProcessForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Help\AboutForm.Designer.vb">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Help\AboutForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Help\SupportWebsite.Designer.vb">
+      <DependentUpon>SupportWebsite.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Help\SupportWebsite.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProcessControlMeasureAddEditForm.Designer.vb">
+      <DependentUpon>ProcessControlMeasureAddEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProcessControlMeasureAddEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProcessEmissionsAddEditForm.Designer.vb">
+      <DependentUpon>ProcessEmissionsAddEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProcessEmissionsAddEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProcessReleasePointAddEditForm.Designer.vb">
+      <DependentUpon>ProcessReleasePointAddEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProcessReleasePointAddEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProcessThroughputAddEditForm.Designer.vb">
+      <DependentUpon>ProcessThroughputAddEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProcessThroughputAddEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Programmer\ExportFacilityDataForm.Designer.vb">
+      <DependentUpon>ExportFacilityDataForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Programmer\ExportFacilityDataForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Programmer\ExportPointDataForm.Designer.vb">
+      <DependentUpon>ExportPointDataForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Programmer\ExportPointDataForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Programmer\PollutantUOMCheck.Designer.vb">
+      <DependentUpon>PollutantUOMCheck.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Programmer\PollutantUOMCheck.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Programmer\WhoIsLoggedInForm.Designer.vb">
+      <DependentUpon>WhoIsLoggedInForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Programmer\WhoIsLoggedInForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReleasePointApproveForm.Designer.vb">
+      <DependentUpon>ReleasePointApproveForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReleasePointApproveForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SCCCodeSelectorForm.Designer.vb">
+      <DependentUpon>SCCCodeSelectorForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SCCCodeSelectorForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaitForm.Designer.vb">
+      <DependentUpon>WaitForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaitForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\_startup\chooseApplicationModeForm.Designer.vb">
+      <DependentUpon>chooseApplicationModeForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\_startup\chooseApplicationModeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\_startup\splashScreenForm.Designer.vb">
+      <DependentUpon>splashScreenForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\_startup\splashScreenForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ProcessClassDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessClassDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessEmissionsDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessEmissionsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessEmissionsDataSet.vb">
+      <DependentUpon>ProcessEmissionsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessThroughputDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessThroughputDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessThroughputDataSet.vb">
+      <DependentUpon>ProcessThroughputDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReleasePointDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReleasePointDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReleasePointDataSet.vb">
+      <DependentUpon>ReleasePointDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="Tools\ImportE91T.Designer.vb">
+      <DependentUpon>ImportE91T.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ImportE91T.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\ImportE92T.Designer.vb">
+      <DependentUpon>ImportE92T.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ImportE92T.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ControlMeasure\AddControlMeasureStep1.Designer.vb">
+      <DependentUpon>AddControlMeasureStep1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ControlMeasure\AddControlMeasureStep1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ControlMeasure\AddControlMeasureStep2.Designer.vb">
+      <DependentUpon>AddControlMeasureStep2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ControlMeasure\AddControlMeasureStep2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ControlMeasure\AddControlMeasureStep3.Designer.vb">
+      <DependentUpon>AddControlMeasureStep3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ControlMeasure\AddControlMeasureStep3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\EmissionUnit\AddEmissionUnit.Designer.vb">
+      <DependentUpon>AddEmissionUnit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\EmissionUnit\AddEmissionUnit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\Process\AddProcessStep1.Designer.vb">
+      <DependentUpon>AddProcessStep1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Process\AddProcessStep1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\Process\AddProcessStep2.Designer.vb">
+      <DependentUpon>AddProcessStep2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Process\AddProcessStep2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\Process\AddProcessStep3.Designer.vb">
+      <DependentUpon>AddProcessStep3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Process\AddProcessStep3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep1.Designer.vb">
+      <DependentUpon>AddReleasePointStep1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep2.Designer.vb">
+      <DependentUpon>AddReleasePointStep2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep3.Designer.vb">
+      <DependentUpon>AddReleasePointStep3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep4.Designer.vb">
+      <DependentUpon>AddReleasePointStep4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ReleasePoint\AddReleasePointStep4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ControlMeasureUserControl.resx">
+      <DependentUpon>ControlMeasureUserControl.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EmissionUnitUserControl.resx">
+      <DependentUpon>EmissionUnitUserControl.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlantUserControl.resx">
+      <DependentUpon>PlantUserControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProcessUserControl.resx">
+      <DependentUpon>ProcessUserControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ReleasePointUserControl.resx">
+      <DependentUpon>ReleasePointUserControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ApproveForm.resx">
+      <DependentUpon>ApproveForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ApprovePlantForm.resx">
+      <DependentUpon>ApprovePlantForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Automation\AnnualNotification.resx">
+      <DependentUpon>AnnualNotification.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Billing\GeneratePreBill.resx">
+      <DependentUpon>GeneratePreBill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ControlMeasurePollutantAddEditForm.resx">
+      <DependentUpon>ControlMeasurePollutantAddEditForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CopyPollutantsToAnotherProcessForm.resx">
+      <DependentUpon>CopyPollutantsToAnotherProcessForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Help\AboutForm.resx">
+      <DependentUpon>AboutForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Help\SupportWebsite.resx">
+      <DependentUpon>SupportWebsite.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProcessControlMeasureAddEditForm.resx">
+      <DependentUpon>ProcessControlMeasureAddEditForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProcessEmissionsAddEditForm.resx">
+      <DependentUpon>ProcessEmissionsAddEditForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProcessReleasePointAddEditForm.resx">
+      <DependentUpon>ProcessReleasePointAddEditForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProcessThroughputAddEditForm.resx">
+      <DependentUpon>ProcessThroughputAddEditForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Programmer\ExportFacilityDataForm.resx">
+      <DependentUpon>ExportFacilityDataForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Programmer\ExportPointDataForm.resx">
+      <DependentUpon>ExportPointDataForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Programmer\PollutantUOMCheck.resx">
+      <DependentUpon>PollutantUOMCheck.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Programmer\WhoIsLoggedInForm.resx">
+      <DependentUpon>WhoIsLoggedInForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReleasePointApproveForm.resx">
+      <DependentUpon>ReleasePointApproveForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SCCCodeSelectorForm.resx">
+      <DependentUpon>SCCCodeSelectorForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaitForm.resx">
+      <DependentUpon>WaitForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\_startup\chooseApplicationModeForm.resx">
+      <DependentUpon>chooseApplicationModeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\_startup\splashScreenForm.resx">
+      <DependentUpon>splashScreenForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ImportE91T.resx">
+      <DependentUpon>ImportE91T.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ImportE92T.resx">
+      <DependentUpon>ImportE92T.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ControlMeasure\AddControlMeasureStep1.resx">
+      <DependentUpon>AddControlMeasureStep1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ControlMeasure\AddControlMeasureStep2.resx">
+      <DependentUpon>AddControlMeasureStep2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ControlMeasure\AddControlMeasureStep3.resx">
+      <DependentUpon>AddControlMeasureStep3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\EmissionUnit\AddEmissionUnit.resx">
+      <DependentUpon>AddEmissionUnit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Process\AddProcessStep1.resx">
+      <DependentUpon>AddProcessStep1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Process\AddProcessStep2.resx">
+      <DependentUpon>AddProcessStep2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Process\AddProcessStep3.resx">
+      <DependentUpon>AddProcessStep3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ReleasePoint\AddReleasePointStep1.resx">
+      <DependentUpon>AddReleasePointStep1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ReleasePoint\AddReleasePointStep2.resx">
+      <DependentUpon>AddReleasePointStep2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ReleasePoint\AddReleasePointStep3.resx">
+      <DependentUpon>AddReleasePointStep3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ReleasePoint\AddReleasePointStep4.resx">
+      <DependentUpon>AddReleasePointStep4.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AirPollutionDataSet.xsc">
+      <DependentUpon>AirPollutionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AirPollutionDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AirPollutionDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AirPollutionDataSet.xss">
+      <DependentUpon>AirPollutionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="APCD.EmissionsInventory_1_TemporaryKey.pfx" />
+    <None Include="APCD.EmissionsInventory_2_TemporaryKey.pfx" />
+    <None Include="APCD.EmissionsInventory_3_TemporaryKey.pfx" />
+    <None Include="APCD.EmissionsInventory_TemporaryKey.pfx" />
+    <None Include="App.config" />
+    <None Include="AutomationTemplates\E91T-ReleasePoints.xls" />
+    <None Include="AutomationTemplates\E91T-ReleasePoints.xltx" />
+    <None Include="AutomationTemplates\E92T-ControlMeasures.xls" />
+    <None Include="AutomationTemplates\E92T-ControlMeasures.xltx" />
+    <None Include="AutomationTemplates\EINotification.docx" />
+    <None Include="AutomationTemplates\EINotification.dotx" />
+    <None Include="AutomationTemplates\EmissionsBill.docx" />
+    <None Include="AutomationTemplates\EmissionsBill.dotx" />
+    <None Include="AutomationTemplates\EmissionsPreBill.docx" />
+    <None Include="AutomationTemplates\EmissionsPreBill.dotx" />
+    <None Include="AutomationTemplates\JanuaryMailOutLetter.docx" />
+    <None Include="AutomationTemplates\JanuaryMailOutLetter.dotx" />
+    <None Include="ControlMeasureDataSet.xsc">
+      <DependentUpon>ControlMeasureDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ControlMeasureDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ControlMeasureDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ControlMeasureDataSet.xss">
+      <DependentUpon>ControlMeasureDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmissionsDataSet.xsc">
+      <DependentUpon>EmissionsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmissionsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmissionsDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmissionsDataSet.xss">
+      <DependentUpon>EmissionsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Classes\CodeSnippets.txt" />
+    <Content Include="Icons\Plant32.ico" />
+    <Content Include="Icons\Stacks.ICO" />
+    <Content Include="Icons\Unit32.ico" />
+    <None Include="ProcessClassDataSet.xsc">
+      <DependentUpon>ProcessClassDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProcessClassDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProcessClassDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProcessClassDataSet.xss">
+      <DependentUpon>ProcessClassDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProcessDataSet.xsc">
+      <DependentUpon>ProcessDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProcessDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProcessDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProcessDataSet.xss">
+      <DependentUpon>ProcessDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProcessEmissionsDataSet.xsc">
+      <DependentUpon>ProcessEmissionsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProcessEmissionsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProcessEmissionsDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProcessEmissionsDataSet.xss">
+      <DependentUpon>ProcessEmissionsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProcessThroughputDataSet.xsc">
+      <DependentUpon>ProcessThroughputDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProcessThroughputDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProcessThroughputDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProcessThroughputDataSet.xss">
+      <DependentUpon>ProcessThroughputDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReleasePointDataSet.xsc">
+      <DependentUpon>ReleasePointDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReleasePointDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReleasePointDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReleasePointDataSet.xss">
+      <DependentUpon>ReleasePointDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\APCDLogoPartTransp.gif" />
+    <None Include="Resources\Unit32.ico" />
+    <None Include="Resources\Plant32.ico" />
+    <None Include="Resources\Stacks-Grey.ICO" />
+    <None Include="Resources\CLSDFOLD.BMP" />
+    <None Include="Resources\OPENFOLD.BMP" />
+    <None Include="Resources\Stacks.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <PublishFile Include="Microsoft.VisualBasic.PowerPacks.Vs">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProcessEmissionsDataSet" targetNamespace="http://tempuri.org/ProcessEmissionsDataSet.xsd" xmlns:mstns="http://tempuri.org/ProcessEmissionsDataSet.xsd" xmlns="http://tempuri.org/ProcessEmissionsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="EmissionsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EmissionsConnectionString (MySettings)" PropertyReference="ApplicationSettings.APCD.EmissionsInventory.My.MySettings.GlobalReference.Default.EmissionsConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="qryProcessAddFormEmissionsTableAdapter" GeneratorDataComponentClassName="qryProcessAddFormEmissionsTableAdapter" Name="qryProcessAddFormEmissions" UserDataComponentName="qryProcessAddFormEmissionsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmissionsConnectionString (MySettings)" DbObjectName="qryProcessAddFormEmissions" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ProcessEmissionID, ProcessID, EmissionYear, EmissionPeriodTypeID, EmissionPeriodTypeName, PollutantID, PollutantName, DataOriginID, ProcessEmissionTypeID, ProcessEmissionTypeName, EmissionValue, UnitofMeasurementID, UnitOfMeasurementName, EmissionCalculationMethodID, EmissionCalculationMethodName, IsEmissionFactorRequired, EmissionFactorValue, EmissionFactorUnitOfMeasurementID, EmissionFactorProcessParameterTypeID, EmissionFactorReference, CommentPublic, CommentInternal, AddDate, AddedBy FROM qryProcessAddFormEmissions</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ProcessEmissionID" DataSetColumn="ProcessEmissionID" />
+              <Mapping SourceColumn="ProcessID" DataSetColumn="ProcessID" />
+              <Mapping SourceColumn="EmissionYear" DataSetColumn="EmissionYear" />
+              <Mapping SourceColumn="EmissionPeriodTypeID" DataSetColumn="EmissionPeriodTypeID" />
+              <Mapping SourceColumn="EmissionPeriodTypeName" DataSetColumn="EmissionPeriodTypeName" />
+              <Mapping SourceColumn="PollutantID" DataSetColumn="PollutantID" />
+              <Mapping SourceColumn="PollutantName" DataSetColumn="PollutantName" />
+              <Mapping SourceColumn="DataOriginID" DataSetColumn="DataOriginID" />
+              <Mapping SourceColumn="ProcessEmissionTypeID" DataSetColumn="ProcessEmissionTypeID" />
+              <Mapping SourceColumn="ProcessEmissionTypeName" DataSetColumn="ProcessEmissionTypeName" />
+              <Mapping SourceColumn="EmissionValue" DataSetColumn="EmissionValue" />
+              <Mapping SourceColumn="UnitofMeasurementID" DataSetColumn="UnitofMeasurementID" />
+              <Mapping SourceColumn="UnitOfMeasurementName" DataSetColumn="UnitOfMeasurementName" />
+              <Mapping SourceColumn="EmissionCalculationMethodID" DataSetColumn="EmissionCalculationMethodID" />
+              <Mapping SourceColumn="EmissionCalculationMethodName" DataSetColumn="EmissionCalculationMethodName" />
+              <Mapping SourceColumn="IsEmissionFactorRequired" DataSetColumn="IsEmissionFactorRequired" />
+              <Mapping SourceColumn="EmissionFactorValue" DataSetColumn="EmissionFactorValue" />
+              <Mapping SourceColumn="EmissionFactorUnitOfMeasurementID" DataSetColumn="EmissionFactorUnitOfMeasurementID" />
+              <Mapping SourceColumn="EmissionFactorProcessParameterTypeID" DataSetColumn="EmissionFactorProcessParameterTypeID" />
+              <Mapping SourceColumn="EmissionFactorReference" DataSetColumn="EmissionFactorReference" />
+              <Mapping SourceColumn="CommentPublic" DataSetColumn="CommentPublic" />
+              <Mapping SourceColumn="CommentInternal" DataSetColumn="CommentInternal" />
+              <Mapping SourceColumn="AddDate" DataSetColumn="AddDate" />
+              <Mapping SourceColumn="AddedBy" DataSetColumn="AddedBy" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProcessEmissionsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ProcessEmissionsDataSet" msprop:Generator_UserDSName="ProcessEmissionsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="qryProcessAddFormEmissions" msprop:Generator_TableClassName="qryProcessAddFormEmissionsDataTable" msprop:Generator_TableVarName="tableqryProcessAddFormEmissions" msprop:Generator_TablePropName="qryProcessAddFormEmissions" msprop:Generator_RowDeletingName="qryProcessAddFormEmissionsRowDeleting" msprop:Generator_UserTableName="qryProcessAddFormEmissions" msprop:Generator_RowChangingName="qryProcessAddFormEmissionsRowChanging" msprop:Generator_RowEvHandlerName="qryProcessAddFormEmissionsRowChangeEventHandler" msprop:Generator_RowDeletedName="qryProcessAddFormEmissionsRowDeleted" msprop:Generator_RowEvArgName="qryProcessAddFormEmissionsRowChangeEvent" msprop:Generator_RowChangedName="qryProcessAddFormEmissionsRowChanged" msprop:Generator_RowClassName="qryProcessAddFormEmissionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProcessEmissionID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProcessEmissionID" msprop:Generator_ColumnPropNameInRow="ProcessEmissionID" msprop:Generator_ColumnPropNameInTable="ProcessEmissionIDColumn" msprop:Generator_UserColumnName="ProcessEmissionID" type="xs:int" minOccurs="0" />
+              <xs:element name="ProcessID" msprop:Generator_ColumnVarNameInTable="columnProcessID" msprop:Generator_ColumnPropNameInRow="ProcessID" msprop:Generator_ColumnPropNameInTable="ProcessIDColumn" msprop:Generator_UserColumnName="ProcessID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmissionYear" msprop:Generator_ColumnVarNameInTable="columnEmissionYear" msprop:Generator_ColumnPropNameInRow="EmissionYear" msprop:Generator_ColumnPropNameInTable="EmissionYearColumn" msprop:Generator_UserColumnName="EmissionYear" type="xs:short" minOccurs="0" />
+              <xs:element name="EmissionPeriodTypeID" msprop:Generator_ColumnVarNameInTable="columnEmissionPeriodTypeID" msprop:Generator_ColumnPropNameInRow="EmissionPeriodTypeID" msprop:Generator_ColumnPropNameInTable="EmissionPeriodTypeIDColumn" msprop:Generator_UserColumnName="EmissionPeriodTypeID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmissionPeriodTypeName" msprop:Generator_ColumnVarNameInTable="columnEmissionPeriodTypeName" msprop:Generator_ColumnPropNameInRow="EmissionPeriodTypeName" msprop:Generator_ColumnPropNameInTable="EmissionPeriodTypeNameColumn" msprop:Generator_UserColumnName="EmissionPeriodTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PollutantID" msprop:Generator_ColumnVarNameInTable="columnPollutantID" msprop:Generator_ColumnPropNameInRow="PollutantID" msprop:Generator_ColumnPropNameInTable="PollutantIDColumn" msprop:Generator_UserColumnName="PollutantID" type="xs:int" minOccurs="0" />
+              <xs:element name="PollutantName" msprop:Generator_ColumnVarNameInTable="columnPollutantName" msprop:Generator_ColumnPropNameInRow="PollutantName" msprop:Generator_ColumnPropNameInTable="PollutantNameColumn" msprop:Generator_UserColumnName="PollutantName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DataOriginID" msprop:Generator_ColumnVarNameInTable="columnDataOriginID" msprop:Generator_ColumnPropNameInRow="DataOriginID" msprop:Generator_ColumnPropNameInTable="DataOriginIDColumn" msprop:Generator_UserColumnName="DataOriginID" type="xs:int" minOccurs="0" />
+              <xs:element name="ProcessEmissionTypeID" msprop:Generator_ColumnVarNameInTable="columnProcessEmissionTypeID" msprop:Generator_ColumnPropNameInRow="ProcessEmissionTypeID" msprop:Generator_ColumnPropNameInTable="ProcessEmissionTypeIDColumn" msprop:Generator_UserColumnName="ProcessEmissionTypeID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProcessEmissionTypeName" msprop:Generator_ColumnVarNameInTable="columnProcessEmissionTypeName" msprop:Generator_ColumnPropNameInRow="ProcessEmissionTypeName" msprop:Generator_ColumnPropNameInTable="ProcessEmissionTypeNameColumn" msprop:Generator_UserColumnName="ProcessEmissionTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmissionValue" msprop:Generator_ColumnVarNameInTable="columnEmissionValue" msprop:Generator_ColumnPropNameInRow="EmissionValue" msprop:Generator_ColumnPropNameInTable="EmissionValueColumn" msprop:Generator_UserColumnName="EmissionValue" type="xs:double" minOccurs="0" />
+              <xs:element name="UnitofMeasurementID" msprop:Generator_ColumnVarNameInTable="columnUnitofMeasurementID" msprop:Generator_ColumnPropNameInRow="UnitofMeasurementID" msprop:Generator_ColumnPropNameInTable="UnitofMeasurementIDColumn" msprop:Generator_UserColumnName="UnitofMeasurementID" type="xs:int" minOccurs="0" />
+              <xs:element name="UnitOfMeasurementName" msprop:Generator_ColumnVarNameInTable="columnUnitOfMeasurementName" msprop:Generator_ColumnPropNameInRow="UnitOfMeasurementName" msprop:Generator_ColumnPropNameInTable="UnitOfMeasurementNameColumn" msprop:Generator_UserColumnName="UnitOfMeasurementName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmissionCalculationMethodID" msprop:Generator_ColumnVarNameInTable="columnEmissionCalculationMethodID" msprop:Generator_ColumnPropNameInRow="EmissionCalculationMethodID" msprop:Generator_ColumnPropNameInTable="EmissionCalculationMethodIDColumn" msprop:Generator_UserColumnName="EmissionCalculationMethodID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmissionCalculationMethodName" msprop:Generator_ColumnVarNameInTable="columnEmissionCalculationMethodName" msprop:Generator_ColumnPropNameInRow="EmissionCalculationMethodName" msprop:Generator_ColumnPropNameInTable="EmissionCalculationMethodNameColumn" msprop:Generator_UserColumnName="EmissionCalculationMethodName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IsEmissionFactorRequired" msprop:Generator_ColumnVarNameInTable="columnIsEmissionFactorRequired" msprop:Generator_ColumnPropNameInRow="IsEmissionFactorRequired" msprop:Generator_ColumnPropNameInTable="IsEmissionFactorRequiredColumn" msprop:Generator_UserColumnName="IsEmissionFactorRequired" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EmissionFactorValue" msprop:Generator_ColumnVarNameInTable="columnEmissionFactorValue" msprop:Generator_ColumnPropNameInRow="EmissionFactorValue" msprop:Generator_ColumnPropNameInTable="EmissionFactorValueColumn" msprop:Generator_UserColumnName="EmissionFactorValue" type="xs:double" minOccurs="0" />
+              <xs:element name="EmissionFactorUnitOfMeasurementID" msprop:Generator_ColumnVarNameInTable="columnEmissionFactorUnitOfMeasurementID" msprop:Generator_ColumnPropNameInRow="EmissionFactorUnitOfMeasurementID" msprop:Generator_ColumnPropNameInTable="EmissionFactorUnitOfMeasurementIDColumn" msprop:Generator_UserColumnName="EmissionFactorUnitOfMeasurementID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmissionFactorProcessParameterTypeID" msprop:Generator_ColumnVarNameInTable="columnEmissionFactorProcessParameterTypeID" msprop:Generator_ColumnPropNameInRow="EmissionFactorProcessParameterTypeID" msprop:Generator_ColumnPropNameInTable="EmissionFactorProcessParameterTypeIDColumn" msprop:Generator_UserColumnName="EmissionFactorProcessParameterTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmissionFactorReference" msprop:Generator_ColumnVarNameInTable="columnEmissionFactorReference" msprop:Generator_ColumnPropNameInRow="EmissionFactorReference" msprop:Generator_ColumnPropNameInTable="EmissionFactorReferenceColumn" msprop:Generator_UserColumnName="EmissionFactorReference" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CommentPublic" msprop:Generator_ColumnVarNameInTable="columnCommentPublic" msprop:Generator_ColumnPropNameInRow="CommentPublic" msprop:Generator_ColumnPropNameInTable="CommentPublicColumn" msprop:Generator_UserColumnName="CommentPublic" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CommentInternal" msprop:Generator_ColumnVarNameInTable="columnCommentInternal" msprop:Generator_ColumnPropNameInRow="CommentInternal" msprop:Generator_ColumnPropNameInTable="CommentInternalColumn" msprop:Generator_UserColumnName="CommentInternal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AddDate" msprop:Generator_ColumnVarNameInTable="columnAddDate" msprop:Generator_ColumnPropNameInRow="AddDate" msprop:Generator_ColumnPropNameInTable="AddDateColumn" msprop:Generator_UserColumnName="AddDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AddedBy" msprop:Generator_ColumnVarNameInTable="columnAddedBy" msprop:Generator_ColumnPropNameInRow="AddedBy" msprop:Generator_ColumnPropNameInTable="AddedByColumn" msprop:Generator_UserColumnName="AddedBy" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

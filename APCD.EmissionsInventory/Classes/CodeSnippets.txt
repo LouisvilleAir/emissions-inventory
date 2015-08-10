@@ -1,0 +1,144 @@
+﻿'-----------------------------------------------------------------------------------------------------------------
+	Dim errorMessage As New System.Text.StringBuilder
+	errorMessage.AppendLine(ex.Message)
+	errorMessage.AppendLine(ex.StackTrace)
+	Throw New ApplicationException(errorMessage.ToString)
+
+'-----------------------------------------------------------------------------------------------------------------
+    Private m_blnFormIsLoaded As Boolean = False
+
+#Region "----- startup -----"
+
+    Private Sub SetDefaults()
+
+    Private Sub LoadComboBoxes()
+
+    Private Sub AssignControlValues()
+
+    Private Sub ToggleControlStatus()
+
+#End Region '----- startup -----
+
+
+#Region "----- buttons -----"
+
+#End Region '----- buttons -----
+
+
+#Region "----- 'Changed' events -----"
+
+    Private Sub ResetChangedFlags()
+
+#End Region '----- 'Changed' events -----
+
+
+#Region "----- Validation -----"
+	Private Function IsValidForm() As Boolean
+
+        Dim blnIsValidForm As Boolean
+
+        If (1 = 1) Then
+            blnIsValidForm = False
+        Else
+            blnIsValidForm = True
+        End If
+
+        Return blnIsValidForm
+
+    End Function
+
+
+    Private Function IsValid() As Boolean
+
+        Dim dataIsValid As Boolean
+
+        If (1 = 1) Then
+            dataIsValid = False
+            Me.ErrorProvider1.SetError(Me, "ERROR_MESSAGE_HERE")
+            Me.ErrorProvider1.SetIconAlignment(Me, ErrorIconAlignment.MiddleLeft)
+        Else
+            dataIsValid = True
+            Me.ErrorProvider1.SetError(Me, String.Empty)
+        End If
+
+        Return dataIsValid
+
+    End Function
+#End Region '----- Validation -----
+
+
+#Region "----- save the data -----"
+
+    Private Sub CreateHistoryOjbect()
+    Private Sub AssignValuesToObject()
+    Private Sub AssignValuesToRow()
+
+#End Region '----- save the data -----
+
+'-----------------------------------------------------------------------------------------------------------------
+
+	Private Enum DMLMode As Integer
+			Insert
+			Update
+			Delete
+	End Enum
+
+
+    Private Sub Save(ByVal dmlMode As DMLMode)
+
+        Using cn As New System.Data.OleDb.OleDbConnection(APCD.Emissions.Globals.GlobalVariables.ConnectionString)
+
+            Dim cmd As New System.Data.OleDb.OleDbCommand
+
+            Dim trn As System.Data.OleDb.OleDbTransaction
+            cmd.Connection = cn
+
+            Try
+                cn.Open()
+
+                'start transaction
+                trn = cn.BeginTransaction
+                cmd.Connection = cn
+                cmd.Transaction = trn
+
+                Select Case dmlMode
+                    Case DMLMode.Insert
+                        Call Me.AssignValuesToObject()
+                        GlobalVariables.ProcessObject.Insert(cmd)
+
+                    Case DMLMode.Update
+                        'create the history object and save it
+                        Call Me.CreateHistoryOjbect()
+                        GlobalVariables.ProcessObject.ProcessHistory.Insert(cmd)
+                        'now the process itself
+                        Call Me.AssignValuesToObject()
+                        GlobalVariables.ProcessObject.Update(cmd)
+
+                    Case DMLMode.Delete
+                        Call Utility.ProcessHistoryUtility.DeleteByProcessID(GlobalVariables.ProcessObject.ProcessID, cmd)
+                        GlobalVariables.ProcessObject.Delete(cmd)
+
+                End Select
+
+                trn.Commit()
+            Catch ex As Exception
+                GlobalVariables.ApplicationLog.AppendLine(ex.Message)
+                If (InStr(ex.Message, GlobalVariables.ErrorMessage.Database.DuplicateRecord) > 0) Then
+                    MessageBox.Show(GlobalVariables.ErrorPrompt.Database.ProcessIDAlreadyExists, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Me.ProcessAPCDIDTextBox.Focus()
+                Else
+                    MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+                Try
+                    trn.Rollback()
+                Catch e As Exception
+                    'Either the transaction has already been committed or rolled back; or the connection is broken. Make a note in the log.
+                    GlobalVariables.ApplicationLog.AppendLine(e.Message)
+                End Try
+            End Try
+
+        End Using
+
+    End Sub
+
+'-----------------------------------------------------------------------------------------------------------------
