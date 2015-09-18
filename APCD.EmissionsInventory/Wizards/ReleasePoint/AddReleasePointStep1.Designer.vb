@@ -45,6 +45,8 @@ Partial Class AddReleasePointStep1
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ReleasePointYearBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReleasePointYearTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ReleasePointYearTableAdapter()
+        Me.LatitudeLimitsLabel = New System.Windows.Forms.Label()
+        Me.LongitudeLimitsLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
         YCoordinateLabel = New System.Windows.Forms.Label()
         CommentPublicLabel = New System.Windows.Forms.Label()
@@ -204,20 +206,20 @@ Partial Class AddReleasePointStep1
         '
         Me.ReleasePointDescriptionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ReleasePointBindingSource, "ReleasePointDescription", True))
         Me.ReleasePointDescriptionTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReleasePointDescriptionTextBox.Location = New System.Drawing.Point(135, 96)
-        Me.ReleasePointDescriptionTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ReleasePointDescriptionTextBox.Location = New System.Drawing.Point(144, 95)
+        Me.ReleasePointDescriptionTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ReleasePointDescriptionTextBox.MaxLength = 100
         Me.ReleasePointDescriptionTextBox.Multiline = True
         Me.ReleasePointDescriptionTextBox.Name = "ReleasePointDescriptionTextBox"
-        Me.ReleasePointDescriptionTextBox.Size = New System.Drawing.Size(731, 42)
+        Me.ReleasePointDescriptionTextBox.Size = New System.Drawing.Size(716, 42)
         Me.ReleasePointDescriptionTextBox.TabIndex = 1
         '
         'ReleasePointAPCDIDTextBox
         '
         Me.ReleasePointAPCDIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ReleasePointBindingSource, "ReleasePointAPCDID", True))
         Me.ReleasePointAPCDIDTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReleasePointAPCDIDTextBox.Location = New System.Drawing.Point(135, 62)
-        Me.ReleasePointAPCDIDTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ReleasePointAPCDIDTextBox.Location = New System.Drawing.Point(144, 61)
+        Me.ReleasePointAPCDIDTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ReleasePointAPCDIDTextBox.MaxLength = 50
         Me.ReleasePointAPCDIDTextBox.Name = "ReleasePointAPCDIDTextBox"
         Me.ReleasePointAPCDIDTextBox.Size = New System.Drawing.Size(432, 26)
@@ -227,32 +229,32 @@ Partial Class AddReleasePointStep1
         '
         Me.CompanyCommentTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ReleasePointBindingSource, "CompanyComment", True))
         Me.CompanyCommentTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CompanyCommentTextBox.Location = New System.Drawing.Point(135, 146)
-        Me.CompanyCommentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CompanyCommentTextBox.Location = New System.Drawing.Point(144, 145)
+        Me.CompanyCommentTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.CompanyCommentTextBox.MaxLength = 400
         Me.CompanyCommentTextBox.Multiline = True
         Me.CompanyCommentTextBox.Name = "CompanyCommentTextBox"
-        Me.CompanyCommentTextBox.Size = New System.Drawing.Size(731, 61)
+        Me.CompanyCommentTextBox.Size = New System.Drawing.Size(716, 61)
         Me.CompanyCommentTextBox.TabIndex = 3
         '
         'APCDCommentTextBox
         '
         Me.APCDCommentTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ReleasePointBindingSource, "APCDComment", True))
         Me.APCDCommentTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.APCDCommentTextBox.Location = New System.Drawing.Point(135, 215)
-        Me.APCDCommentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.APCDCommentTextBox.Location = New System.Drawing.Point(144, 214)
+        Me.APCDCommentTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.APCDCommentTextBox.MaxLength = 400
         Me.APCDCommentTextBox.Multiline = True
         Me.APCDCommentTextBox.Name = "APCDCommentTextBox"
-        Me.APCDCommentTextBox.Size = New System.Drawing.Size(731, 61)
+        Me.APCDCommentTextBox.Size = New System.Drawing.Size(716, 61)
         Me.APCDCommentTextBox.TabIndex = 4
         '
         'XCoordinateTextBox
         '
         Me.XCoordinateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ReleasePointBindingSource, "XCoordinate", True))
         Me.XCoordinateTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XCoordinateTextBox.Location = New System.Drawing.Point(135, 319)
-        Me.XCoordinateTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.XCoordinateTextBox.Location = New System.Drawing.Point(144, 318)
+        Me.XCoordinateTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.XCoordinateTextBox.MaxLength = 20
         Me.XCoordinateTextBox.Name = "XCoordinateTextBox"
         Me.XCoordinateTextBox.Size = New System.Drawing.Size(109, 26)
@@ -262,8 +264,8 @@ Partial Class AddReleasePointStep1
         '
         Me.YCoordinateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ReleasePointBindingSource, "YCoordinate", True))
         Me.YCoordinateTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.YCoordinateTextBox.Location = New System.Drawing.Point(135, 284)
-        Me.YCoordinateTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.YCoordinateTextBox.Location = New System.Drawing.Point(144, 283)
+        Me.YCoordinateTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.YCoordinateTextBox.MaxLength = 20
         Me.YCoordinateTextBox.Name = "YCoordinateTextBox"
         Me.YCoordinateTextBox.Size = New System.Drawing.Size(109, 26)
@@ -271,9 +273,9 @@ Partial Class AddReleasePointStep1
         '
         'btnCancel
         '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(763, 446)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnCancel.Location = New System.Drawing.Point(760, 420)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 8
@@ -283,8 +285,8 @@ Partial Class AddReleasePointStep1
         'btnNext
         '
         Me.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.btnNext.Location = New System.Drawing.Point(389, 446)
-        Me.btnNext.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnNext.Location = New System.Drawing.Point(386, 420)
+        Me.btnNext.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(100, 28)
         Me.btnNext.TabIndex = 7
@@ -315,12 +317,32 @@ Partial Class AddReleasePointStep1
         '
         Me.ReleasePointYearTableAdapter.ClearBeforeFill = True
         '
+        'LatitudeLimitsLabel
+        '
+        Me.LatitudeLimitsLabel.AutoSize = True
+        Me.LatitudeLimitsLabel.Location = New System.Drawing.Point(260, 287)
+        Me.LatitudeLimitsLabel.Name = "LatitudeLimitsLabel"
+        Me.LatitudeLimitsLabel.Size = New System.Drawing.Size(446, 17)
+        Me.LatitudeLimitsLabel.TabIndex = 142
+        Me.LatitudeLimitsLabel.Text = "The latitude must be between 37.9963 and 38.3837 decimal degrees."
+        '
+        'LongitudeLimitsLabel
+        '
+        Me.LongitudeLimitsLabel.AutoSize = True
+        Me.LongitudeLimitsLabel.Location = New System.Drawing.Point(260, 322)
+        Me.LongitudeLimitsLabel.Name = "LongitudeLimitsLabel"
+        Me.LongitudeLimitsLabel.Size = New System.Drawing.Size(468, 17)
+        Me.LongitudeLimitsLabel.TabIndex = 143
+        Me.LongitudeLimitsLabel.Text = "The longitude must be between -85.9586 and -85.4135 decimal degrees."
+        '
         'AddReleasePointStep1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(879, 489)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LongitudeLimitsLabel)
+        Me.Controls.Add(Me.LatitudeLimitsLabel)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnCancel)
@@ -337,7 +359,7 @@ Partial Class AddReleasePointStep1
         Me.Controls.Add(ReleasePointDescriptionLabel)
         Me.Controls.Add(ReleasePointAPCDIDLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "AddReleasePointStep1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Release Point Step 1"
@@ -365,4 +387,6 @@ Partial Class AddReleasePointStep1
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
     Friend WithEvents ReleasePointYearBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ReleasePointYearTableAdapter As APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ReleasePointYearTableAdapter
+    Friend WithEvents LongitudeLimitsLabel As System.Windows.Forms.Label
+    Friend WithEvents LatitudeLimitsLabel As System.Windows.Forms.Label
 End Class

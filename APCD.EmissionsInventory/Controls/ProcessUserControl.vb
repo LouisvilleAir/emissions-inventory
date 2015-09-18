@@ -458,7 +458,12 @@ Public Class ProcessUserControl
             If (Me.ProcessDescriptionTextBox.Text.Trim.Length = 0) Then
                 Me.m_process.SetProcessDescriptionNull()
             Else
-                Me.m_process.ProcessDescription = Me.ProcessDescriptionTextBox.Text.Trim
+                If (Me.ProcessDescriptionTextBox.Text.Length > 200) Then
+                    MessageBox.Show("The process description is limited to 200 characters.", "Warning")
+                    Me.m_process.ProcessDescription = Me.ProcessDescriptionTextBox.Text.Trim.Substring(0, 200)
+                Else
+                    Me.m_process.ProcessDescription = Me.ProcessDescriptionTextBox.Text.Trim
+                End If
             End If
             Call Me.ToggleButtonStatus_FieldChanged()
         End If
@@ -497,7 +502,12 @@ Public Class ProcessUserControl
             If (Me.ControlApproachDescriptionTextBox.Text.Trim.Length = 0) Then
                 Me.m_process.SetControlApproachDescriptionNull()
             Else
-                Me.m_process.ControlApproachDescription = Me.ControlApproachDescriptionTextBox.Text.Trim
+                If Me.ControlApproachDescriptionTextBox.Text.Length > 200 Then
+                    MessageBox.Show("The control approach description is limited to 200 characters.", "Warning")
+                    Me.m_process.ControlApproachDescription = Me.ControlApproachDescriptionTextBox.Text.Trim.Substring(0, 200)
+                Else
+                    Me.m_process.ControlApproachDescription = Me.ControlApproachDescriptionTextBox.Text.Trim
+                End If
             End If
             Call Me.ToggleButtonStatus_FieldChanged()
         End If
@@ -1091,12 +1101,11 @@ Public Class ProcessUserControl
             If (frm.ShowDialog = DialogResult.OK) Then
                 Call Me.ToggleButtonStatus_FieldChanged()
             End If
+            Me.Process_EmissionsTabDataGridView.Refresh()
         Else
             ' Process is approved.  Editing emissions is not allowed.
             Dim frm As New ProcessEmissionsAddEditForm(row, GlobalVariables.DMLMode.View)
-            'If (frm.ShowDialog = DialogResult.OK) Then
-            '    Call Me.ToggleButtonStatus_FieldChanged()
-            'End If
+            frm.ShowDialog()
         End If
 
     End Sub
@@ -1903,10 +1912,12 @@ Public Class ProcessUserControl
                                 row.EmissionPeriodTypeID = "A"
                             End If
                             row.EmissionValue = changedRow.EmissionValue
+                            row.EmissionFactorValue = changedRow.EmissionFactorValue
                         End If
 
                     ElseIf (changedRow.RowState = DataRowState.Modified) Then
-                        Dim row As EmissionsDataSet.ProcessEmissionRow = MainForm.EmissionsDataSet.ProcessEmission.FindByProcessEmissionID(changedRow.ProcessEmissionID)
+                        Dim row As EmissionsDataSet.ProcessEmissionRow _
+                            = MainForm.EmissionsDataSet.ProcessEmission.FindByProcessEmissionID(changedRow.ProcessEmissionID)
                         If (row IsNot Nothing) Then
                             Call ProcessHelper.LoadHistoryRecord_ProcessEmission(row)
                             If (row.EmissionPeriodTypeID.ToString() <> "A" _
@@ -1918,6 +1929,12 @@ Public Class ProcessUserControl
                                 End If
                             End If
                             row.EmissionValue = changedRow.EmissionValue
+                            If changedRow.UnitOfMeasurementName = APCD.EmissionsInventory.GlobalVariables.UnitOfMeasurement.tons_US Then
+                                row.UnitofMeasurementID = APCD.EmissionsInventory.GlobalVariables.UnitOfMeasurementEnum.tons
+                            Else
+                                row.UnitofMeasurementID = APCD.EmissionsInventory.GlobalVariables.UnitOfMeasurementEnum.pounds
+                            End If
+                            row.EmissionFactorValue = changedRow.EmissionFactorValue
                         End If
 
                     ElseIf (changedRow.RowState = DataRowState.Deleted) Then
@@ -2009,7 +2026,13 @@ Public Class ProcessUserControl
     ''' <param name="e"></param>
     ''' <remarks>2015-08-04 BJF: Added</remarks>
     Private Sub RecalculateButton_Click(sender As Object, e As EventArgs) Handles btnRecalculateFromThroughput.Click
-        Dim msg As String = "This will use the current year's (saved) throughput to recalculate emissions where the calculation method is an emission factor.  Currently, it only does this if the emission factor does NOT take control efficiency into account.  Existing emissions values will be overwritten."
+
+        Dim msg As String = String.Empty
+        If Me.m_changedValueCount > 0 Then
+            msg = "Some data values have been entered or modified but not yet saved.  "
+            'Else
+        End If
+        msg &= "This function will use the current year's SAVED throughput and SAVED emission factors to recalculate emissions where an emission factor has been entered.  If the emission factor is greater than zero, the function does the calculation even if the calculation method does not use an emission factor.  Existing emissions values will be overwritten."
         If MessageBox.Show(msg, "Recalculate from Throughput", MessageBoxButtons.OKCancel) = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Call Me.EmissionsRecalculateFromThroughput()
@@ -2039,45 +2062,59 @@ Public Class ProcessUserControl
         Next
 
         If annualThruput > 0.0# Then
-            For Each ro As DataGridViewRow In Me.Process_EmissionsTabDataGridView.Rows
-                If ro.Cells("EmissionPeriodTypeName").Value.ToString = "Annual" Then
-                    If ro.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(no control") Then
-                        ' emission factor NOT using control efficiency
-                        factor = CDbl(ro.Cells("EmissionFactorValue").Value)
-                        emissions = factor * annualThruput
-                        ro.Cells("EmissionValue").Value = emissions
-                        Me.m_changedValueCount += 1
-                        'ElseIf ro.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(pre-control)") Then
-                        '    ' emission factor USING control efficiency
-                        '    'TODO 2015-08-04 : Determine effective control efficiency for this pollutant.
-                        '    factor = CDbl(ro.Cells("EFValue").Value)
-                        '    emissions = factor * annual * (1 - efficiency)
-                        '    ro.Cells("EmissionValue").Value = emissions
-                        '    Me.m_changedValueCount += 1
-                    End If
-                ElseIf ro.Cells("EmissionPeriodTypeName").Value.ToString = "Ozone Season Daily" AndAlso ozoneSeasonThruput > 0.0# Then
-                    If ro.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(no control") Then
-                        ' emission factor NOT using control efficiency
-                        factor = CDbl(ro.Cells("EmissionFactorValue").Value)
-                        emissions = factor * ozoneSeasonThruput
-                        ro.Cells("EmissionValue").Value = emissions
-                        Me.m_changedValueCount += 1
-                        'ElseIf ro.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(pre-control)") Then
-                        '    ' emission factor USING control efficiency
-                        '    'TODO 2015-08-04 : Determine effective control efficiency for this pollutant.
-                        '    factor = CDbl(ro.Cells("EFValue").Value)
-                        '    emissions = factor * annual * (1 - efficiency)
-                        '    ro.Cells("EmissionValue").Value = emissions
-                        '    Me.m_changedValueCount += 1
-                    End If
+            'For Each gridRow As DataGridViewRow In Me.Process_EmissionsTabDataGridView.Rows
+            '    If gridRow.Cells("EmissionPeriodTypeName").Value.ToString = "Annual" Then
+            '        If gridRow.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(no control") Then
+            '            ' emission factor NOT using control efficiency
+            '            factor = CDbl(gridRow.Cells("EmissionFactorValue").Value)
+            '            emissions = factor * annualThruput
+            '            gridRow.Cells("EmissionValue").Value = emissions
+            '            Me.m_changedValueCount += 1
+            '            'ElseIf ro.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(pre-control)") Then
+            '            '    ' emission factor USING control efficiency
+            '            '    'TODO 2015-08-04 : Determine effective control efficiency for this pollutant.
+            '            '    factor = CDbl(ro.Cells("EFValue").Value)
+            '            '    emissions = factor * annual * (1 - efficiency)
+            '            '    ro.Cells("EmissionValue").Value = emissions
+            '            '    Me.m_changedValueCount += 1
+            '        End If
+            '    ElseIf gridRow.Cells("EmissionPeriodTypeName").Value.ToString = "Ozone Season Daily" AndAlso ozoneSeasonThruput > 0.0# Then
+            '        If gridRow.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(no control") Then
+            '            ' emission factor NOT using control efficiency
+            '            factor = CDbl(gridRow.Cells("EmissionFactorValue").Value)
+            '            emissions = factor * ozoneSeasonThruput
+            '            gridRow.Cells("EmissionValue").Value = emissions
+            '            Me.m_changedValueCount += 1
+            '            'ElseIf ro.Cells("EmissionCalculationMethodName").Value.ToString.Contains("(pre-control)") Then
+            '            '    ' emission factor USING control efficiency
+            '            '    'TODO 2015-08-04 : Determine effective control efficiency for this pollutant.
+            '            '    factor = CDbl(ro.Cells("EFValue").Value)
+            '            '    emissions = factor * annual * (1 - efficiency)
+            '            '    ro.Cells("EmissionValue").Value = emissions
+            '            '    Me.m_changedValueCount += 1
+            '        End If
+            '    End If
+            'Next
+
+            For Each ro In Me.m_process.GetProcessEmissionRows()
+                factor = ro.EmissionFactorValue
+                If factor > 0.0 Then
+                    emissions = ProcessHelper.EmissionsFromEmissionFactor(ro)
+                    ro.EmissionValue = emissions
                 End If
             Next
+
+            ' Update the main table and reload the grid.
+            MainForm.ProcessEmissionTableAdapter.Update(MainForm.EmissionsDataSet.ProcessEmission)
+            MainForm.ProcessEmissionTableAdapter.FillByProcessID_EmissionYear(MainForm.EmissionsDataSet.ProcessEmission, Me.m_process.ProcessID, Me.m_emissionYear.EmissionYear)
+            MainForm.Process_EmissionsTabTableAdapter.FillByProcessID_EmissionYear(MainForm.EmissionsDataSet.Process_EmissionsTab, Me.m_process.ProcessID, Me.m_emissionYear.EmissionYear)
+            Me.Process_EmissionsTabDataGridView.DataSource = MainForm.EmissionsDataSet.Process_EmissionsTab
+            Me.Process_EmissionsTabDataGridView.Refresh()
         Else
             MessageBox.Show("Annual throughput is missing or zero!  No emissions changed.", "Recalculate from Throughput", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
 
         Call Me.ToggleButtonStatus_FieldChanged()
-        Me.Process_EmissionsTabDataGridView.Refresh()
 
     End Sub
 
@@ -2108,7 +2145,7 @@ Public Class ProcessUserControl
     End Sub
 
     ''' <summary>
-    ''' If the emission factor value is -1, make the text of that cell white so the user doesn't see it.
+    ''' If the emission factor value is -1, make the text of that cell the background color so the user doesn't see it.
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
@@ -2118,10 +2155,20 @@ Public Class ProcessUserControl
             Dim value As Object = e.Value
             If (IsNumeric(value)) Then
                 If (CDbl(value) = -1) Then
-                    Me.Process_EmissionsTabDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Style.ForeColor = Color.White
+                    'Me.Process_EmissionsTabDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Style.ForeColor = Me.Process_EmissionsTabDataGridView.DefaultCellStyle.BackColor
+                    Me.Process_EmissionsTabDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Style.ForeColor = Color.DarkRed
                 End If
             End If
         End If
 
+    End Sub
+
+    Private Sub Process_EmissionsTabDataGridView_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles Process_EmissionsTabDataGridView.UserDeletingRow
+        Dim pollutantName As String = Me.Process_EmissionsTabDataGridView.CurrentRow.Cells(2).Value.ToString
+        Dim msg As String = "Are you sure you want to permanently delete " & pollutantName & " from this process?"
+
+        If MessageBox.Show(msg, "Delete Pollutant", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes Then
+            e.Cancel = True
+        End If
     End Sub
 End Class

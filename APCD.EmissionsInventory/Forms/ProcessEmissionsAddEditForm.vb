@@ -123,8 +123,9 @@ Public Class ProcessEmissionsAddEditForm
 
                 Me.EmissionValueUnitOfMeasurementLabel.Text = String.Empty
                 Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
-                Me.EmissionFactorPanel.Visible = False
-
+                'Me.EmissionFactorPanel.Visible = False
+                Me.EmissionFactorPanel.Visible =True ' For now; see TODO item below.
+                Me.btnCancel.Visible = True
             Case GlobalVariables.DMLMode.Update
                 Me.Text = "Edit Emission"
                 Me.PollutantComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.PollutantComboBox, Me.m_processEmission.PollutantID)
@@ -134,17 +135,23 @@ Public Class ProcessEmissionsAddEditForm
 
                 Me.EmissionCalculationMethodComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.EmissionCalculationMethodComboBox, Me.m_processEmission.EmissionCalculationMethodID)
                 Me.m_pollutant = GlobalVariables.LookupTable.Pollutant.FindByPollutantID(CInt(Me.m_processEmission.PollutantID))
-                Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
 
-                If (Me.m_isFactorRequired = True) Then
-                    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
-                    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
-                    Me.EmissionFactorPanel.Visible = True
-                Else
-                    Me.EmissionFactorValueTextBox.Text = String.Empty
-                    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
-                    Me.EmissionFactorPanel.Visible = False
-                End If
+                'TODO 2015-09-17 BJF - Modify the method below in the library to allow emission factors for calculation methods Stack Test, Material Balance, and EPA Speciation Profile as well as the emission factor methods.
+                ' In the meantime, we'll just display the fields regardless.
+                'Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
+
+                'If (Me.m_isFactorRequired = True) Then
+                '    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
+                '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+                '    Me.EmissionFactorPanel.Visible = True
+                'Else
+                '    Me.EmissionFactorValueTextBox.Text = String.Empty
+                '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
+                '    Me.EmissionFactorPanel.Visible = False
+                'End If
+                Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
+                Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+                Me.EmissionFactorPanel.Visible = True
 
                 If (Me.m_processEmission.IsCommentPublicNull) Then
                     Me.CommentPublicTextBox.Text = String.Empty
@@ -161,7 +168,7 @@ Public Class ProcessEmissionsAddEditForm
                 Me.PollutantComboBox.Enabled = False
                 Me.EmissionPeriodTypeComboBox.Enabled = False
                 Me.EmissionCalculationMethodComboBox.Enabled = True     ' BJF 2015-08-04 Changed from False.
-
+                Me.btnCancel.Visible = True
             Case Else
                 Me.Text = "View Emission"
                 Me.PollutantComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.PollutantComboBox, Me.m_processEmission.PollutantID)
@@ -174,18 +181,24 @@ Public Class ProcessEmissionsAddEditForm
                 Me.EmissionCalculationMethodComboBox.Enabled = False
 
                 Me.m_pollutant = GlobalVariables.LookupTable.Pollutant.FindByPollutantID(CInt(Me.m_processEmission.PollutantID))
-                Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
 
-                If (Me.m_isFactorRequired = True) Then
-                    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
-                    Me.EmissionFactorValueTextBox.Enabled = False
-                    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
-                    Me.EmissionFactorPanel.Visible = True
-                Else
-                    Me.EmissionFactorValueTextBox.Text = String.Empty
-                    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
-                    Me.EmissionFactorPanel.Visible = False
-                End If
+                'TODO: See above under Update.
+                'Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
+
+                'If (Me.m_isFactorRequired = True) Then
+                '    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
+                '    Me.EmissionFactorValueTextBox.Enabled = False
+                '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+                '    Me.EmissionFactorPanel.Visible = True
+                'Else
+                '    Me.EmissionFactorValueTextBox.Text = String.Empty
+                '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
+                '    Me.EmissionFactorPanel.Visible = False
+                'End If
+                Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
+                Me.EmissionFactorValueTextBox.Enabled = False
+                Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+                Me.EmissionFactorPanel.Visible = True
 
                 If (Me.m_processEmission.IsCommentPublicNull) Then
                     Me.CommentPublicTextBox.Text = String.Empty
@@ -204,6 +217,7 @@ Public Class ProcessEmissionsAddEditForm
                 Me.PollutantComboBox.Enabled = False
                 Me.EmissionPeriodTypeComboBox.Enabled = False
                 Me.EmissionCalculationMethodComboBox.Enabled = False
+                Me.btnCancel.Visible = False ' No need to show two buttons when they both have the same effect.
         End Select
 
     End Sub
@@ -573,43 +587,69 @@ Public Class ProcessEmissionsAddEditForm
     End Sub
 
     Private Sub EmissionFactorValueTextBox_Leave(sender As Object, e As EventArgs) Handles EmissionFactorValueTextBox.Leave
+        Dim emissionValue As Double
+
         If (m_blnFormIsLoaded AndAlso Me.m_blnEmissionFactorChanged) Then
             Dim text As String = Me.EmissionFactorValueTextBox.Text.Trim
             If (text.Length > 0) Then
                 If (IsNumeric(text)) Then
                     Me.m_processEmission.EmissionFactorValue = CDbl(text)
-                End If
-                'If Me.EmissionFactorValueTextBox.Text.Trim.Length = 0 OrElse CDbl(Me.EmissionValueTextBox.Text) = 0.0# Then
-                ' Calculate the emissions from the emission factor and throughput if appropriate.
-                If Me.EmissionCalculationMethodComboBox.Text.Contains("(no control") Then
-                    ' Emission factor not using control efficiency.
-                    If Me.EmissionPeriodTypeComboBox.SelectedValue.ToString() = "O3D" Then
-                        If Me.m_dblOzoneSeasonDailyThroughput > 0.0# Then
-                            Me.EmissionValueTextBox.Text = (Me.m_processEmission.EmissionFactorValue * Me.m_dblOzoneSeasonDailyThroughput).ToString()
-                            ' Need to change to the format we use on the form if we decide to specify one.
-                        End If
-                    Else
-                        If Me.m_dblAnnualThroughput > 0.0# Then
-                            Me.EmissionValueTextBox.Text = (Me.m_processEmission.EmissionFactorValue * Me.m_dblAnnualThroughput).ToString()
-                        End If
-                    End If
-                ElseIf Me.EmissionCalculationMethodComboBox.Text.Contains("(pre-control)") Then
-                    'TODO 20150807:  Need to calculate effective control efficiency for this pollutant.
-                End If
-                'End If
+
+                    ''If Me.EmissionValueTextBox.Text.Trim.Length = 0 OrElse CDbl(Me.EmissionValueTextBox.Text) = 0.0# Then
+                    '' Calculate the emissions from the emission factor and throughput if appropriate.
+                    'If Me.EmissionCalculationMethodComboBox.Text.Contains("(no control") Then
+                    '    ' Emission factor _not_ using control efficiency.
+                    '    If Me.EmissionPeriodTypeComboBox.SelectedValue.ToString() = "O3D" Then
+                    '        If Me.m_dblOzoneSeasonDailyThroughput > 0.0# Then
+                    '            Me.EmissionValueTextBox.Text = (Me.m_processEmission.EmissionFactorValue * Me.m_dblOzoneSeasonDailyThroughput).ToString()
+                    '            ' Need to change to the format we use on the form if we decide to specify one.
+                    '        End If
+                    '    Else
+                    '        If Me.m_dblAnnualThroughput > 0.0# Then
+                    '            emissionsPounds = Me.m_processEmission.EmissionFactorValue * Me.m_dblAnnualThroughput
+                    '            'emissionsPounds = APCD.EmissionsInventory.ProcessHelper.EmissionsFromEmissionFactorNoControl(Me.m_processEmission.EmissionFactorValue, Me.m_dblAnnualThroughput)
+                    '            If Me.EmissionValueUnitOfMeasurementLabel.Text = "tons" Then
+                    '                Me.EmissionValueTextBox.Text = (emissionsPounds / 2000).ToString()
+                    '            Else
+                    '                Me.EmissionValueTextBox.Text = emissionsPounds.ToString()
+                    '            End If
+                    '        End If
+                    '    End If
+                    'ElseIf Me.EmissionCalculationMethodComboBox.Text.Contains("(pre-control)") Then
+                    '    'TODO 20150807:  Need to calculate effective control efficiency for this pollutant if more than one control in series affects the pollutant.
+                    '    Dim controlEfficiency As Double = 0.0#
+                    'End If
+                    ''End If
+
+                    emissionValue = ProcessHelper.EmissionsFromEmissionFactor(Me.m_processEmission)
+
+                    Me.EmissionValueTextBox.Text = emissionValue.ToString()
             End If
+        End If
         End If
 
     End Sub
 
     Private Sub EmissionFactorValueTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EmissionFactorValueTextBox.TextChanged
+        ' If the emission factor is zero or negative, hide it.
+        If Me.EmissionFactorValueTextBox.Text.Length > 0 Then
+            Dim factorText As String = Me.EmissionFactorValueTextBox.Text
+            If IsNumeric(factorText) Then
+                If CDbl(factorText) <= 0 Then
+                    Me.EmissionFactorValueTextBox.ForeColor = Me.EmissionFactorValueTextBox.BackColor
+                Else
+                    Me.EmissionFactorValueTextBox.ForeColor = System.Drawing.SystemColors.WindowText
+                End If
+            End If
+        End If
 
-        Me.m_blnEmissionFactorChanged = True
-
+        If (Me.m_blnFormIsLoaded = True) Then
+            Me.m_blnEmissionFactorChanged = True
+        End If
     End Sub
 
     Private Sub EmissionFactorValueTextBox_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles EmissionFactorValueTextBox.KeyPress
-        If ((Asc(e.KeyChar) = 8) OrElse (Asc(e.KeyChar) = 46)) Then 'allow backspace and period
+        If (Asc(e.KeyChar) = 8 OrElse Asc(e.KeyChar) = 46 OrElse e.KeyChar = "E"c OrElse e.KeyChar = "e"c OrElse e.KeyChar = "-"c) Then ' Allow backspace, period, "E", minus
             '
         ElseIf (Not Char.IsDigit(e.KeyChar)) Then
             e.Handled = True
@@ -663,8 +703,12 @@ Public Class ProcessEmissionsAddEditForm
 #End Region '----- changed events -----
 
     Private Sub AddRowForShow()
-
+        Dim factorText As String
+        Dim methodText As String
         Dim row As EmissionsDataSet.Process_EmissionsTabRow = MainForm.EmissionsDataSet.Process_EmissionsTab.NewProcess_EmissionsTabRow
+
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EmissionCalculationMethodName").ReadOnly = False
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EFUnits").ReadOnly = False
         With row
             .ProcessEmissionID = Me.m_processEmission.ProcessEmissionID
             .ProcessID = Me.m_processEmission.ProcessID
@@ -673,28 +717,67 @@ Public Class ProcessEmissionsAddEditForm
             .EmissionPeriodTypeName = Me.EmissionPeriodTypeComboBox.Text
             .EmissionValue = Me.m_processEmission.EmissionValue
             .UnitOfMeasurementName = Me.EmissionValueUnitOfMeasurementLabel.Text
-            .EmissionCalculationMethodName = Me.EmissionCalculationMethodComboBox.Text
-            .EmissionFactorValue = CDbl(Me.EmissionFactorValueTextBox.Text)
-            '.EFUnits = Me.EmissionFactorValueUnitOfMeasurementLabel.Text  ' read-only column because of left join
+            methodText = Me.EmissionCalculationMethodComboBox.Text
+            .EmissionCalculationMethodName = methodText
+            'If (methodText.Contains("(no control") OrElse methodText.Contains("(pre-control)")) Then
+            '    ' Calc. method uses an emission factor.
+            '    factorText = Me.EmissionFactorValueTextBox.Text
+            '    If (IsNumeric(factorText)) Then
+            '        .EmissionFactorValue = CDbl(factorText)
+            '    End If
+            'Else
+            '    .EmissionFactorValue = -1.0#
+            'End If
+            factorText = Me.EmissionFactorValueTextBox.Text
+            If (IsNumeric(factorText)) Then
+                .EmissionFactorValue = CDbl(factorText)
+            End If
+            .EFUnits = Me.EmissionFactorValueUnitOfMeasurementLabel.Text
         End With
         MainForm.EmissionsDataSet.Process_EmissionsTab.Rows.Add(row)
+
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EmissionCalculationMethodName").ReadOnly = True
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EFUnits").ReadOnly = True
 
     End Sub
 
     Private Sub UpdateRowForShow()
+        Dim factorText As String
+        Dim methodText As String
 
+        ' Temporarily allow editing of columns that are read-only to users.
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EmissionCalculationMethodName").ReadOnly = False
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EFUnits").ReadOnly = False
         For Each row As EmissionsDataSet.Process_EmissionsTabRow In MainForm.EmissionsDataSet.Process_EmissionsTab
             With row
-                If (.ProcessEmissionID = Me.m_processEmission.ProcessEmissionID) Then
-                    .EmissionValue = CDbl(Me.EmissionValueTextBox.Text.Trim)
-                    .EmissionCalculationMethodName = Me.EmissionCalculationMethodComboBox.Text
-                    .EmissionFactorValue = CDbl(Me.EmissionFactorValueTextBox.Text.Trim)
-                    '.EFUnits = Me.EmissionFactorValueUnitOfMeasurementLabel.Text  ' read-only column
-                    Exit For
+                If row.RowState = DataRowState.Deleted Then
+                    ' Skip over it.
+                Else
+                    If (.ProcessEmissionID = Me.m_processEmission.ProcessEmissionID) Then
+                        .EmissionValue = CDbl(Me.EmissionValueTextBox.Text.Trim)
+                        methodText = Me.EmissionCalculationMethodComboBox.Text
+                        .EmissionCalculationMethodName = methodText
+                        'If (methodText.Contains("(no control") OrElse methodText.Contains("(pre-control)")) Then
+                        '    ' Calc. method uses an emission factor.
+                        '    factorText = Me.EmissionFactorValueTextBox.Text
+                        '    If (IsNumeric(factorText)) Then
+                        '        .EmissionFactorValue = CDbl(factorText)
+                        '    End If
+                        'Else
+                        '    .EmissionFactorValue = -1.0#
+                        'End If
+                        factorText = Me.EmissionFactorValueTextBox.Text
+                        If (IsNumeric(factorText)) Then
+                            .EmissionFactorValue = CDbl(factorText)
+                        End If
+                        .EFUnits = Me.EmissionFactorValueUnitOfMeasurementLabel.Text
+                        Exit For
+                    End If
                 End If
             End With
-
         Next
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EmissionCalculationMethodName").ReadOnly = True
+        MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EFUnits").ReadOnly = True
 
     End Sub
 

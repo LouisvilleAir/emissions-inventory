@@ -127,7 +127,7 @@
     Private Sub DisplaySummaryPollutants()
         If (Me.ControlIsLoaded = True) Then
             Dim selectedRow As DataGridViewRow = Me.RptPlantEmissionsSummaryV2DataGridView.Rows(Me.RptPlantEmissionsSummaryV2DataGridView.CurrentRow.Index)
-            Dim pollutantID As Int32 = CInt(selectedRow.Cells(4).Value)
+            Dim pollutantID As Int32 = CInt(selectedRow.Cells(5).Value) ' Changed from 4 due to moving pollutant type to first column. 20150813 BJF
             Me.RptPlantEmissionsTableAdapter.FillByPlantID_EmissionYear_PollutantID(Me.EmissionsDataSet.rptPlantEmissions, Me.m_Plant.PlantID, Me.m_EmissionYear.EmissionYear, pollutantID)
         End If
     End Sub
@@ -162,5 +162,4 @@
     End Sub
 
 
-  
 End Class

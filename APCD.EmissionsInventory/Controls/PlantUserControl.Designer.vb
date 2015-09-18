@@ -26,23 +26,17 @@ Partial Class PlantUserControl
         Dim PlantIDLabel As System.Windows.Forms.Label
         Dim PlantNameLabel As System.Windows.Forms.Label
         Dim PlantDescriptionLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PlantIDTextBox = New System.Windows.Forms.TextBox()
         Me.PlantNameTextBox = New System.Windows.Forms.TextBox()
         Me.PlantDescriptionTextBox = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.processSummary = New System.Windows.Forms.TabPage()
         Me.RptPlantEmissionsSummaryV2DataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PollutantID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RptPlantEmissionsSummaryV2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmissionsDataSet = New APCD.EmissionsInventory.EmissionsDataSet()
         Me.lblTotalHAPS = New System.Windows.Forms.Label()
@@ -57,6 +51,7 @@ Partial Class PlantUserControl
         Me.RptPlantEmissionsTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.rptPlantEmissionsTableAdapter()
         Me.RptPlantEmissionsSummaryV2TableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.rptPlantEmissionsSummaryV2TableAdapter()
         Me.btnViewEmissionsSummaryGrid = New System.Windows.Forms.Button()
+        Me.ColumnSortLabel = New System.Windows.Forms.Label()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -65,7 +60,12 @@ Partial Class PlantUserControl
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ColumnSortLabel = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PollutantID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         PlantIDLabel = New System.Windows.Forms.Label()
         PlantNameLabel = New System.Windows.Forms.Label()
         PlantDescriptionLabel = New System.Windows.Forms.Label()
@@ -84,9 +84,10 @@ Partial Class PlantUserControl
         '
         PlantIDLabel.AutoSize = True
         PlantIDLabel.Font = New System.Drawing.Font("Calibri", 9.0!)
-        PlantIDLabel.Location = New System.Drawing.Point(3, 13)
+        PlantIDLabel.Location = New System.Drawing.Point(4, 16)
+        PlantIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PlantIDLabel.Name = "PlantIDLabel"
-        PlantIDLabel.Size = New System.Drawing.Size(53, 14)
+        PlantIDLabel.Size = New System.Drawing.Size(60, 18)
         PlantIDLabel.TabIndex = 2
         PlantIDLabel.Text = "Plant ID:"
         '
@@ -94,9 +95,10 @@ Partial Class PlantUserControl
         '
         PlantNameLabel.AutoSize = True
         PlantNameLabel.Font = New System.Drawing.Font("Calibri", 9.0!)
-        PlantNameLabel.Location = New System.Drawing.Point(3, 39)
+        PlantNameLabel.Location = New System.Drawing.Point(4, 48)
+        PlantNameLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PlantNameLabel.Name = "PlantNameLabel"
-        PlantNameLabel.Size = New System.Drawing.Size(73, 14)
+        PlantNameLabel.Size = New System.Drawing.Size(84, 18)
         PlantNameLabel.TabIndex = 4
         PlantNameLabel.Text = "Plant Name:"
         '
@@ -104,48 +106,53 @@ Partial Class PlantUserControl
         '
         PlantDescriptionLabel.AutoSize = True
         PlantDescriptionLabel.Font = New System.Drawing.Font("Calibri", 9.0!)
-        PlantDescriptionLabel.Location = New System.Drawing.Point(3, 65)
+        PlantDescriptionLabel.Location = New System.Drawing.Point(4, 80)
+        PlantDescriptionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PlantDescriptionLabel.Name = "PlantDescriptionLabel"
-        PlantDescriptionLabel.Size = New System.Drawing.Size(103, 14)
+        PlantDescriptionLabel.Size = New System.Drawing.Size(117, 18)
         PlantDescriptionLabel.TabIndex = 6
         PlantDescriptionLabel.Text = "Plant Description:"
         '
         'PlantIDTextBox
         '
         Me.PlantIDTextBox.Font = New System.Drawing.Font("Calibri", 11.0!)
-        Me.PlantIDTextBox.Location = New System.Drawing.Point(112, 10)
+        Me.PlantIDTextBox.Location = New System.Drawing.Point(149, 12)
+        Me.PlantIDTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PlantIDTextBox.Name = "PlantIDTextBox"
         Me.PlantIDTextBox.ReadOnly = True
-        Me.PlantIDTextBox.Size = New System.Drawing.Size(40, 25)
+        Me.PlantIDTextBox.Size = New System.Drawing.Size(52, 30)
         Me.PlantIDTextBox.TabIndex = 3
         '
         'PlantNameTextBox
         '
         Me.PlantNameTextBox.Font = New System.Drawing.Font("Calibri", 9.0!)
-        Me.PlantNameTextBox.Location = New System.Drawing.Point(112, 36)
+        Me.PlantNameTextBox.Location = New System.Drawing.Point(149, 44)
+        Me.PlantNameTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PlantNameTextBox.Name = "PlantNameTextBox"
         Me.PlantNameTextBox.ReadOnly = True
-        Me.PlantNameTextBox.Size = New System.Drawing.Size(400, 22)
+        Me.PlantNameTextBox.Size = New System.Drawing.Size(532, 26)
         Me.PlantNameTextBox.TabIndex = 5
         '
         'PlantDescriptionTextBox
         '
         Me.PlantDescriptionTextBox.Font = New System.Drawing.Font("Calibri", 9.0!)
-        Me.PlantDescriptionTextBox.Location = New System.Drawing.Point(112, 62)
+        Me.PlantDescriptionTextBox.Location = New System.Drawing.Point(149, 76)
+        Me.PlantDescriptionTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PlantDescriptionTextBox.Multiline = True
         Me.PlantDescriptionTextBox.Name = "PlantDescriptionTextBox"
         Me.PlantDescriptionTextBox.ReadOnly = True
-        Me.PlantDescriptionTextBox.Size = New System.Drawing.Size(585, 59)
+        Me.PlantDescriptionTextBox.Size = New System.Drawing.Size(779, 72)
         Me.PlantDescriptionTextBox.TabIndex = 7
         '
         'TabControl1
         '
         Me.TabControl1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.processSummary)
-        Me.TabControl1.Location = New System.Drawing.Point(5, 155)
+        Me.TabControl1.Location = New System.Drawing.Point(7, 200)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(705, 470)
+        Me.TabControl1.Size = New System.Drawing.Size(940, 626)
         Me.TabControl1.TabIndex = 9
         '
         'processSummary
@@ -154,10 +161,11 @@ Partial Class PlantUserControl
         Me.processSummary.Controls.Add(Me.RptPlantEmissionsSummaryV2DataGridView)
         Me.processSummary.Controls.Add(Me.lblTotalHAPS)
         Me.processSummary.Controls.Add(Me.RptPlantEmissionsDataGridView)
-        Me.processSummary.Location = New System.Drawing.Point(4, 22)
+        Me.processSummary.Location = New System.Drawing.Point(4, 25)
+        Me.processSummary.Margin = New System.Windows.Forms.Padding(4)
         Me.processSummary.Name = "processSummary"
-        Me.processSummary.Padding = New System.Windows.Forms.Padding(3)
-        Me.processSummary.Size = New System.Drawing.Size(697, 444)
+        Me.processSummary.Padding = New System.Windows.Forms.Padding(4)
+        Me.processSummary.Size = New System.Drawing.Size(932, 597)
         Me.processSummary.TabIndex = 0
         Me.processSummary.Text = "Emissions Summary"
         Me.processSummary.UseVisualStyleBackColor = True
@@ -169,70 +177,15 @@ Partial Class PlantUserControl
         Me.RptPlantEmissionsSummaryV2DataGridView.AllowUserToResizeRows = False
         Me.RptPlantEmissionsSummaryV2DataGridView.AutoGenerateColumns = False
         Me.RptPlantEmissionsSummaryV2DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.RptPlantEmissionsSummaryV2DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.PollutantID, Me.DataGridViewTextBoxColumn16})
+        Me.RptPlantEmissionsSummaryV2DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.PollutantID})
         Me.RptPlantEmissionsSummaryV2DataGridView.DataSource = Me.RptPlantEmissionsSummaryV2BindingSource
-        Me.RptPlantEmissionsSummaryV2DataGridView.Location = New System.Drawing.Point(5, 33)
+        Me.RptPlantEmissionsSummaryV2DataGridView.Location = New System.Drawing.Point(7, 41)
+        Me.RptPlantEmissionsSummaryV2DataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.RptPlantEmissionsSummaryV2DataGridView.Name = "RptPlantEmissionsSummaryV2DataGridView"
         Me.RptPlantEmissionsSummaryV2DataGridView.ReadOnly = True
         Me.RptPlantEmissionsSummaryV2DataGridView.RowHeadersVisible = False
-        Me.RptPlantEmissionsSummaryV2DataGridView.Size = New System.Drawing.Size(239, 405)
+        Me.RptPlantEmissionsSummaryV2DataGridView.Size = New System.Drawing.Size(319, 541)
         Me.RptPlantEmissionsSummaryV2DataGridView.TabIndex = 10
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "PollutantName"
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewTextBoxColumn15.HeaderText = "Pollutant"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        Me.DataGridViewTextBoxColumn15.Width = 165
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "SumOfEmissionValue"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.Format = "N4"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn17.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn17.HeaderText = "Total"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        Me.DataGridViewTextBoxColumn17.Width = 55
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "PlantID"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "PlantID"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Visible = False
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "EmissionYear"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "EmissionYear"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        Me.DataGridViewTextBoxColumn14.Visible = False
-        '
-        'PollutantID
-        '
-        Me.PollutantID.DataPropertyName = "PollutantID"
-        Me.PollutantID.HeaderText = "PollutantID"
-        Me.PollutantID.Name = "PollutantID"
-        Me.PollutantID.ReadOnly = True
-        Me.PollutantID.Visible = False
-        Me.PollutantID.Width = 85
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "PollutantTypeEISID"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "PollutantTypeEISID"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        Me.DataGridViewTextBoxColumn16.Visible = False
         '
         'RptPlantEmissionsSummaryV2BindingSource
         '
@@ -247,9 +200,10 @@ Partial Class PlantUserControl
         'lblTotalHAPS
         '
         Me.lblTotalHAPS.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.lblTotalHAPS.Location = New System.Drawing.Point(6, 11)
+        Me.lblTotalHAPS.Location = New System.Drawing.Point(8, 14)
+        Me.lblTotalHAPS.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTotalHAPS.Name = "lblTotalHAPS"
-        Me.lblTotalHAPS.Size = New System.Drawing.Size(400, 17)
+        Me.lblTotalHAPS.Size = New System.Drawing.Size(533, 21)
         Me.lblTotalHAPS.TabIndex = 10
         Me.lblTotalHAPS.Text = "Total HAPS"
         '
@@ -262,11 +216,12 @@ Partial Class PlantUserControl
         Me.RptPlantEmissionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.RptPlantEmissionsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn10})
         Me.RptPlantEmissionsDataGridView.DataSource = Me.RptPlantEmissionsBindingSource
-        Me.RptPlantEmissionsDataGridView.Location = New System.Drawing.Point(249, 33)
+        Me.RptPlantEmissionsDataGridView.Location = New System.Drawing.Point(332, 41)
+        Me.RptPlantEmissionsDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.RptPlantEmissionsDataGridView.Name = "RptPlantEmissionsDataGridView"
         Me.RptPlantEmissionsDataGridView.ReadOnly = True
         Me.RptPlantEmissionsDataGridView.RowHeadersVisible = False
-        Me.RptPlantEmissionsDataGridView.Size = New System.Drawing.Size(443, 405)
+        Me.RptPlantEmissionsDataGridView.Size = New System.Drawing.Size(591, 541)
         Me.RptPlantEmissionsDataGridView.TabIndex = 9
         '
         'RptPlantEmissionsBindingSource
@@ -277,9 +232,10 @@ Partial Class PlantUserControl
         'lblLoading
         '
         Me.lblLoading.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLoading.Location = New System.Drawing.Point(177, 124)
+        Me.lblLoading.Location = New System.Drawing.Point(236, 153)
+        Me.lblLoading.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLoading.Name = "lblLoading"
-        Me.lblLoading.Size = New System.Drawing.Size(125, 23)
+        Me.lblLoading.Size = New System.Drawing.Size(167, 28)
         Me.lblLoading.TabIndex = 12
         Me.lblLoading.Text = "Loading. . ."
         Me.lblLoading.Visible = False
@@ -330,6 +286,10 @@ Partial Class PlantUserControl
         Me.TableAdapterManager.PollutantTableAdapter = Nothing
         Me.TableAdapterManager.PreBillingTableAdapter = Nothing
         Me.TableAdapterManager.ProcessClassLevel1TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel2TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel3TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel4TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureTableAdapter = Nothing
         Me.TableAdapterManager.ProcessDetailPeriodHistoryTableAdapter = Nothing
@@ -377,12 +337,24 @@ Partial Class PlantUserControl
         '
         'btnViewEmissionsSummaryGrid
         '
-        Me.btnViewEmissionsSummaryGrid.Location = New System.Drawing.Point(5, 124)
+        Me.btnViewEmissionsSummaryGrid.Location = New System.Drawing.Point(7, 153)
+        Me.btnViewEmissionsSummaryGrid.Margin = New System.Windows.Forms.Padding(4)
         Me.btnViewEmissionsSummaryGrid.Name = "btnViewEmissionsSummaryGrid"
-        Me.btnViewEmissionsSummaryGrid.Size = New System.Drawing.Size(165, 23)
+        Me.btnViewEmissionsSummaryGrid.Size = New System.Drawing.Size(220, 28)
         Me.btnViewEmissionsSummaryGrid.TabIndex = 10
         Me.btnViewEmissionsSummaryGrid.Text = "View Emissions Summary Grid"
         Me.btnViewEmissionsSummaryGrid.UseVisualStyleBackColor = True
+        '
+        'ColumnSortLabel
+        '
+        Me.ColumnSortLabel.AutoSize = True
+        Me.ColumnSortLabel.Location = New System.Drawing.Point(604, 159)
+        Me.ColumnSortLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ColumnSortLabel.Name = "ColumnSortLabel"
+        Me.ColumnSortLabel.Size = New System.Drawing.Size(322, 17)
+        Me.ColumnSortLabel.TabIndex = 13
+        Me.ColumnSortLabel.Text = "You can click on a heading to sort by that column."
+        Me.ColumnSortLabel.Visible = False
         '
         'DataGridViewTextBoxColumn12
         '
@@ -392,7 +364,7 @@ Partial Class PlantUserControl
         Me.DataGridViewTextBoxColumn12.HeaderText = "Emission Unit"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Width = 160
+        Me.DataGridViewTextBoxColumn12.Width = 200
         '
         'DataGridViewTextBoxColumn11
         '
@@ -402,7 +374,7 @@ Partial Class PlantUserControl
         Me.DataGridViewTextBoxColumn11.HeaderText = "Process"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Width = 210
+        Me.DataGridViewTextBoxColumn11.Width = 250
         '
         'DataGridViewTextBoxColumn9
         '
@@ -457,19 +429,65 @@ Partial Class PlantUserControl
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
         Me.DataGridViewTextBoxColumn10.Visible = False
         '
-        'ColumnSortLabel
+        'DataGridViewTextBoxColumn16
         '
-        Me.ColumnSortLabel.AutoSize = True
-        Me.ColumnSortLabel.Location = New System.Drawing.Point(453, 129)
-        Me.ColumnSortLabel.Name = "ColumnSortLabel"
-        Me.ColumnSortLabel.Size = New System.Drawing.Size(244, 13)
-        Me.ColumnSortLabel.TabIndex = 13
-        Me.ColumnSortLabel.Text = "You can click on a heading to sort by that column."
-        Me.ColumnSortLabel.Visible = False
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "PollutantTypeEISID"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "Type"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.Width = 45
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "PollutantName"
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridViewTextBoxColumn15.HeaderText = "Pollutant"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn15.Width = 190
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "SumOfEmissionValue"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Format = "N4"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn17.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn17.HeaderText = "Total"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        Me.DataGridViewTextBoxColumn17.Width = 55
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "PlantID"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "PlantID"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Visible = False
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "EmissionYear"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "EmissionYear"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Visible = False
+        '
+        'PollutantID
+        '
+        Me.PollutantID.DataPropertyName = "PollutantID"
+        Me.PollutantID.HeaderText = "PollutantID"
+        Me.PollutantID.Name = "PollutantID"
+        Me.PollutantID.ReadOnly = True
+        Me.PollutantID.Visible = False
+        Me.PollutantID.Width = 85
         '
         'PlantUserControl
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ColumnSortLabel)
         Me.Controls.Add(Me.lblLoading)
@@ -481,8 +499,9 @@ Partial Class PlantUserControl
         Me.Controls.Add(Me.PlantNameTextBox)
         Me.Controls.Add(PlantDescriptionLabel)
         Me.Controls.Add(Me.PlantDescriptionTextBox)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "PlantUserControl"
-        Me.Size = New System.Drawing.Size(715, 640)
+        Me.Size = New System.Drawing.Size(953, 839)
         Me.TabControl1.ResumeLayout(False)
         Me.processSummary.ResumeLayout(False)
         CType(Me.RptPlantEmissionsSummaryV2DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -516,12 +535,7 @@ Partial Class PlantUserControl
     Friend WithEvents RptPlantEmissionsSummaryV2DataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents lblLoading As System.Windows.Forms.Label
     Friend WithEvents btnViewEmissionsSummaryGrid As System.Windows.Forms.Button
-    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PollutantID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColumnSortLabel As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -530,6 +544,11 @@ Partial Class PlantUserControl
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ColumnSortLabel As System.Windows.Forms.Label
+    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PollutantID As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

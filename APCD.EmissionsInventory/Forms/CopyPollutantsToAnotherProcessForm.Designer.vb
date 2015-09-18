@@ -49,18 +49,20 @@ Partial Class CopyPollutantsToAnotherProcessForm
         Me.PlantComboBox.DisplayMember = "PlantID"
         Me.PlantComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PlantComboBox.FormattingEnabled = True
-        Me.PlantComboBox.Location = New System.Drawing.Point(56, 50)
+        Me.PlantComboBox.Location = New System.Drawing.Point(75, 62)
+        Me.PlantComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PlantComboBox.Name = "PlantComboBox"
-        Me.PlantComboBox.Size = New System.Drawing.Size(270, 21)
+        Me.PlantComboBox.Size = New System.Drawing.Size(359, 24)
         Me.PlantComboBox.TabIndex = 0
         Me.PlantComboBox.ValueMember = "PlantID"
         '
         'btnClose
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Location = New System.Drawing.Point(253, 164)
+        Me.btnClose.Location = New System.Drawing.Point(337, 202)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.Size = New System.Drawing.Size(100, 28)
         Me.btnClose.TabIndex = 4
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
@@ -70,9 +72,10 @@ Partial Class CopyPollutantsToAnotherProcessForm
         Me.EUComboBox.DisplayMember = "PlantID"
         Me.EUComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.EUComboBox.FormattingEnabled = True
-        Me.EUComboBox.Location = New System.Drawing.Point(56, 77)
+        Me.EUComboBox.Location = New System.Drawing.Point(75, 95)
+        Me.EUComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.EUComboBox.Name = "EUComboBox"
-        Me.EUComboBox.Size = New System.Drawing.Size(270, 21)
+        Me.EUComboBox.Size = New System.Drawing.Size(359, 24)
         Me.EUComboBox.TabIndex = 1
         Me.EUComboBox.ValueMember = "PlantID"
         '
@@ -81,17 +84,19 @@ Partial Class CopyPollutantsToAnotherProcessForm
         Me.ProcessComboBox.DisplayMember = "PlantID"
         Me.ProcessComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProcessComboBox.FormattingEnabled = True
-        Me.ProcessComboBox.Location = New System.Drawing.Point(56, 104)
+        Me.ProcessComboBox.Location = New System.Drawing.Point(75, 128)
+        Me.ProcessComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ProcessComboBox.Name = "ProcessComboBox"
-        Me.ProcessComboBox.Size = New System.Drawing.Size(270, 21)
+        Me.ProcessComboBox.Size = New System.Drawing.Size(359, 24)
         Me.ProcessComboBox.TabIndex = 2
         Me.ProcessComboBox.ValueMember = "PlantID"
         '
         'btnCopyProcess
         '
-        Me.btnCopyProcess.Location = New System.Drawing.Point(108, 164)
+        Me.btnCopyProcess.Location = New System.Drawing.Point(144, 202)
+        Me.btnCopyProcess.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCopyProcess.Name = "btnCopyProcess"
-        Me.btnCopyProcess.Size = New System.Drawing.Size(139, 23)
+        Me.btnCopyProcess.Size = New System.Drawing.Size(132, 28)
         Me.btnCopyProcess.TabIndex = 3
         Me.btnCopyProcess.Text = "Copy Process"
         Me.btnCopyProcess.UseVisualStyleBackColor = True
@@ -99,27 +104,30 @@ Partial Class CopyPollutantsToAnotherProcessForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 53)
+        Me.Label1.Location = New System.Drawing.Point(7, 65)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(31, 13)
+        Me.Label1.Size = New System.Drawing.Size(40, 17)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Plant"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 80)
+        Me.Label2.Location = New System.Drawing.Point(7, 98)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(22, 13)
+        Me.Label2.Size = New System.Drawing.Size(27, 17)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "EU"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(5, 107)
+        Me.Label3.Location = New System.Drawing.Point(7, 132)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(45, 13)
+        Me.Label3.Size = New System.Drawing.Size(59, 17)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Process"
         '
@@ -128,9 +136,10 @@ Partial Class CopyPollutantsToAnotherProcessForm
         Me.lblSourceProcessPrompt.AutoSize = True
         Me.lblSourceProcessPrompt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSourceProcessPrompt.ForeColor = System.Drawing.Color.Red
-        Me.lblSourceProcessPrompt.Location = New System.Drawing.Point(5, 9)
+        Me.lblSourceProcessPrompt.Location = New System.Drawing.Point(7, 11)
+        Me.lblSourceProcessPrompt.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSourceProcessPrompt.Name = "lblSourceProcessPrompt"
-        Me.lblSourceProcessPrompt.Size = New System.Drawing.Size(39, 13)
+        Me.lblSourceProcessPrompt.Size = New System.Drawing.Size(51, 17)
         Me.lblSourceProcessPrompt.TabIndex = 6
         Me.lblSourceProcessPrompt.Text = "Label4"
         '
@@ -139,9 +148,10 @@ Partial Class CopyPollutantsToAnotherProcessForm
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label4.Location = New System.Drawing.Point(5, 30)
+        Me.Label4.Location = New System.Drawing.Point(7, 37)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(196, 13)
+        Me.Label4.Size = New System.Drawing.Size(248, 17)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Select the destination to copy to:"
         '
@@ -175,9 +185,9 @@ Partial Class CopyPollutantsToAnotherProcessForm
         '
         'CopyPollutantsToAnotherProcessForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(340, 199)
+        Me.ClientSize = New System.Drawing.Size(470, 267)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lblSourceProcessPrompt)
@@ -190,6 +200,7 @@ Partial Class CopyPollutantsToAnotherProcessForm
         Me.Controls.Add(Me.EUComboBox)
         Me.Controls.Add(Me.PlantComboBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "CopyPollutantsToAnotherProcessForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Copy Pollutants to Another Process"
