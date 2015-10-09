@@ -527,20 +527,23 @@ Public Class ProcessEmissionsAddEditForm
             Me.m_processEmission.EmissionCalculationMethodID = CInt(Me.EmissionCalculationMethodComboBox.SelectedValue)
             Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
 
-            If (Me.m_isFactorRequired = True) Then
-                Me.m_processEmission.EmissionFactorUnitOfMeasurementID = CInt(GlobalVariables.UnitOfMeasurementEnum.pounds)
-                Me.m_processEmission.EmissionFactorProcessParameterTypeID = 1 'Throughput
-                Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
-                Me.EmissionFactorPanel.Visible = True
-            Else
-                Me.m_processEmission.EmissionFactorValue = -1
-                Me.m_processEmission.EmissionFactorUnitOfMeasurementID = -1
-                Me.m_processEmission.EmissionFactorProcessParameterTypeID = -1
+            'If (Me.m_isFactorRequired = True) Then
+            '    Me.m_processEmission.EmissionFactorUnitOfMeasurementID = CInt(GlobalVariables.UnitOfMeasurementEnum.pounds)
+            '    Me.m_processEmission.EmissionFactorProcessParameterTypeID = 1 'Throughput
+            '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+            '    Me.EmissionFactorPanel.Visible = True
+            'Else
+            '    Me.m_processEmission.EmissionFactorValue = -1
+            '    Me.m_processEmission.EmissionFactorUnitOfMeasurementID = -1
+            '    Me.m_processEmission.EmissionFactorProcessParameterTypeID = -1
 
-                Me.EmissionFactorValueTextBox.Text = String.Empty
-                Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
-                Me.EmissionFactorPanel.Visible = False
-            End If
+            '    Me.EmissionFactorValueTextBox.Text = String.Empty
+            '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
+            '    Me.EmissionFactorPanel.Visible = False
+            'End If
+            Me.m_processEmission.EmissionFactorUnitOfMeasurementID = CInt(GlobalVariables.UnitOfMeasurementEnum.pounds)
+            Me.m_processEmission.EmissionFactorProcessParameterTypeID = 1 'Throughput
+            Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
         End If
 
 
@@ -636,7 +639,7 @@ Public Class ProcessEmissionsAddEditForm
             Dim factorText As String = Me.EmissionFactorValueTextBox.Text
             If IsNumeric(factorText) Then
                 If CDbl(factorText) <= 0 Then
-                    Me.EmissionFactorValueTextBox.ForeColor = Me.EmissionFactorValueTextBox.BackColor
+                    Me.EmissionFactorValueTextBox.ForeColor = Color.DarkRed ' Me.EmissionFactorValueTextBox.BackColor
                 Else
                     Me.EmissionFactorValueTextBox.ForeColor = System.Drawing.SystemColors.WindowText
                 End If
@@ -654,6 +657,7 @@ Public Class ProcessEmissionsAddEditForm
         ElseIf (Not Char.IsDigit(e.KeyChar)) Then
             e.Handled = True
         End If
+        Me.EmissionFactorValueTextBox.ForeColor = System.Drawing.SystemColors.WindowText
     End Sub
 
     Private Sub EmissionValueTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EmissionValueTextBox.TextChanged

@@ -782,43 +782,49 @@ Public Class ReleasePointUserControl
         Dim errorMessage As New StringBuilder
         Dim releaseTypeMeasurement As EmissionsDataSet.ReleaseTypeMeasurementRow = Nothing
 
-        For Each row As EmissionsDataSet.ReleasePointDetailRow In MainForm.EmissionsDataSet.ReleasePointDetail
-            Dim measurement As ReleasePointHelper.MeasurementEnum = CType(row.MeasurementID, ReleasePointHelper.MeasurementEnum)
-            releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, type)
+        Try
+            For Each row As EmissionsDataSet.ReleasePointDetailRow In MainForm.EmissionsDataSet.ReleasePointDetail
+                Dim measurement As ReleasePointHelper.MeasurementEnum = CType(row.MeasurementID, ReleasePointHelper.MeasurementEnum)
+                releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, type)
 
-            If ((row.DetailValue < releaseTypeMeasurement.MinimumValue) OrElse (row.DetailValue > releaseTypeMeasurement.MaximumValue)) Then
-                If (measurement = ReleasePointHelper.MeasurementEnum.Height) Then
-                    errorMessage.Append("Height")
-                ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Diameter) Then
-                    errorMessage.Append("Diameter")
-                ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Length) Then
-                    errorMessage.Append("Length")
-                ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Width) Then
-                    errorMessage.Append("Width")
-                ElseIf (measurement = ReleasePointHelper.MeasurementEnum.FencelineDistance) Then
-                    errorMessage.Append("Fenceline Distance")
-                ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasTemperature) Then
-                    errorMessage.Append("Exit Gas Temperature")
-                ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasFlowRate) Then
-                    errorMessage.Append("Exit Gas Flow Rate")
+                If ((row.DetailValue < releaseTypeMeasurement.MinimumValue) OrElse (row.DetailValue > releaseTypeMeasurement.MaximumValue)) Then
+                    If (measurement = ReleasePointHelper.MeasurementEnum.Height) Then
+                        errorMessage.Append("Height")
+                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Diameter) Then
+                        errorMessage.Append("Diameter")
+                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Length) Then
+                        errorMessage.Append("Length")
+                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Width) Then
+                        errorMessage.Append("Width")
+                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.FencelineDistance) Then
+                        errorMessage.Append("Fenceline Distance")
+                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasTemperature) Then
+                        errorMessage.Append("Exit Gas Temperature")
+                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasFlowRate) Then
+                        errorMessage.Append("Exit Gas Flow Rate")
+                    End If
+                    errorMessage.Append(" must be between ")
+                    errorMessage.Append(CStr(releaseTypeMeasurement.MinimumValue))
+                    errorMessage.Append(" and ")
+                    errorMessage.Append(CStr(releaseTypeMeasurement.MaximumValue))
+                    errorMessage.Append(" inclusive.")
+
+                    ok = False
+                    Exit For
                 End If
+            Next
 
-                ok = False
-                Exit For
+            If (ok = True) Then
+                Me.ErrorProvider1.SetError(Me.ReleasePointDetailDataGridView, String.Empty)
+            Else
+                Me.ErrorProvider1.SetError(Me.ReleasePointDetailDataGridView, errorMessage.ToString)
+                Me.ErrorProvider1.SetIconAlignment(Me.ReleasePointDetailDataGridView, ErrorIconAlignment.MiddleRight)
             End If
-        Next
 
-        If (ok = True) Then
-            Me.ErrorProvider1.SetError(Me.ReleasePointDetailDataGridView, String.Empty)
-        Else
-            errorMessage.Append(" must be between ")
-            errorMessage.Append(CStr(releaseTypeMeasurement.MinimumValue))
-            errorMessage.Append(" and ")
-            errorMessage.Append(CStr(releaseTypeMeasurement.MaximumValue))
-            errorMessage.Append(" inclusive.")
-            Me.ErrorProvider1.SetError(Me.ReleasePointDetailDataGridView, errorMessage.ToString)
-            Me.ErrorProvider1.SetIconAlignment(Me.ReleasePointDetailDataGridView, ErrorIconAlignment.MiddleRight)
-        End If
+        Catch ex As Exception
+            GlobalMethods.HandleError(ex)
+            ok = False
+        End Try
 
         Return ok
 
@@ -832,47 +838,53 @@ Public Class ReleasePointUserControl
         Dim errorMessage As New StringBuilder
         Dim releaseTypeMeasurement As EmissionsDataSet.ReleaseTypeMeasurementRow = Nothing
 
-        For Each row As EmissionsDataSet.ReleasePointDetailRow In MainForm.EmissionsDataSet.ReleasePointDetail
-            Dim measurement As ReleasePointHelper.MeasurementEnum = CType(row.MeasurementID, ReleasePointHelper.MeasurementEnum)
-            Try
-                releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, type)
+        Try
+            For Each row As EmissionsDataSet.ReleasePointDetailRow In MainForm.EmissionsDataSet.ReleasePointDetail
+                Dim measurement As ReleasePointHelper.MeasurementEnum = CType(row.MeasurementID, ReleasePointHelper.MeasurementEnum)
+                Try
+                    releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, type)
 
-                If ((row.DetailValue < releaseTypeMeasurement.MinimumValue) OrElse (row.DetailValue > releaseTypeMeasurement.MaximumValue)) Then
-                    If (measurement = ReleasePointHelper.MeasurementEnum.Height) Then
-                        errorMessage.Append("Height")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Length) Then
-                        errorMessage.Append("Length")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Width) Then
-                        errorMessage.Append("Width")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.HorizontalAngle) Then
-                        errorMessage.Append("Horizontal Angle")
+                    If ((row.DetailValue < releaseTypeMeasurement.MinimumValue) OrElse (row.DetailValue > releaseTypeMeasurement.MaximumValue)) Then
+                        If (measurement = ReleasePointHelper.MeasurementEnum.Height) Then
+                            errorMessage.Append("Height")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Length) Then
+                            errorMessage.Append("Length")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Width) Then
+                            errorMessage.Append("Width")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.HorizontalAngle) Then
+                            errorMessage.Append("Horizontal Angle")
+                        End If
+                        errorMessage.Append(" must be between ")
+                        errorMessage.Append(CStr(releaseTypeMeasurement.MinimumValue))
+                        errorMessage.Append(" and ")
+                        errorMessage.Append(CStr(releaseTypeMeasurement.MaximumValue))
+                        errorMessage.Append(" inclusive.")
+
+                        ok = False
+                        Exit For
                     End If
 
+                Catch ex As Exception
+                    MessageBox.Show("Unable to look up control limits for release point property " & measurement & " for " & type & "!")
+                    GlobalMethods.HandleError(ex)
+                End Try
+            Next
+
+            If (ok = True) Then
+                If (lengthExists = True AndAlso widthExists = False) OrElse (lengthExists = False AndAlso widthExists = True) Then
+                    errorMessage.Append("If length or width is provided both must be provided.")
                     ok = False
-                    Exit For
                 End If
-
-            Catch ex As Exception
-                MessageBox.Show("Unable to look up control limits for release point property " & measurement & " for " & type & "!")
-                GlobalMethods.HandleError(ex)
-            End Try
-        Next
-
-        If (ok = True) Then
-            If (lengthExists = True AndAlso widthExists = False) OrElse (lengthExists = False AndAlso widthExists = True) Then
-                errorMessage.Append("If length or width is provided both must be provided.")
-                ok = False
+            Else
             End If
-        Else
-            errorMessage.Append(" must be between ")
-            errorMessage.Append(CStr(releaseTypeMeasurement.MinimumValue))
-            errorMessage.Append(" and ")
-            errorMessage.Append(CStr(releaseTypeMeasurement.MaximumValue))
-            errorMessage.Append(" inclusive.")
-        End If
 
-        Me.ErrorProvider1.SetError(Me.ReleasePointDetailDataGridView, errorMessage.ToString)
-        Me.ErrorProvider1.SetIconAlignment(Me.ReleasePointDetailDataGridView, ErrorIconAlignment.MiddleRight)
+            Me.ErrorProvider1.SetError(Me.ReleasePointDetailDataGridView, errorMessage.ToString)
+            Me.ErrorProvider1.SetIconAlignment(Me.ReleasePointDetailDataGridView, ErrorIconAlignment.MiddleRight)
+
+        Catch ex As Exception
+            GlobalMethods.HandleError(ex)
+            ok = False
+        End Try
 
         Return ok
 

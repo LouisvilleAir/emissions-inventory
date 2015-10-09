@@ -2154,9 +2154,11 @@ Public Class ProcessUserControl
         If (Me.Process_EmissionsTabDataGridView.Columns(e.ColumnIndex).HeaderText = "Emission Factor") Then
             Dim value As Object = e.Value
             If (IsNumeric(value)) Then
-                If (CDbl(value) = -1) Then
+                If (CDbl(value) <= 0) Then
                     'Me.Process_EmissionsTabDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Style.ForeColor = Me.Process_EmissionsTabDataGridView.DefaultCellStyle.BackColor
                     Me.Process_EmissionsTabDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Style.ForeColor = Color.DarkRed
+                Else
+                    Me.Process_EmissionsTabDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex).Style.ForeColor = System.Drawing.SystemColors.WindowText
                 End If
             End If
         End If
