@@ -151,6 +151,7 @@ Partial Class MainForm
         Me.ProcessDetailPeriodHistoryTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ProcessDetailPeriodHistoryTableAdapter()
         Me.ProcessSeasonalActivityHistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProcessSeasonalActivityHistoryTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ProcessSeasonalActivityHistoryTableAdapter()
+        Me.TopNavigationPanel = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainerMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerMain.Panel1.SuspendLayout()
@@ -205,6 +206,7 @@ Partial Class MainForm
         CType(Me.ProcessDetailPeriodBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProcessDetailPeriodHistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProcessSeasonalActivityHistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TopNavigationPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -213,7 +215,7 @@ Partial Class MainForm
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1344, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1262, 28)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -361,8 +363,8 @@ Partial Class MainForm
         'SplitContainerMain.Panel2
         '
         Me.SplitContainerMain.Panel2.AutoScroll = True
-        Me.SplitContainerMain.Size = New System.Drawing.Size(1344, 839)
-        Me.SplitContainerMain.SplitterDistance = 390
+        Me.SplitContainerMain.Size = New System.Drawing.Size(1262, 954)
+        Me.SplitContainerMain.SplitterDistance = 366
         Me.SplitContainerMain.SplitterWidth = 5
         Me.SplitContainerMain.TabIndex = 0
         Me.SplitContainerMain.TabStop = False
@@ -385,8 +387,8 @@ Partial Class MainForm
         Me.SplitContainerLeft.Panel2.Controls.Add(Me.btnControlMeasures)
         Me.SplitContainerLeft.Panel2.Controls.Add(Me.btnPlantsAndReleasePoints)
         Me.SplitContainerLeft.Panel2.Controls.Add(Me.btnPlantsAndProcesses)
-        Me.SplitContainerLeft.Size = New System.Drawing.Size(390, 839)
-        Me.SplitContainerLeft.SplitterDistance = 524
+        Me.SplitContainerLeft.Size = New System.Drawing.Size(366, 954)
+        Me.SplitContainerLeft.SplitterDistance = 595
         Me.SplitContainerLeft.SplitterWidth = 5
         Me.SplitContainerLeft.TabIndex = 0
         Me.SplitContainerLeft.TabStop = False
@@ -398,7 +400,7 @@ Partial Class MainForm
         Me.TreeViewMain.Location = New System.Drawing.Point(0, 0)
         Me.TreeViewMain.Margin = New System.Windows.Forms.Padding(4)
         Me.TreeViewMain.Name = "TreeViewMain"
-        Me.TreeViewMain.Size = New System.Drawing.Size(388, 522)
+        Me.TreeViewMain.Size = New System.Drawing.Size(364, 593)
         Me.TreeViewMain.TabIndex = 0
         '
         'btnControlMeasures
@@ -410,7 +412,7 @@ Partial Class MainForm
         Me.btnControlMeasures.Location = New System.Drawing.Point(0, 73)
         Me.btnControlMeasures.Margin = New System.Windows.Forms.Padding(4)
         Me.btnControlMeasures.Name = "btnControlMeasures"
-        Me.btnControlMeasures.Size = New System.Drawing.Size(387, 37)
+        Me.btnControlMeasures.Size = New System.Drawing.Size(363, 37)
         Me.btnControlMeasures.TabIndex = 2
         Me.btnControlMeasures.Text = "Control Measures"
         Me.btnControlMeasures.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -425,7 +427,7 @@ Partial Class MainForm
         Me.btnPlantsAndReleasePoints.Location = New System.Drawing.Point(0, 38)
         Me.btnPlantsAndReleasePoints.Margin = New System.Windows.Forms.Padding(4)
         Me.btnPlantsAndReleasePoints.Name = "btnPlantsAndReleasePoints"
-        Me.btnPlantsAndReleasePoints.Size = New System.Drawing.Size(387, 37)
+        Me.btnPlantsAndReleasePoints.Size = New System.Drawing.Size(363, 37)
         Me.btnPlantsAndReleasePoints.TabIndex = 1
         Me.btnPlantsAndReleasePoints.Text = "Release Points"
         Me.btnPlantsAndReleasePoints.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -440,7 +442,7 @@ Partial Class MainForm
         Me.btnPlantsAndProcesses.Location = New System.Drawing.Point(0, 4)
         Me.btnPlantsAndProcesses.Margin = New System.Windows.Forms.Padding(4)
         Me.btnPlantsAndProcesses.Name = "btnPlantsAndProcesses"
-        Me.btnPlantsAndProcesses.Size = New System.Drawing.Size(387, 37)
+        Me.btnPlantsAndProcesses.Size = New System.Drawing.Size(363, 37)
         Me.btnPlantsAndProcesses.TabIndex = 0
         Me.btnPlantsAndProcesses.Text = "Emission Units and Processes"
         Me.btnPlantsAndProcesses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -449,10 +451,10 @@ Partial Class MainForm
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.statusMode, Me.ToolStripSplitButton1, Me.statusLevel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 839)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 954)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
-        Me.StatusStrip1.Size = New System.Drawing.Size(1344, 25)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1262, 25)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -661,7 +663,7 @@ Partial Class MainForm
         '
         Me.EmissionYearLabel.AutoSize = True
         Me.EmissionYearLabel.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.EmissionYearLabel.Location = New System.Drawing.Point(16, 36)
+        Me.EmissionYearLabel.Location = New System.Drawing.Point(4, 4)
         Me.EmissionYearLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EmissionYearLabel.Name = "EmissionYearLabel"
         Me.EmissionYearLabel.Size = New System.Drawing.Size(100, 20)
@@ -674,7 +676,7 @@ Partial Class MainForm
         Me.EmissionYearComboBox.DisplayMember = "EmissionYear"
         Me.EmissionYearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.EmissionYearComboBox.FormattingEnabled = True
-        Me.EmissionYearComboBox.Location = New System.Drawing.Point(131, 33)
+        Me.EmissionYearComboBox.Location = New System.Drawing.Point(112, 2)
         Me.EmissionYearComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmissionYearComboBox.Name = "EmissionYearComboBox"
         Me.EmissionYearComboBox.Size = New System.Drawing.Size(65, 24)
@@ -957,7 +959,7 @@ Partial Class MainForm
         'lblWhereAmI
         '
         Me.lblWhereAmI.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.lblWhereAmI.Location = New System.Drawing.Point(396, 38)
+        Me.lblWhereAmI.Location = New System.Drawing.Point(383, 7)
         Me.lblWhereAmI.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWhereAmI.Name = "lblWhereAmI"
         Me.lblWhereAmI.Size = New System.Drawing.Size(948, 22)
@@ -1121,16 +1123,25 @@ Partial Class MainForm
         '
         Me.ProcessSeasonalActivityHistoryTableAdapter.ClearBeforeFill = True
         '
+        'TopNavigationPanel
+        '
+        Me.TopNavigationPanel.Controls.Add(Me.lblWhereAmI)
+        Me.TopNavigationPanel.Controls.Add(Me.EmissionYearLabel)
+        Me.TopNavigationPanel.Controls.Add(Me.EmissionYearComboBox)
+        Me.TopNavigationPanel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TopNavigationPanel.Location = New System.Drawing.Point(0, 28)
+        Me.TopNavigationPanel.Name = "TopNavigationPanel"
+        Me.TopNavigationPanel.Size = New System.Drawing.Size(1262, 30)
+        Me.TopNavigationPanel.TabIndex = 1
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1344, 864)
-        Me.Controls.Add(Me.lblWhereAmI)
-        Me.Controls.Add(Me.EmissionYearComboBox)
-        Me.Controls.Add(Me.EmissionYearLabel)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.ClientSize = New System.Drawing.Size(1262, 979)
         Me.Controls.Add(Me.SplitContainerMain)
+        Me.Controls.Add(Me.TopNavigationPanel)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
@@ -1195,6 +1206,8 @@ Partial Class MainForm
         CType(Me.ProcessDetailPeriodBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProcessDetailPeriodHistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProcessSeasonalActivityHistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TopNavigationPanel.ResumeLayout(False)
+        Me.TopNavigationPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1326,6 +1339,7 @@ Partial Class MainForm
     Friend WithEvents ProcessDetailPeriodHistoryTableAdapter As APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ProcessDetailPeriodHistoryTableAdapter
     Friend WithEvents ProcessSeasonalActivityHistoryBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ProcessSeasonalActivityHistoryTableAdapter As APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ProcessSeasonalActivityHistoryTableAdapter
+    Friend WithEvents TopNavigationPanel As System.Windows.Forms.Panel
 
 
 

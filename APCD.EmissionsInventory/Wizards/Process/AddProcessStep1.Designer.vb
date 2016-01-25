@@ -65,60 +65,67 @@ Partial Class AddProcessStep1
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(12, 129)
+        Label2.Location = New System.Drawing.Point(16, 159)
+        Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
-        Label2.Size = New System.Drawing.Size(99, 13)
+        Label2.Size = New System.Drawing.Size(131, 17)
         Label2.TabIndex = 79
         Label2.Text = "* Throughput Type:"
         '
         'Label3
         '
         Label3.AutoSize = True
-        Label3.Location = New System.Drawing.Point(7, 196)
+        Label3.Location = New System.Drawing.Point(9, 241)
+        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
-        Label3.Size = New System.Drawing.Size(63, 13)
+        Label3.Size = New System.Drawing.Size(83, 17)
         Label3.TabIndex = 80
         Label3.Text = "Description:"
         '
         'Label4
         '
         Label4.AutoSize = True
-        Label4.Location = New System.Drawing.Point(9, 171)
+        Label4.Location = New System.Drawing.Point(12, 210)
+        Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(57, 13)
+        Label4.Size = New System.Drawing.Size(71, 17)
         Label4.TabIndex = 81
         Label4.Text = "*APCD ID:"
         '
         'Label6
         '
-        Label6.Location = New System.Drawing.Point(11, 252)
+        Label6.Location = New System.Drawing.Point(15, 310)
+        Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label6.Name = "Label6"
-        Label6.Size = New System.Drawing.Size(70, 31)
+        Label6.Size = New System.Drawing.Size(93, 38)
         Label6.TabIndex = 83
         Label6.Text = "Public Comment:"
         '
         'Label7
         '
-        Label7.Location = New System.Drawing.Point(9, 308)
+        Label7.Location = New System.Drawing.Point(12, 379)
+        Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label7.Name = "Label7"
-        Label7.Size = New System.Drawing.Size(70, 31)
+        Label7.Size = New System.Drawing.Size(93, 38)
         Label7.TabIndex = 84
         Label7.Text = "Internal Comment:"
         '
         'ControlApproachDescriptionLabel
         '
-        ControlApproachDescriptionLabel.Location = New System.Drawing.Point(13, 364)
+        ControlApproachDescriptionLabel.Location = New System.Drawing.Point(17, 448)
+        ControlApproachDescriptionLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ControlApproachDescriptionLabel.Name = "ControlApproachDescriptionLabel"
-        ControlApproachDescriptionLabel.Size = New System.Drawing.Size(73, 61)
+        ControlApproachDescriptionLabel.Size = New System.Drawing.Size(97, 75)
         ControlApproachDescriptionLabel.TabIndex = 85
         ControlApproachDescriptionLabel.Text = "Overall control measure description"
         '
         'btnNext
         '
         Me.btnNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnNext.Location = New System.Drawing.Point(536, 437)
+        Me.btnNext.Location = New System.Drawing.Point(703, 538)
+        Me.btnNext.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(75, 23)
+        Me.btnNext.Size = New System.Drawing.Size(100, 28)
         Me.btnNext.TabIndex = 8
         Me.btnNext.Text = "Save"
         Me.btnNext.UseVisualStyleBackColor = True
@@ -126,9 +133,10 @@ Partial Class AddProcessStep1
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(617, 437)
+        Me.btnCancel.Location = New System.Drawing.Point(811, 538)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 7
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -138,9 +146,11 @@ Partial Class AddProcessStep1
         Me.GroupBox1.Controls.Add(Me.lblSCCNumber)
         Me.GroupBox1.Controls.Add(Me.lblSCCName)
         Me.GroupBox1.Controls.Add(Me.btnChangeProcessClass)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 43)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 53)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(663, 66)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(884, 81)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "* SCC Code"
@@ -148,9 +158,10 @@ Partial Class AddProcessStep1
         'lblSCCNumber
         '
         Me.lblSCCNumber.AutoSize = True
-        Me.lblSCCNumber.Location = New System.Drawing.Point(74, 23)
+        Me.lblSCCNumber.Location = New System.Drawing.Point(99, 28)
+        Me.lblSCCNumber.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSCCNumber.Name = "lblSCCNumber"
-        Me.lblSCCNumber.Size = New System.Drawing.Size(75, 13)
+        Me.lblSCCNumber.Size = New System.Drawing.Size(99, 17)
         Me.lblSCCNumber.TabIndex = 38
         Me.lblSCCNumber.Text = "lblSCCNumber"
         '
@@ -158,17 +169,19 @@ Partial Class AddProcessStep1
         '
         Me.lblSCCName.AutoSize = True
         Me.lblSCCName.Font = New System.Drawing.Font("Calibri", 9.0!)
-        Me.lblSCCName.Location = New System.Drawing.Point(74, 42)
+        Me.lblSCCName.Location = New System.Drawing.Point(99, 52)
+        Me.lblSCCName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSCCName.Name = "lblSCCName"
-        Me.lblSCCName.Size = New System.Drawing.Size(72, 14)
+        Me.lblSCCName.Size = New System.Drawing.Size(84, 18)
         Me.lblSCCName.TabIndex = 43
         Me.lblSCCName.Text = "lblSCCName"
         '
         'btnChangeProcessClass
         '
-        Me.btnChangeProcessClass.Location = New System.Drawing.Point(12, 21)
+        Me.btnChangeProcessClass.Location = New System.Drawing.Point(16, 26)
+        Me.btnChangeProcessClass.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnChangeProcessClass.Name = "btnChangeProcessClass"
-        Me.btnChangeProcessClass.Size = New System.Drawing.Size(56, 23)
+        Me.btnChangeProcessClass.Size = New System.Drawing.Size(75, 28)
         Me.btnChangeProcessClass.TabIndex = 0
         Me.btnChangeProcessClass.Text = "Change"
         Me.btnChangeProcessClass.UseVisualStyleBackColor = True
@@ -176,12 +189,13 @@ Partial Class AddProcessStep1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 9)
+        Me.Label1.Location = New System.Drawing.Point(12, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(423, 13)
+        Me.Label1.Size = New System.Drawing.Size(566, 17)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Fill in the general information about the process below. Choose Save to add the p" & _
-            "rocess."
+    "rocess."
         '
         'EmissionsDataSet
         '
@@ -201,6 +215,10 @@ Partial Class AddProcessStep1
         '
         Me.TableAdapterManager.AffiliationTypeEISTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BillingContactsTableAdapter = Nothing
+        Me.TableAdapterManager.BillingFeeConfigTableAdapter = Nothing
+        Me.TableAdapterManager.BillingHistoryTableAdapter = Nothing
+        Me.TableAdapterManager.BillingTableAdapter = Nothing
         Me.TableAdapterManager.ControlMeasureHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ControlMeasurePollutantHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ControlMeasurePollutantTableAdapter = Nothing
@@ -214,6 +232,7 @@ Partial Class AddProcessStep1
         Me.TableAdapterManager.EmissionYearTableAdapter = Nothing
         Me.TableAdapterManager.FacilityCategoryEISTableAdapter = Nothing
         Me.TableAdapterManager.FacilitySiteStatusTypeEISTableAdapter = Nothing
+        Me.TableAdapterManager.FormTableAdapter = Nothing
         Me.TableAdapterManager.MeasurementTableAdapter = Nothing
         Me.TableAdapterManager.OperatingStatusTypeEISTableAdapter = Nothing
         Me.TableAdapterManager.PlantEmissionUnitDetailTableAdapter = Nothing
@@ -221,9 +240,18 @@ Partial Class AddProcessStep1
         Me.TableAdapterManager.PlantEmissionUnitTableAdapter = Nothing
         Me.TableAdapterManager.PlantEmissionUnitYearHistoryTableAdapter = Nothing
         Me.TableAdapterManager.PlantEmissionUnitYearTableAdapter = Nothing
+        Me.TableAdapterManager.PlantTableAdapter = Nothing
+        Me.TableAdapterManager.PlantYearContactsTableAdapter = Nothing
+        Me.TableAdapterManager.PlantYearFormTableAdapter = Nothing
+        Me.TableAdapterManager.PlantYearHistoryTableAdapter = Nothing
         Me.TableAdapterManager.PlantYearTableAdapter = Nothing
         Me.TableAdapterManager.PollutantTableAdapter = Nothing
+        Me.TableAdapterManager.PreBillingTableAdapter = Nothing
         Me.TableAdapterManager.ProcessClassLevel1TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel2TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel3TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel4TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureTableAdapter = Nothing
         Me.TableAdapterManager.ProcessDetailPeriodHistoryTableAdapter = Nothing
@@ -259,36 +287,40 @@ Partial Class AddProcessStep1
         'ProcessDescriptionTextBox
         '
         Me.ProcessDescriptionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProcessBindingSource, "ProcessDescription", True))
-        Me.ProcessDescriptionTextBox.Location = New System.Drawing.Point(89, 196)
+        Me.ProcessDescriptionTextBox.Location = New System.Drawing.Point(119, 241)
+        Me.ProcessDescriptionTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ProcessDescriptionTextBox.Multiline = True
         Me.ProcessDescriptionTextBox.Name = "ProcessDescriptionTextBox"
-        Me.ProcessDescriptionTextBox.Size = New System.Drawing.Size(595, 50)
+        Me.ProcessDescriptionTextBox.Size = New System.Drawing.Size(792, 61)
         Me.ProcessDescriptionTextBox.TabIndex = 3
         '
         'ProcessAPCDIDTextBox
         '
         Me.ProcessAPCDIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProcessBindingSource, "ProcessAPCDID", True))
-        Me.ProcessAPCDIDTextBox.Location = New System.Drawing.Point(89, 168)
+        Me.ProcessAPCDIDTextBox.Location = New System.Drawing.Point(119, 207)
+        Me.ProcessAPCDIDTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ProcessAPCDIDTextBox.Name = "ProcessAPCDIDTextBox"
-        Me.ProcessAPCDIDTextBox.Size = New System.Drawing.Size(200, 20)
+        Me.ProcessAPCDIDTextBox.Size = New System.Drawing.Size(265, 22)
         Me.ProcessAPCDIDTextBox.TabIndex = 2
         '
         'CommentPublicTextBox
         '
         Me.CommentPublicTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProcessBindingSource, "CommentPublic", True))
-        Me.CommentPublicTextBox.Location = New System.Drawing.Point(89, 252)
+        Me.CommentPublicTextBox.Location = New System.Drawing.Point(119, 310)
+        Me.CommentPublicTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentPublicTextBox.Multiline = True
         Me.CommentPublicTextBox.Name = "CommentPublicTextBox"
-        Me.CommentPublicTextBox.Size = New System.Drawing.Size(595, 50)
+        Me.CommentPublicTextBox.Size = New System.Drawing.Size(792, 61)
         Me.CommentPublicTextBox.TabIndex = 4
         '
         'CommentInternalTextBox
         '
         Me.CommentInternalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProcessBindingSource, "CommentInternal", True))
-        Me.CommentInternalTextBox.Location = New System.Drawing.Point(89, 308)
+        Me.CommentInternalTextBox.Location = New System.Drawing.Point(119, 379)
+        Me.CommentInternalTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentInternalTextBox.Multiline = True
         Me.CommentInternalTextBox.Name = "CommentInternalTextBox"
-        Me.CommentInternalTextBox.Size = New System.Drawing.Size(595, 50)
+        Me.CommentInternalTextBox.Size = New System.Drawing.Size(792, 61)
         Me.CommentInternalTextBox.TabIndex = 5
         '
         'ThroughputTypeComboBox
@@ -296,9 +328,10 @@ Partial Class AddProcessStep1
         Me.ThroughputTypeComboBox.DisplayMember = "ThroughputTypeID"
         Me.ThroughputTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ThroughputTypeComboBox.FormattingEnabled = True
-        Me.ThroughputTypeComboBox.Location = New System.Drawing.Point(120, 126)
+        Me.ThroughputTypeComboBox.Location = New System.Drawing.Point(160, 155)
+        Me.ThroughputTypeComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ThroughputTypeComboBox.Name = "ThroughputTypeComboBox"
-        Me.ThroughputTypeComboBox.Size = New System.Drawing.Size(169, 21)
+        Me.ThroughputTypeComboBox.Size = New System.Drawing.Size(224, 24)
         Me.ThroughputTypeComboBox.TabIndex = 1
         Me.ThroughputTypeComboBox.ValueMember = "ThroughputTypeID"
         '
@@ -314,18 +347,19 @@ Partial Class AddProcessStep1
         'ControlApproachDescriptionTextBox
         '
         Me.ControlApproachDescriptionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProcessBindingSource, "ControlApproachDescription", True))
-        Me.ControlApproachDescriptionTextBox.Location = New System.Drawing.Point(89, 364)
+        Me.ControlApproachDescriptionTextBox.Location = New System.Drawing.Point(119, 448)
+        Me.ControlApproachDescriptionTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ControlApproachDescriptionTextBox.MaxLength = 255
         Me.ControlApproachDescriptionTextBox.Multiline = True
         Me.ControlApproachDescriptionTextBox.Name = "ControlApproachDescriptionTextBox"
-        Me.ControlApproachDescriptionTextBox.Size = New System.Drawing.Size(592, 50)
+        Me.ControlApproachDescriptionTextBox.Size = New System.Drawing.Size(792, 61)
         Me.ControlApproachDescriptionTextBox.TabIndex = 6
         '
         'AddProcessStep1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 472)
+        Me.ClientSize = New System.Drawing.Size(939, 597)
         Me.ControlBox = False
         Me.Controls.Add(ControlApproachDescriptionLabel)
         Me.Controls.Add(Me.ControlApproachDescriptionTextBox)
@@ -344,6 +378,7 @@ Partial Class AddProcessStep1
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnCancel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "AddProcessStep1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add a Process - General Info"

@@ -50,8 +50,9 @@
             Me.btnViewEmissionsSummaryGrid.Visible = False
         End If
 
-        Me.TabControl1.Visible = False
-        Me.ColumnSortLabel.Visible = False
+        Me.SummaryHeaderPanel.Visible = False
+        Me.SummarySplitContainer.Visible = False
+        Me.btnViewEmissionsSummaryGrid.Enabled = True
 
     End Sub
 
@@ -68,8 +69,9 @@
             Call Me.DisplayEmissionsSummary()
             Call Me.LoadTableOfDistinctNegativePollutants()
 
-            Me.TabControl1.Visible = True
-            Me.ColumnSortLabel.Visible = True
+            Me.SummaryHeaderPanel.Visible = True
+            Me.SummarySplitContainer.Visible = True
+            Me.btnViewEmissionsSummaryGrid.Enabled = False
         End If
 
     End Sub
@@ -134,27 +136,39 @@
 
     Private Sub RptPlantEmissionsDataGridView_CellFormatting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) Handles RptPlantEmissionsDataGridView.CellFormatting
 
-        If (Me.RptPlantEmissionsDataGridView.Columns(e.ColumnIndex).HeaderText = "Value") Then
-            Dim value As Object = e.Value
-            If (IsNumeric(value)) Then
-                If (CDbl(value) = -1) Then
-                    Me.RptPlantEmissionsDataGridView.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.Red
+        Try
+            If (Me.RptPlantEmissionsDataGridView.Columns(e.ColumnIndex).HeaderText = "Value") Then
+                Dim value As Object = e.Value
+                If Not IsDBNull(value) Then
+                    If (IsNumeric(value)) Then
+                        If (CDbl(value) = -1) Then
+                            Me.RptPlantEmissionsDataGridView.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.Red
+                        End If
+                    End If
                 End If
             End If
-        End If
-
+        Catch ex As Exception
+            GlobalMethods.HandleError(ex)
+        End Try
     End Sub
 
     Private Sub RptPlantEmissionsSummaryV2DataGridView_CellFormatting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) Handles RptPlantEmissionsSummaryV2DataGridView.CellFormatting
 
-        If (Me.RptPlantEmissionsSummaryV2DataGridView.Columns(e.ColumnIndex).HeaderText = "Pollutant") Then
-            Dim value As String = CStr(e.Value)
-            For Each de As DictionaryEntry In Me.m_distinctPollutantIDs
-                If (de.Value.ToString = value) Then
-                    Me.RptPlantEmissionsSummaryV2DataGridView.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.Red
+
+        Try
+            If (Me.RptPlantEmissionsSummaryV2DataGridView.Columns(e.ColumnIndex).HeaderText = "Pollutant") Then
+                Dim value As String = CStr(e.Value)
+                If Not IsDBNull(value) Then
+                    For Each de As DictionaryEntry In Me.m_distinctPollutantIDs
+                        If (de.Value.ToString = value) Then
+                            Me.RptPlantEmissionsSummaryV2DataGridView.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.Red
+                        End If
+                    Next
                 End If
-            Next
-        End If
+            End If
+        Catch ex As Exception
+            GlobalMethods.HandleError(ex)
+        End Try
     End Sub
 
     Private Sub RptPlantEmissionsSummaryV2DataGridView_ColumnHeaderMouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles RptPlantEmissionsSummaryV2DataGridView.ColumnHeaderMouseClick

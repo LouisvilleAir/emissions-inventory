@@ -106,69 +106,77 @@ Partial Class ReleasePointUserControl
         'YCoordinateLabel
         '
         YCoordinateLabel.AutoSize = True
-        YCoordinateLabel.Location = New System.Drawing.Point(9, 222)
+        YCoordinateLabel.Location = New System.Drawing.Point(10, 292)
+        YCoordinateLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         YCoordinateLabel.Name = "YCoordinateLabel"
-        YCoordinateLabel.Size = New System.Drawing.Size(55, 13)
+        YCoordinateLabel.Size = New System.Drawing.Size(72, 17)
         YCoordinateLabel.TabIndex = 80
         YCoordinateLabel.Text = "* Latitude:"
         '
         'ReleasePointTypeIDLabel
         '
         ReleasePointTypeIDLabel.AutoSize = True
-        ReleasePointTypeIDLabel.Location = New System.Drawing.Point(10, 281)
+        ReleasePointTypeIDLabel.Location = New System.Drawing.Point(10, 327)
+        ReleasePointTypeIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ReleasePointTypeIDLabel.Name = "ReleasePointTypeIDLabel"
-        ReleasePointTypeIDLabel.Size = New System.Drawing.Size(41, 13)
+        ReleasePointTypeIDLabel.Size = New System.Drawing.Size(53, 17)
         ReleasePointTypeIDLabel.TabIndex = 74
         ReleasePointTypeIDLabel.Text = "* Type:"
         '
         'ReleasePointAPCDIDLabel
         '
         ReleasePointAPCDIDLabel.AutoSize = True
-        ReleasePointAPCDIDLabel.Location = New System.Drawing.Point(9, 43)
+        ReleasePointAPCDIDLabel.Location = New System.Drawing.Point(10, 72)
+        ReleasePointAPCDIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ReleasePointAPCDIDLabel.Name = "ReleasePointAPCDIDLabel"
-        ReleasePointAPCDIDLabel.Size = New System.Drawing.Size(57, 13)
+        ReleasePointAPCDIDLabel.Size = New System.Drawing.Size(75, 17)
         ReleasePointAPCDIDLabel.TabIndex = 75
-        ReleasePointAPCDIDLabel.Text = "* APCDID:"
+        ReleasePointAPCDIDLabel.Text = "* APCD ID:"
         '
         'Label3
         '
         Label3.AutoSize = True
-        Label3.Location = New System.Drawing.Point(9, 250)
+        Label3.Location = New System.Drawing.Point(315, 292)
+        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
-        Label3.Size = New System.Drawing.Size(64, 13)
+        Label3.Size = New System.Drawing.Size(84, 17)
         Label3.TabIndex = 113
         Label3.Text = "* Longitude:"
         '
         'Label6
         '
-        Label6.Location = New System.Drawing.Point(10, 66)
+        Label6.Location = New System.Drawing.Point(11, 100)
+        Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label6.Name = "Label6"
-        Label6.Size = New System.Drawing.Size(63, 35)
+        Label6.Size = New System.Drawing.Size(84, 43)
         Label6.TabIndex = 126
         Label6.Text = "Company Description:"
         '
         'CommentPublicLabel
         '
-        CommentPublicLabel.Location = New System.Drawing.Point(10, 109)
+        CommentPublicLabel.Location = New System.Drawing.Point(11, 153)
+        CommentPublicLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentPublicLabel.Name = "CommentPublicLabel"
-        CommentPublicLabel.Size = New System.Drawing.Size(86, 31)
+        CommentPublicLabel.Size = New System.Drawing.Size(115, 38)
         CommentPublicLabel.TabIndex = 124
         CommentPublicLabel.Text = "Company Comment:"
         '
         'CommentInternalLabel
         '
-        CommentInternalLabel.Location = New System.Drawing.Point(10, 165)
+        CommentInternalLabel.Location = New System.Drawing.Point(11, 222)
+        CommentInternalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentInternalLabel.Name = "CommentInternalLabel"
-        CommentInternalLabel.Size = New System.Drawing.Size(75, 35)
+        CommentInternalLabel.Size = New System.Drawing.Size(100, 43)
         CommentInternalLabel.TabIndex = 125
         CommentInternalLabel.Text = "APCD Comment:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 9)
+        Me.Label1.Location = New System.Drawing.Point(10, 41)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
+        Me.Label1.Size = New System.Drawing.Size(105, 17)
         Me.Label1.TabIndex = 76
         Me.Label1.Text = "* Required field"
         '
@@ -215,6 +223,10 @@ Partial Class ReleasePointUserControl
         Me.TableAdapterManager.PollutantTableAdapter = Nothing
         Me.TableAdapterManager.PreBillingTableAdapter = Nothing
         Me.TableAdapterManager.ProcessClassLevel1TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel2TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel3TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel4TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureTableAdapter = Nothing
         Me.TableAdapterManager.ProcessDetailPeriodHistoryTableAdapter = Nothing
@@ -246,59 +258,65 @@ Partial Class ReleasePointUserControl
         'ReleasePointDescriptionTextBox
         '
         Me.ReleasePointDescriptionTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReleasePointDescriptionTextBox.Location = New System.Drawing.Point(102, 66)
+        Me.ReleasePointDescriptionTextBox.Location = New System.Drawing.Point(134, 100)
+        Me.ReleasePointDescriptionTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReleasePointDescriptionTextBox.MaxLength = 100
         Me.ReleasePointDescriptionTextBox.Multiline = True
         Me.ReleasePointDescriptionTextBox.Name = "ReleasePointDescriptionTextBox"
-        Me.ReleasePointDescriptionTextBox.Size = New System.Drawing.Size(595, 35)
-        Me.ReleasePointDescriptionTextBox.TabIndex = 0
+        Me.ReleasePointDescriptionTextBox.Size = New System.Drawing.Size(723, 42)
+        Me.ReleasePointDescriptionTextBox.TabIndex = 12
         '
         'ReleasePointAPCDIDTextBox
         '
         Me.ReleasePointAPCDIDTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReleasePointAPCDIDTextBox.Location = New System.Drawing.Point(102, 40)
+        Me.ReleasePointAPCDIDTextBox.Location = New System.Drawing.Point(134, 68)
+        Me.ReleasePointAPCDIDTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReleasePointAPCDIDTextBox.MaxLength = 50
         Me.ReleasePointAPCDIDTextBox.Name = "ReleasePointAPCDIDTextBox"
-        Me.ReleasePointAPCDIDTextBox.Size = New System.Drawing.Size(325, 22)
-        Me.ReleasePointAPCDIDTextBox.TabIndex = 1
+        Me.ReleasePointAPCDIDTextBox.Size = New System.Drawing.Size(432, 26)
+        Me.ReleasePointAPCDIDTextBox.TabIndex = 11
         '
         'CompanyCommentTextBox
         '
         Me.CompanyCommentTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CompanyCommentTextBox.Location = New System.Drawing.Point(102, 107)
+        Me.CompanyCommentTextBox.Location = New System.Drawing.Point(134, 151)
+        Me.CompanyCommentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CompanyCommentTextBox.MaxLength = 400
         Me.CompanyCommentTextBox.Multiline = True
         Me.CompanyCommentTextBox.Name = "CompanyCommentTextBox"
-        Me.CompanyCommentTextBox.Size = New System.Drawing.Size(595, 50)
-        Me.CompanyCommentTextBox.TabIndex = 2
+        Me.CompanyCommentTextBox.Size = New System.Drawing.Size(723, 61)
+        Me.CompanyCommentTextBox.TabIndex = 13
         '
         'APCDCommentTextBox
         '
         Me.APCDCommentTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.APCDCommentTextBox.Location = New System.Drawing.Point(102, 163)
+        Me.APCDCommentTextBox.Location = New System.Drawing.Point(134, 220)
+        Me.APCDCommentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.APCDCommentTextBox.MaxLength = 400
         Me.APCDCommentTextBox.Multiline = True
         Me.APCDCommentTextBox.Name = "APCDCommentTextBox"
-        Me.APCDCommentTextBox.Size = New System.Drawing.Size(595, 50)
-        Me.APCDCommentTextBox.TabIndex = 3
+        Me.APCDCommentTextBox.Size = New System.Drawing.Size(723, 61)
+        Me.APCDCommentTextBox.TabIndex = 14
         '
         'XCoordinateTextBox
         '
         Me.XCoordinateTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XCoordinateTextBox.Location = New System.Drawing.Point(102, 247)
+        Me.XCoordinateTextBox.Location = New System.Drawing.Point(439, 288)
+        Me.XCoordinateTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.XCoordinateTextBox.MaxLength = 9
         Me.XCoordinateTextBox.Name = "XCoordinateTextBox"
-        Me.XCoordinateTextBox.Size = New System.Drawing.Size(83, 22)
-        Me.XCoordinateTextBox.TabIndex = 5
+        Me.XCoordinateTextBox.Size = New System.Drawing.Size(109, 26)
+        Me.XCoordinateTextBox.TabIndex = 16
         '
         'YCoordinateTextBox
         '
         Me.YCoordinateTextBox.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.YCoordinateTextBox.Location = New System.Drawing.Point(102, 219)
+        Me.YCoordinateTextBox.Location = New System.Drawing.Point(134, 289)
+        Me.YCoordinateTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.YCoordinateTextBox.MaxLength = 9
         Me.YCoordinateTextBox.Name = "YCoordinateTextBox"
-        Me.YCoordinateTextBox.Size = New System.Drawing.Size(83, 22)
-        Me.YCoordinateTextBox.TabIndex = 4
+        Me.YCoordinateTextBox.Size = New System.Drawing.Size(109, 26)
+        Me.YCoordinateTextBox.TabIndex = 15
         '
         'MeasurementBindingSource
         '
@@ -322,10 +340,11 @@ Partial Class ReleasePointUserControl
         '
         Me.ReleasePointTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ReleasePointTypeComboBox.FormattingEnabled = True
-        Me.ReleasePointTypeComboBox.Location = New System.Drawing.Point(57, 278)
+        Me.ReleasePointTypeComboBox.Location = New System.Drawing.Point(134, 324)
+        Me.ReleasePointTypeComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReleasePointTypeComboBox.Name = "ReleasePointTypeComboBox"
-        Me.ReleasePointTypeComboBox.Size = New System.Drawing.Size(140, 21)
-        Me.ReleasePointTypeComboBox.TabIndex = 6
+        Me.ReleasePointTypeComboBox.Size = New System.Drawing.Size(185, 24)
+        Me.ReleasePointTypeComboBox.TabIndex = 17
         '
         'ReleasePointTypeBindingSource
         '
@@ -338,10 +357,11 @@ Partial Class ReleasePointUserControl
         '
         'IsExcludedCheckBox
         '
-        Me.IsExcludedCheckBox.Location = New System.Drawing.Point(554, 7)
+        Me.IsExcludedCheckBox.Location = New System.Drawing.Point(444, 8)
+        Me.IsExcludedCheckBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.IsExcludedCheckBox.Name = "IsExcludedCheckBox"
-        Me.IsExcludedCheckBox.Size = New System.Drawing.Size(143, 18)
-        Me.IsExcludedCheckBox.TabIndex = 12
+        Me.IsExcludedCheckBox.Size = New System.Drawing.Size(197, 22)
+        Me.IsExcludedCheckBox.TabIndex = 4
         Me.IsExcludedCheckBox.TabStop = False
         Me.IsExcludedCheckBox.Text = "Exclude from inventory"
         Me.IsExcludedCheckBox.UseVisualStyleBackColor = True
@@ -364,10 +384,11 @@ Partial Class ReleasePointUserControl
         Me.ReleaseTypeSubTypeComboBox.DataSource = Me.ReleaseTypeSubTypeBindingSource
         Me.ReleaseTypeSubTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ReleaseTypeSubTypeComboBox.FormattingEnabled = True
-        Me.ReleaseTypeSubTypeComboBox.Location = New System.Drawing.Point(203, 278)
+        Me.ReleaseTypeSubTypeComboBox.Location = New System.Drawing.Point(329, 324)
+        Me.ReleaseTypeSubTypeComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReleaseTypeSubTypeComboBox.Name = "ReleaseTypeSubTypeComboBox"
-        Me.ReleaseTypeSubTypeComboBox.Size = New System.Drawing.Size(75, 21)
-        Me.ReleaseTypeSubTypeComboBox.TabIndex = 7
+        Me.ReleaseTypeSubTypeComboBox.Size = New System.Drawing.Size(99, 24)
+        Me.ReleaseTypeSubTypeComboBox.TabIndex = 18
         '
         'ReleaseTypeSubTypeBindingSource
         '
@@ -381,57 +402,66 @@ Partial Class ReleasePointUserControl
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(2, 612)
+        Me.Label2.Location = New System.Drawing.Point(10, 631)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(153, 13)
+        Me.Label2.Size = New System.Drawing.Size(211, 17)
         Me.Label2.TabIndex = 123
-        Me.Label2.Text = "Processes for this release point"
+        Me.Label2.Text = "Processes for this release point:"
         '
         'ButtonPanel
         '
+        Me.ButtonPanel.Controls.Add(Me.IsExcludedCheckBox)
         Me.ButtonPanel.Controls.Add(Me.btnSave)
         Me.ButtonPanel.Controls.Add(Me.btnShutdown)
+        Me.ButtonPanel.Controls.Add(Me.ShutdownMessageLabel)
         Me.ButtonPanel.Controls.Add(Me.btnCancel)
         Me.ButtonPanel.Controls.Add(Me.btnApprove)
-        Me.ButtonPanel.Location = New System.Drawing.Point(5, 565)
+        Me.ButtonPanel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.ButtonPanel.Location = New System.Drawing.Point(0, 0)
+        Me.ButtonPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ButtonPanel.Name = "ButtonPanel"
-        Me.ButtonPanel.Size = New System.Drawing.Size(690, 30)
+        Me.ButtonPanel.Size = New System.Drawing.Size(896, 37)
         Me.ButtonPanel.TabIndex = 127
         '
         'btnSave
         '
         Me.btnSave.Enabled = False
-        Me.btnSave.Location = New System.Drawing.Point(531, 3)
+        Me.btnSave.Location = New System.Drawing.Point(649, 4)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnSave.TabIndex = 6
+        Me.btnSave.Size = New System.Drawing.Size(100, 28)
+        Me.btnSave.TabIndex = 5
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'btnShutdown
         '
-        Me.btnShutdown.Location = New System.Drawing.Point(400, 3)
+        Me.btnShutdown.Location = New System.Drawing.Point(318, 4)
+        Me.btnShutdown.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnShutdown.Name = "btnShutdown"
-        Me.btnShutdown.Size = New System.Drawing.Size(125, 23)
-        Me.btnShutdown.TabIndex = 7
+        Me.btnShutdown.Size = New System.Drawing.Size(118, 28)
+        Me.btnShutdown.TabIndex = 3
         Me.btnShutdown.Text = "Shut down"
         Me.btnShutdown.UseVisualStyleBackColor = True
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(612, 3)
+        Me.btnCancel.Location = New System.Drawing.Point(757, 4)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancel.TabIndex = 5
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
+        Me.btnCancel.TabIndex = 6
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btnApprove
         '
-        Me.btnApprove.Location = New System.Drawing.Point(3, 3)
+        Me.btnApprove.Location = New System.Drawing.Point(4, 4)
+        Me.btnApprove.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnApprove.Name = "btnApprove"
-        Me.btnApprove.Size = New System.Drawing.Size(125, 23)
-        Me.btnApprove.TabIndex = 8
+        Me.btnApprove.Size = New System.Drawing.Size(119, 28)
+        Me.btnApprove.TabIndex = 1
         Me.btnApprove.Text = "Approve"
         Me.btnApprove.UseVisualStyleBackColor = True
         '
@@ -439,10 +469,11 @@ Partial Class ReleasePointUserControl
         '
         Me.ShutdownMessageLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShutdownMessageLabel.ForeColor = System.Drawing.Color.Red
-        Me.ShutdownMessageLabel.Location = New System.Drawing.Point(99, 7)
+        Me.ShutdownMessageLabel.Location = New System.Drawing.Point(131, 7)
+        Me.ShutdownMessageLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ShutdownMessageLabel.Name = "ShutdownMessageLabel"
-        Me.ShutdownMessageLabel.Size = New System.Drawing.Size(400, 19)
-        Me.ShutdownMessageLabel.TabIndex = 128
+        Me.ShutdownMessageLabel.Size = New System.Drawing.Size(346, 23)
+        Me.ShutdownMessageLabel.TabIndex = 2
         Me.ShutdownMessageLabel.Text = "ShutdownMessageLabel"
         '
         'ReleasePoint_GetProcessesBindingSource
@@ -478,7 +509,8 @@ Partial Class ReleasePointUserControl
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ReleasePoint_GetProcessesDataGridView.DefaultCellStyle = DataGridViewCellStyle2
-        Me.ReleasePoint_GetProcessesDataGridView.Location = New System.Drawing.Point(5, 628)
+        Me.ReleasePoint_GetProcessesDataGridView.Location = New System.Drawing.Point(14, 652)
+        Me.ReleasePoint_GetProcessesDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReleasePoint_GetProcessesDataGridView.Name = "ReleasePoint_GetProcessesDataGridView"
         Me.ReleasePoint_GetProcessesDataGridView.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -489,8 +521,8 @@ Partial Class ReleasePointUserControl
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ReleasePoint_GetProcessesDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.ReleasePoint_GetProcessesDataGridView.Size = New System.Drawing.Size(350, 150)
-        Me.ReleasePoint_GetProcessesDataGridView.TabIndex = 129
+        Me.ReleasePoint_GetProcessesDataGridView.Size = New System.Drawing.Size(467, 228)
+        Me.ReleasePoint_GetProcessesDataGridView.TabIndex = 40
         '
         'DataGridViewTextBoxColumn6
         '
@@ -553,12 +585,13 @@ Partial Class ReleasePointUserControl
         Me.ReleasePointDetailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ReleasePointDetailDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
         Me.ReleasePointDetailDataGridView.DataSource = Me.ReleasePointDetailBindingSource
-        Me.ReleasePointDetailDataGridView.Location = New System.Drawing.Point(13, 305)
+        Me.ReleasePointDetailDataGridView.Location = New System.Drawing.Point(13, 369)
+        Me.ReleasePointDetailDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReleasePointDetailDataGridView.Name = "ReleasePointDetailDataGridView"
         Me.ReleasePointDetailDataGridView.ReadOnly = True
         Me.ReleasePointDetailDataGridView.RowHeadersVisible = False
-        Me.ReleasePointDetailDataGridView.Size = New System.Drawing.Size(475, 200)
-        Me.ReleasePointDetailDataGridView.TabIndex = 130
+        Me.ReleasePointDetailDataGridView.Size = New System.Drawing.Size(633, 246)
+        Me.ReleasePointDetailDataGridView.TabIndex = 30
         '
         'DataGridViewTextBoxColumn4
         '
@@ -620,18 +653,16 @@ Partial Class ReleasePointUserControl
         '
         'ReleasePointUserControl
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ReleasePointDetailDataGridView)
         Me.Controls.Add(Me.ReleasePoint_GetProcessesDataGridView)
-        Me.Controls.Add(Me.ShutdownMessageLabel)
         Me.Controls.Add(Me.ButtonPanel)
         Me.Controls.Add(Label6)
         Me.Controls.Add(CommentPublicLabel)
         Me.Controls.Add(CommentInternalLabel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ReleaseTypeSubTypeComboBox)
-        Me.Controls.Add(Me.IsExcludedCheckBox)
         Me.Controls.Add(Me.ReleasePointTypeComboBox)
         Me.Controls.Add(Label3)
         Me.Controls.Add(Me.ReleasePointDescriptionTextBox)
@@ -644,8 +675,9 @@ Partial Class ReleasePointUserControl
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(ReleasePointTypeIDLabel)
         Me.Controls.Add(ReleasePointAPCDIDLabel)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "ReleasePointUserControl"
-        Me.Size = New System.Drawing.Size(717, 859)
+        Me.Size = New System.Drawing.Size(896, 1057)
         CType(Me.EmissionsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MeasurementBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UnitOfMeasurementBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

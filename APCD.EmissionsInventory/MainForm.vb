@@ -103,11 +103,15 @@ Public Class MainForm
 #If DEBUG Then
         If (GlobalVariables.UserRole = GlobalVariables.Role.Programmer) Then
             Me.AdminToolStripMenuItem.Visible = True
-            Me.ToolsToolStripMenuItem.Visible = True
         Else
-            Me.AdminToolStripMenuItem.Visible = False
-            Me.ToolsToolStripMenuItem.Visible = False
+            If ((GlobalVariables.UserRole = GlobalVariables.Role.Administrator) Or _
+                (GlobalVariables.UserRole = GlobalVariables.Role.Programmer)) Then
+                Me.AdminToolStripMenuItem.Visible = True
+            Else
+                Me.AdminToolStripMenuItem.Visible = False
+            End If
         End If
+        Me.ToolsToolStripMenuItem.Visible = True
 #Else
         Me.AdminToolStripMenuItem.Visible = False
         Me.ToolsToolStripMenuItem.Visible = True
@@ -118,10 +122,8 @@ Public Class MainForm
         If ((GlobalVariables.UserRole = GlobalVariables.Role.Administrator) Or _
             (GlobalVariables.UserRole = GlobalVariables.Role.Programmer)) Then
             Me.AdminToolStripMenuItem.Visible = True
-           'Me.ToolsToolStripMenuItem.Visible = True
         Else
             Me.AdminToolStripMenuItem.Visible = False
-            'Me.ToolsToolStripMenuItem.Visible = False
         End If
 #End If
 
@@ -153,6 +155,9 @@ Public Class MainForm
         Me.SplitContainerMain.Panel2.Controls.Add(Me.m_controlMeasureUserControl)
         Me.SplitContainerMain.Panel2.Controls.Add(Me.m_releasePointUserControl)
         Me.SplitContainerMain.Panel2.Controls.Add(Me.m_processUserControl)
+        For Each ctrl As Control In Me.SplitContainerMain.Panel2.Controls
+            ctrl.Dock = DockStyle.Fill
+        Next
 
     End Sub
 

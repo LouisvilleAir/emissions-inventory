@@ -60,6 +60,7 @@ Public Class GeneratePreBill
         Public Const addressLine1 As String = "addressLine1"
         Public Const addressLine2 As String = "addressLine2"
         Public Const dueDate As String = "dueDate"
+        Public Const opPermit As String = "opPermit" ' 2016-01-14 BJF: Added
         Public Const plantID1 As String = "plantID1"
         Public Const plantID2 As String = "plantID2"
         Public Const plantName As String = "plantName"
@@ -203,7 +204,9 @@ Public Class GeneratePreBill
                 Select Case MessageBox.Show("Billing records already exist.  Recalculate?  No = Regenerate invoices without recalculation.", "Create Invoices", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
                     Case Windows.Forms.DialogResult.Yes
                         Call Me.DeleteAllBillRecords()
+                        Application.DoEvents()
                         Call Me.CreateBillRecords()
+                        Application.DoEvents()
                         Call Me.CreateInvoices_Bill(isDoAll, selectedPlantIDs)
                     Case Windows.Forms.DialogResult.No
                         Call Me.CreateInvoices_Bill(isDoAll, selectedPlantIDs)
@@ -828,6 +831,7 @@ Public Class GeneratePreBill
 
                     With bill
                         Me.WriteBookmark(BookMark.printDate, Format(.PrintDate, GlobalVariables.DateFormat._Short))
+                        Me.WriteBookmark(BookMark.opPermit, "O-" & Format(.PlantID, "0000"))
                         Me.WriteBookmark(BookMark.plantID1, CStr(.PlantID))
                         Me.WriteBookmark(BookMark.plantName, .PlantName)
                         Me.WriteBookmark(BookMark.addressLine1, .Address)
