@@ -131,27 +131,31 @@ Public Class ProcessEmissionsAddEditForm
                 Me.PollutantComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.PollutantComboBox, Me.m_processEmission.PollutantID)
                 Me.EmissionPeriodTypeComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.EmissionPeriodTypeComboBox, Me.m_processEmission.EmissionPeriodTypeID)
                 Me.EmissionValueTextBox.Text = CStr(Me.m_processEmission.EmissionValue)
-                Call Me.SetEmissionValueUnitOfMeasurementLabelText()
-
                 Me.EmissionCalculationMethodComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.EmissionCalculationMethodComboBox, Me.m_processEmission.EmissionCalculationMethodID)
                 Me.m_pollutant = GlobalVariables.LookupTable.Pollutant.FindByPollutantID(CInt(Me.m_processEmission.PollutantID))
+                Call Me.SetEmissionValueUnitOfMeasurementLabelText()
 
-                'TODO 2015-09-17 BJF - Modify the method below in the library to allow emission factors for calculation methods Stack Test, Material Balance, and EPA Speciation Profile as well as the emission factor methods.
-                ' In the meantime, we'll just display the fields regardless.
-                'Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
-
-                'If (Me.m_isFactorRequired = True) Then
-                '    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
-                '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
-                '    Me.EmissionFactorPanel.Visible = True
-                'Else
-                '    Me.EmissionFactorValueTextBox.Text = String.Empty
-                '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
-                '    Me.EmissionFactorPanel.Visible = False
-                'End If
+                'TODO 2015-09-17 BJF - Allow entry of an emission factor for 
+                ' calculation methods Stack Test, Material Balance, and
+                ' EPA Speciation Profile as well as requiring one for the
+                ' emission-factor methods.
+                ' In the meantime, we'll display the field regardless,
+                ' but adjust its label.
                 Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
                 Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
                 Me.EmissionFactorPanel.Visible = True
+                Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
+                If (Me.m_isFactorRequired = True) Then
+                    '    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
+                    '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+                    '    Me.EmissionFactorPanel.Visible = True
+                    Me.EmissionFactorValueLabel.Text = "* Emission Factor:" ' required
+                Else
+                    '    Me.EmissionFactorValueTextBox.Text = String.Empty
+                    '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
+                    '    Me.EmissionFactorPanel.Visible = False
+                    Me.EmissionFactorValueLabel.Text = "Emission Factor If Any:"   ' optional
+                End If
 
                 If (Me.m_processEmission.IsCommentPublicNull) Then
                     Me.CommentPublicTextBox.Text = String.Empty
@@ -175,30 +179,32 @@ Public Class ProcessEmissionsAddEditForm
                 Me.EmissionPeriodTypeComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.EmissionPeriodTypeComboBox, Me.m_processEmission.EmissionPeriodTypeID)
                 Me.EmissionValueTextBox.Text = CStr(Me.m_processEmission.EmissionValue)
                 Me.EmissionValueTextBox.Enabled = False
-                Call Me.SetEmissionValueUnitOfMeasurementLabelText()
 
                 Me.EmissionCalculationMethodComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.EmissionCalculationMethodComboBox, Me.m_processEmission.EmissionCalculationMethodID)
                 Me.EmissionCalculationMethodComboBox.Enabled = False
 
                 Me.m_pollutant = GlobalVariables.LookupTable.Pollutant.FindByPollutantID(CInt(Me.m_processEmission.PollutantID))
+                Call Me.SetEmissionValueUnitOfMeasurementLabelText()
 
                 'TODO: See above under Update.
-                'Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
-
-                'If (Me.m_isFactorRequired = True) Then
-                '    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
-                '    Me.EmissionFactorValueTextBox.Enabled = False
-                '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
-                '    Me.EmissionFactorPanel.Visible = True
-                'Else
-                '    Me.EmissionFactorValueTextBox.Text = String.Empty
-                '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
-                '    Me.EmissionFactorPanel.Visible = False
-                'End If
                 Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
                 Me.EmissionFactorValueTextBox.Enabled = False
                 Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
                 Me.EmissionFactorPanel.Visible = True
+                Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
+
+                If (Me.m_isFactorRequired = True) Then
+                    '    Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
+                    '    Me.EmissionFactorValueTextBox.Enabled = False
+                    '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+                    '    Me.EmissionFactorPanel.Visible = True
+                    Me.EmissionFactorValueLabel.Text = "* Emission Factor:" ' required
+                Else
+                    '    Me.EmissionFactorValueTextBox.Text = String.Empty
+                    '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
+                    '    Me.EmissionFactorPanel.Visible = False
+                    Me.EmissionFactorValueLabel.Text = "Emission Factor:"   ' optional
+                End If
 
                 If (Me.m_processEmission.IsCommentPublicNull) Then
                     Me.CommentPublicTextBox.Text = String.Empty
@@ -489,10 +495,14 @@ Public Class ProcessEmissionsAddEditForm
 
     End Sub
 
+    ''' <summary>
+    ''' Set the unit of measurement of the emissions for a new record.
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Sub SetEmissionsUnitOfMeasurement()
 
-        'if the pollutant type is CAP and period is Annual then UOM is tons; otherwise it's pounds
-        'HAPS is always pounds
+        ' If the pollutant type is CAP and period is Annual then UOM is tons; otherwise it's pounds.
+        ' HAPS is always pounds.
 
         If (Me.m_pollutant.PollutantTypeEISID = "CAP") Then
             If (CStr(Me.EmissionPeriodTypeComboBox.SelectedValue) = "A") Then
@@ -512,10 +522,10 @@ Public Class ProcessEmissionsAddEditForm
 
         Select Case emissionValueUOM
             Case GlobalVariables.UnitOfMeasurementEnum.tons
-                Me.EmissionValueUnitOfMeasurementLabel.Text = GlobalVariables.UnitOfMeasurement.tons_US
+                Me.EmissionValueUnitOfMeasurementLabel.Text = GlobalVariables.UnitOfMeasurement.tons
 
             Case GlobalVariables.UnitOfMeasurementEnum.pounds
-                Me.EmissionValueUnitOfMeasurementLabel.Text = GlobalVariables.UnitOfMeasurement.pounds_weight
+                Me.EmissionValueUnitOfMeasurementLabel.Text = GlobalVariables.UnitOfMeasurement.pounds
         End Select
 
     End Sub
@@ -558,7 +568,7 @@ Public Class ProcessEmissionsAddEditForm
         'Dim UOMID As Int32 = -1
 
         With text
-            .Append(GlobalVariables.UnitOfMeasurement.pounds_weight)
+            .Append(GlobalVariables.UnitOfMeasurement.pounds)
             .Append(Tools.Constants.Character.Space)
             .Append(Tools.Constants.Character.ForwardSlash)
             .Append(Tools.Constants.Character.Space)
@@ -582,7 +592,7 @@ Public Class ProcessEmissionsAddEditForm
             '        .Append(UOM.UnitOfMeasurementName)
             '    End If
             'End If
-            
+
         End With
 
         Me.EmissionFactorValueUnitOfMeasurementLabel.Text = text.ToString
@@ -711,6 +721,7 @@ Public Class ProcessEmissionsAddEditForm
         Dim methodText As String
         Dim row As EmissionsDataSet.Process_EmissionsTabRow = MainForm.EmissionsDataSet.Process_EmissionsTab.NewProcess_EmissionsTabRow
 
+        ' Temporarily allow editing of columns that are read-only to users.
         MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EmissionCalculationMethodName").ReadOnly = False
         MainForm.EmissionsDataSet.Process_EmissionsTab.Columns("EFUnits").ReadOnly = False
         With row

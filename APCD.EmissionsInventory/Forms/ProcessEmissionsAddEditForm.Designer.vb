@@ -23,16 +23,16 @@ Partial Class ProcessEmissionsAddEditForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ControlMeasureIDLabel As System.Windows.Forms.Label
         Dim CommentPublicLabel As System.Windows.Forms.Label
         Dim CommentInternalLabel As System.Windows.Forms.Label
-        Dim CapturePercentLabel As System.Windows.Forms.Label
-        Dim EmissionPeriodTypeIDLabel As System.Windows.Forms.Label
-        Dim EmissionCalculationMethodIDLabel As System.Windows.Forms.Label
-        Dim EmissionFactorValueLabel As System.Windows.Forms.Label
+        Me.PollutantLabel = New System.Windows.Forms.Label()
+        Me.EmissionsValueLabel = New System.Windows.Forms.Label()
+        Me.EmissionPeriodTypeLabel = New System.Windows.Forms.Label()
+        Me.EmissionCalculationMethodLabel = New System.Windows.Forms.Label()
+        Me.EmissionFactorValueLabel = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.OKButton = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.RequiredFieldNoteLabel = New System.Windows.Forms.Label()
         Me.CommentPublicTextBox = New System.Windows.Forms.TextBox()
         Me.PollutantComboBox = New System.Windows.Forms.ComboBox()
         Me.CommentInternalTextBox = New System.Windows.Forms.TextBox()
@@ -57,13 +57,8 @@ Partial Class ProcessEmissionsAddEditForm
         Me.PollutantTableAdapter1 = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.PollutantTableAdapter()
         Me.TableAdapterManager1 = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.TableAdapterManager()
         Me.emissionPanel = New System.Windows.Forms.Panel()
-        ControlMeasureIDLabel = New System.Windows.Forms.Label()
         CommentPublicLabel = New System.Windows.Forms.Label()
         CommentInternalLabel = New System.Windows.Forms.Label()
-        CapturePercentLabel = New System.Windows.Forms.Label()
-        EmissionPeriodTypeIDLabel = New System.Windows.Forms.Label()
-        EmissionCalculationMethodIDLabel = New System.Windows.Forms.Label()
-        EmissionFactorValueLabel = New System.Windows.Forms.Label()
         Me.EmissionFactorPanel.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProcessDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,15 +70,15 @@ Partial Class ProcessEmissionsAddEditForm
         Me.emissionPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ControlMeasureIDLabel
+        'PollutantLabel
         '
-        ControlMeasureIDLabel.AutoSize = True
-        ControlMeasureIDLabel.Location = New System.Drawing.Point(13, 20)
-        ControlMeasureIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        ControlMeasureIDLabel.Name = "ControlMeasureIDLabel"
-        ControlMeasureIDLabel.Size = New System.Drawing.Size(76, 17)
-        ControlMeasureIDLabel.TabIndex = 41
-        ControlMeasureIDLabel.Text = "* Pollutant:"
+        Me.PollutantLabel.AutoSize = True
+        Me.PollutantLabel.Location = New System.Drawing.Point(13, 20)
+        Me.PollutantLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.PollutantLabel.Name = "PollutantLabel"
+        Me.PollutantLabel.Size = New System.Drawing.Size(76, 17)
+        Me.PollutantLabel.TabIndex = 41
+        Me.PollutantLabel.Text = "* Pollutant:"
         '
         'CommentPublicLabel
         '
@@ -103,45 +98,45 @@ Partial Class ProcessEmissionsAddEditForm
         CommentInternalLabel.TabIndex = 45
         CommentInternalLabel.Text = "APCD Confidential Comment:"
         '
-        'CapturePercentLabel
+        'EmissionsValueLabel
         '
-        CapturePercentLabel.AutoSize = True
-        CapturePercentLabel.Location = New System.Drawing.Point(18, 241)
-        CapturePercentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        CapturePercentLabel.Name = "CapturePercentLabel"
-        CapturePercentLabel.Size = New System.Drawing.Size(84, 17)
-        CapturePercentLabel.TabIndex = 43
-        CapturePercentLabel.Text = "* Emissions:"
+        Me.EmissionsValueLabel.AutoSize = True
+        Me.EmissionsValueLabel.Location = New System.Drawing.Point(18, 241)
+        Me.EmissionsValueLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.EmissionsValueLabel.Name = "EmissionsValueLabel"
+        Me.EmissionsValueLabel.Size = New System.Drawing.Size(84, 17)
+        Me.EmissionsValueLabel.TabIndex = 43
+        Me.EmissionsValueLabel.Text = "* Emissions:"
         '
-        'EmissionPeriodTypeIDLabel
+        'EmissionPeriodTypeLabel
         '
-        EmissionPeriodTypeIDLabel.AutoSize = True
-        EmissionPeriodTypeIDLabel.Location = New System.Drawing.Point(13, 57)
-        EmissionPeriodTypeIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        EmissionPeriodTypeIDLabel.Name = "EmissionPeriodTypeIDLabel"
-        EmissionPeriodTypeIDLabel.Size = New System.Drawing.Size(62, 17)
-        EmissionPeriodTypeIDLabel.TabIndex = 47
-        EmissionPeriodTypeIDLabel.Text = "* Period:"
+        Me.EmissionPeriodTypeLabel.AutoSize = True
+        Me.EmissionPeriodTypeLabel.Location = New System.Drawing.Point(13, 57)
+        Me.EmissionPeriodTypeLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.EmissionPeriodTypeLabel.Name = "EmissionPeriodTypeLabel"
+        Me.EmissionPeriodTypeLabel.Size = New System.Drawing.Size(62, 17)
+        Me.EmissionPeriodTypeLabel.TabIndex = 47
+        Me.EmissionPeriodTypeLabel.Text = "* Period:"
         '
-        'EmissionCalculationMethodIDLabel
+        'EmissionCalculationMethodLabel
         '
-        EmissionCalculationMethodIDLabel.AutoSize = True
-        EmissionCalculationMethodIDLabel.Location = New System.Drawing.Point(13, 96)
-        EmissionCalculationMethodIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        EmissionCalculationMethodIDLabel.Name = "EmissionCalculationMethodIDLabel"
-        EmissionCalculationMethodIDLabel.Size = New System.Drawing.Size(141, 17)
-        EmissionCalculationMethodIDLabel.TabIndex = 48
-        EmissionCalculationMethodIDLabel.Text = "* Calculation Method:"
+        Me.EmissionCalculationMethodLabel.AutoSize = True
+        Me.EmissionCalculationMethodLabel.Location = New System.Drawing.Point(13, 96)
+        Me.EmissionCalculationMethodLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.EmissionCalculationMethodLabel.Name = "EmissionCalculationMethodLabel"
+        Me.EmissionCalculationMethodLabel.Size = New System.Drawing.Size(141, 17)
+        Me.EmissionCalculationMethodLabel.TabIndex = 48
+        Me.EmissionCalculationMethodLabel.Text = "* Calculation Method:"
         '
         'EmissionFactorValueLabel
         '
-        EmissionFactorValueLabel.AutoSize = True
-        EmissionFactorValueLabel.Location = New System.Drawing.Point(13, 12)
-        EmissionFactorValueLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        EmissionFactorValueLabel.Name = "EmissionFactorValueLabel"
-        EmissionFactorValueLabel.Size = New System.Drawing.Size(121, 17)
-        EmissionFactorValueLabel.TabIndex = 50
-        EmissionFactorValueLabel.Text = "* Emission Factor:"
+        Me.EmissionFactorValueLabel.AutoSize = True
+        Me.EmissionFactorValueLabel.Location = New System.Drawing.Point(13, 12)
+        Me.EmissionFactorValueLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.EmissionFactorValueLabel.Name = "EmissionFactorValueLabel"
+        Me.EmissionFactorValueLabel.Size = New System.Drawing.Size(121, 17)
+        Me.EmissionFactorValueLabel.TabIndex = 50
+        Me.EmissionFactorValueLabel.Text = "* Emission Factor:"
         '
         'btnCancel
         '
@@ -166,15 +161,15 @@ Partial Class ProcessEmissionsAddEditForm
         Me.OKButton.Text = "OK"
         Me.OKButton.UseVisualStyleBackColor = True
         '
-        'Label1
+        'RequiredFieldNoteLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 15)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(105, 17)
-        Me.Label1.TabIndex = 46
-        Me.Label1.Text = "* Required field"
+        Me.RequiredFieldNoteLabel.AutoSize = True
+        Me.RequiredFieldNoteLabel.Location = New System.Drawing.Point(13, 15)
+        Me.RequiredFieldNoteLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.RequiredFieldNoteLabel.Name = "RequiredFieldNoteLabel"
+        Me.RequiredFieldNoteLabel.Size = New System.Drawing.Size(105, 17)
+        Me.RequiredFieldNoteLabel.TabIndex = 46
+        Me.RequiredFieldNoteLabel.Text = "* Required field"
         '
         'CommentPublicTextBox
         '
@@ -254,9 +249,9 @@ Partial Class ProcessEmissionsAddEditForm
         Me.EmissionValueUnitOfMeasurementLabel.Location = New System.Drawing.Point(288, 241)
         Me.EmissionValueUnitOfMeasurementLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EmissionValueUnitOfMeasurementLabel.Name = "EmissionValueUnitOfMeasurementLabel"
-        Me.EmissionValueUnitOfMeasurementLabel.Size = New System.Drawing.Size(51, 17)
+        Me.EmissionValueUnitOfMeasurementLabel.Size = New System.Drawing.Size(13, 17)
         Me.EmissionValueUnitOfMeasurementLabel.TabIndex = 55
-        Me.EmissionValueUnitOfMeasurementLabel.Text = "Label2"
+        Me.EmissionValueUnitOfMeasurementLabel.Text = "-"
         '
         'EmissionFactorValueUnitOfMeasurementLabel
         '
@@ -264,14 +259,14 @@ Partial Class ProcessEmissionsAddEditForm
         Me.EmissionFactorValueUnitOfMeasurementLabel.Location = New System.Drawing.Point(328, 12)
         Me.EmissionFactorValueUnitOfMeasurementLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EmissionFactorValueUnitOfMeasurementLabel.Name = "EmissionFactorValueUnitOfMeasurementLabel"
-        Me.EmissionFactorValueUnitOfMeasurementLabel.Size = New System.Drawing.Size(51, 17)
+        Me.EmissionFactorValueUnitOfMeasurementLabel.Size = New System.Drawing.Size(13, 17)
         Me.EmissionFactorValueUnitOfMeasurementLabel.TabIndex = 56
-        Me.EmissionFactorValueUnitOfMeasurementLabel.Text = "Label3"
+        Me.EmissionFactorValueUnitOfMeasurementLabel.Text = "-"
         '
         'EmissionFactorPanel
         '
         Me.EmissionFactorPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.EmissionFactorPanel.Controls.Add(EmissionFactorValueLabel)
+        Me.EmissionFactorPanel.Controls.Add(Me.EmissionFactorValueLabel)
         Me.EmissionFactorPanel.Controls.Add(Me.EmissionFactorValueUnitOfMeasurementLabel)
         Me.EmissionFactorPanel.Controls.Add(Me.EmissionFactorValueTextBox)
         Me.EmissionFactorPanel.Location = New System.Drawing.Point(3, 180)
@@ -413,10 +408,10 @@ Partial Class ProcessEmissionsAddEditForm
         '
         Me.emissionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.emissionPanel.Controls.Add(Me.PollutantComboBox)
-        Me.emissionPanel.Controls.Add(ControlMeasureIDLabel)
+        Me.emissionPanel.Controls.Add(Me.PollutantLabel)
         Me.emissionPanel.Controls.Add(Me.EmissionCalculationMethodComboBox)
-        Me.emissionPanel.Controls.Add(EmissionCalculationMethodIDLabel)
-        Me.emissionPanel.Controls.Add(EmissionPeriodTypeIDLabel)
+        Me.emissionPanel.Controls.Add(Me.EmissionCalculationMethodLabel)
+        Me.emissionPanel.Controls.Add(Me.EmissionPeriodTypeLabel)
         Me.emissionPanel.Controls.Add(Me.EmissionPeriodTypeComboBox)
         Me.emissionPanel.Location = New System.Drawing.Point(3, 34)
         Me.emissionPanel.Margin = New System.Windows.Forms.Padding(4)
@@ -437,12 +432,12 @@ Partial Class ProcessEmissionsAddEditForm
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.OKButton)
         Me.Controls.Add(Me.EmissionValueUnitOfMeasurementLabel)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.RequiredFieldNoteLabel)
         Me.Controls.Add(Me.CommentPublicTextBox)
         Me.Controls.Add(Me.CommentInternalTextBox)
         Me.Controls.Add(Me.EmissionValueTextBox)
         Me.Controls.Add(CommentPublicLabel)
-        Me.Controls.Add(CapturePercentLabel)
+        Me.Controls.Add(Me.EmissionsValueLabel)
         Me.Controls.Add(CommentInternalLabel)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "ProcessEmissionsAddEditForm"
@@ -465,7 +460,7 @@ Partial Class ProcessEmissionsAddEditForm
     End Sub
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents OKButton As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents RequiredFieldNoteLabel As System.Windows.Forms.Label
     Friend WithEvents CommentPublicTextBox As System.Windows.Forms.TextBox
     Friend WithEvents PollutantComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents CommentInternalTextBox As System.Windows.Forms.TextBox
@@ -491,4 +486,9 @@ Partial Class ProcessEmissionsAddEditForm
     Friend WithEvents PollutantTableAdapter1 As APCD.EmissionsInventory.EmissionsDataSetTableAdapters.PollutantTableAdapter
     Friend WithEvents TableAdapterManager1 As APCD.EmissionsInventory.EmissionsDataSetTableAdapters.TableAdapterManager
     Friend WithEvents emissionPanel As System.Windows.Forms.Panel
+    Friend WithEvents PollutantLabel As System.Windows.Forms.Label
+    Friend WithEvents EmissionsValueLabel As System.Windows.Forms.Label
+    Friend WithEvents EmissionPeriodTypeLabel As System.Windows.Forms.Label
+    Friend WithEvents EmissionCalculationMethodLabel As System.Windows.Forms.Label
+    Friend WithEvents EmissionFactorValueLabel As System.Windows.Forms.Label
 End Class

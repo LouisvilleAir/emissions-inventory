@@ -1929,7 +1929,7 @@ Public Class ProcessUserControl
                                 End If
                             End If
                             row.EmissionValue = changedRow.EmissionValue
-                            If changedRow.UnitOfMeasurementName = APCD.EmissionsInventory.GlobalVariables.UnitOfMeasurement.tons_US Then
+                            If changedRow.UnitOfMeasurementName = APCD.EmissionsInventory.GlobalVariables.UnitOfMeasurement.tons Then
                                 row.UnitofMeasurementID = APCD.EmissionsInventory.GlobalVariables.UnitOfMeasurementEnum.tons
                             Else
                                 row.UnitofMeasurementID = APCD.EmissionsInventory.GlobalVariables.UnitOfMeasurementEnum.pounds

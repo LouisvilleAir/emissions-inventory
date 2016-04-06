@@ -57,8 +57,8 @@ Public Class GlobalVariables
     End Enum
 
     Friend Structure UnitOfMeasurement
-        Const pounds_weight As String = "pounds (weight)"
-        Const tons_US As String = "tons (US)"
+        Const pounds As String = "pounds"
+        Const tons As String = "tons"
     End Structure
 
     ''' <summary>
