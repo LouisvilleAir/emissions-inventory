@@ -537,20 +537,26 @@ Public Class ProcessEmissionsAddEditForm
             Me.m_processEmission.EmissionCalculationMethodID = CInt(Me.EmissionCalculationMethodComboBox.SelectedValue)
             Me.m_isFactorRequired = CBool(Emissions.Utility.EmissionCalculationMethodUtility.GetIsEmissionFactorRequired(Me.m_processEmission.EmissionCalculationMethodID))
 
-            'If (Me.m_isFactorRequired = True) Then
-            '    Me.m_processEmission.EmissionFactorUnitOfMeasurementID = CInt(GlobalVariables.UnitOfMeasurementEnum.pounds)
-            '    Me.m_processEmission.EmissionFactorProcessParameterTypeID = 1 'Throughput
-            '    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
-            '    Me.EmissionFactorPanel.Visible = True
-            'Else
-            '    Me.m_processEmission.EmissionFactorValue = -1
-            '    Me.m_processEmission.EmissionFactorUnitOfMeasurementID = -1
-            '    Me.m_processEmission.EmissionFactorProcessParameterTypeID = -1
+            If (Me.m_isFactorRequired = True) Then
+                Me.m_processEmission.EmissionFactorUnitOfMeasurementID = CInt(GlobalVariables.UnitOfMeasurementEnum.pounds)
+                Me.m_processEmission.EmissionFactorProcessParameterTypeID = 1 'Throughput
+                Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+                'Me.EmissionFactorPanel.Visible = True
+                Me.EmissionFactorValueLabel.Text = "* Emission Factor:" ' required
+            Else
+                Me.m_processEmission.EmissionFactorValue = -1
+                ' 2016-04-15 BJF: Changed to enable user to enter an emission factor.
+                'Me.m_processEmission.EmissionFactorUnitOfMeasurementID = -1
+                'Me.m_processEmission.EmissionFactorProcessParameterTypeID = -1
+                Me.m_processEmission.EmissionFactorUnitOfMeasurementID = CInt(GlobalVariables.UnitOfMeasurementEnum.pounds)
+                Me.m_processEmission.EmissionFactorProcessParameterTypeID = 1 'Throughput
 
-            '    Me.EmissionFactorValueTextBox.Text = String.Empty
-            '    Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
-            '    Me.EmissionFactorPanel.Visible = False
-            'End If
+                'Me.EmissionFactorValueTextBox.Text = String.Empty
+                Me.EmissionFactorValueUnitOfMeasurementLabel.Text = String.Empty
+                'Me.EmissionFactorPanel.Visible = False
+                Me.EmissionFactorValueLabel.Text = "Emission Factor If Any:"   ' optional
+            End If
+
             Me.m_processEmission.EmissionFactorUnitOfMeasurementID = CInt(GlobalVariables.UnitOfMeasurementEnum.pounds)
             Me.m_processEmission.EmissionFactorProcessParameterTypeID = 1 'Throughput
             Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
@@ -637,6 +643,8 @@ Public Class ProcessEmissionsAddEditForm
                     emissionValue = ProcessHelper.EmissionsFromEmissionFactor(Me.m_processEmission)
 
                     Me.EmissionValueTextBox.Text = emissionValue.ToString()
+                    Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
+
             End If
         End If
         End If

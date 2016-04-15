@@ -29,12 +29,12 @@ Partial Class ProcessUserControl
         Dim CommentPublicLabel As System.Windows.Forms.Label
         Dim CommentInternalLabel As System.Windows.Forms.Label
         Dim ControlApproachDescriptionLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.GeneralTabPage = New System.Windows.Forms.TabPage()
@@ -264,7 +264,7 @@ Partial Class ProcessUserControl
         Me.GeneralTabPage.Location = New System.Drawing.Point(4, 27)
         Me.GeneralTabPage.Name = "GeneralTabPage"
         Me.GeneralTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.GeneralTabPage.Size = New System.Drawing.Size(932, 733)
+        Me.GeneralTabPage.Size = New System.Drawing.Size(888, 733)
         Me.GeneralTabPage.TabIndex = 0
         Me.GeneralTabPage.Text = "General"
         '
@@ -373,7 +373,7 @@ Partial Class ProcessUserControl
         Me.ReleasePointsTabPage.Location = New System.Drawing.Point(4, 27)
         Me.ReleasePointsTabPage.Name = "ReleasePointsTabPage"
         Me.ReleasePointsTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.ReleasePointsTabPage.Size = New System.Drawing.Size(932, 733)
+        Me.ReleasePointsTabPage.Size = New System.Drawing.Size(888, 733)
         Me.ReleasePointsTabPage.TabIndex = 1
         Me.ReleasePointsTabPage.Text = "Release Points"
         '
@@ -414,8 +414,8 @@ Partial Class ProcessUserControl
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.DataPropertyName = "EmissionsPercent"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn11.HeaderText = "Emissions Stream %"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.Width = 129
@@ -462,7 +462,7 @@ Partial Class ProcessUserControl
         Me.ControlMeasuresTabPage.Controls.Add(Me.btnAddControlMeasure)
         Me.ControlMeasuresTabPage.Location = New System.Drawing.Point(4, 27)
         Me.ControlMeasuresTabPage.Name = "ControlMeasuresTabPage"
-        Me.ControlMeasuresTabPage.Size = New System.Drawing.Size(932, 733)
+        Me.ControlMeasuresTabPage.Size = New System.Drawing.Size(888, 733)
         Me.ControlMeasuresTabPage.TabIndex = 2
         Me.ControlMeasuresTabPage.Text = "Control Measures"
         '
@@ -484,31 +484,31 @@ Partial Class ProcessUserControl
         Me.ControlMeasureAPCDID.DataPropertyName = "ControlMeasureAPCDID"
         Me.ControlMeasureAPCDID.HeaderText = "APCD ID"
         Me.ControlMeasureAPCDID.Name = "ControlMeasureAPCDID"
-        Me.ControlMeasureAPCDID.Width = 77
+        Me.ControlMeasureAPCDID.Width = 83
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "CapturePercent"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn4.HeaderText = "Capture %"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 88
+        Me.DataGridViewTextBoxColumn4.Width = 96
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "UptimePercent"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn5.HeaderText = "Uptime %"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 85
+        Me.DataGridViewTextBoxColumn5.Width = 92
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "Sequence"
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn6.HeaderText = "Sequence"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.Width = 94
@@ -544,7 +544,7 @@ Partial Class ProcessUserControl
         Me.ThroughputTabPage.Controls.Add(Me.btnAddThroughput)
         Me.ThroughputTabPage.Location = New System.Drawing.Point(4, 27)
         Me.ThroughputTabPage.Name = "ThroughputTabPage"
-        Me.ThroughputTabPage.Size = New System.Drawing.Size(932, 733)
+        Me.ThroughputTabPage.Size = New System.Drawing.Size(888, 733)
         Me.ThroughputTabPage.TabIndex = 3
         Me.ThroughputTabPage.Text = "Throughput"
         '
@@ -571,9 +571,9 @@ Partial Class ProcessUserControl
         'DataGridViewTextBoxColumn28
         '
         Me.DataGridViewTextBoxColumn28.DataPropertyName = "ProcessParameterValue"
-        DataGridViewCellStyle12.Format = "N2"
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn28.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle5.Format = "N2"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn28.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn28.HeaderText = "Value"
         Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
         Me.DataGridViewTextBoxColumn28.Width = 75
@@ -809,12 +809,12 @@ Partial Class ProcessUserControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Process_EmissionsTabDataGridView.AutoGenerateColumns = False
-        Me.Process_EmissionsTabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.Process_EmissionsTabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Process_EmissionsTabDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.PollutantName, Me.EmissionPeriodTypeName, Me.EmissionValue, Me.UnitOfMeasurementName, Me.ProcessEmissionID, Me.EmissionCalculationMethodName, Me.EmissionFactorValue, Me.EFUnits})
         Me.Process_EmissionsTabDataGridView.DataSource = Me.Process_EmissionsTabBindingSource
         Me.Process_EmissionsTabDataGridView.Location = New System.Drawing.Point(0, 74)
         Me.Process_EmissionsTabDataGridView.Name = "Process_EmissionsTabDataGridView"
+        Me.Process_EmissionsTabDataGridView.RowHeadersWidth = 20
         Me.Process_EmissionsTabDataGridView.Size = New System.Drawing.Size(888, 659)
         Me.Process_EmissionsTabDataGridView.TabIndex = 47
         '
@@ -1069,7 +1069,7 @@ Partial Class ProcessUserControl
         Me.DataGridViewTextBoxColumn13.HeaderText = "ProcessID"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.Visible = False
-        Me.DataGridViewTextBoxColumn13.Width = 5
+        Me.DataGridViewTextBoxColumn13.Width = 74
         '
         'DataGridViewTextBoxColumn14
         '
@@ -1077,10 +1077,11 @@ Partial Class ProcessUserControl
         Me.DataGridViewTextBoxColumn14.HeaderText = "EmissionYear"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.Visible = False
-        Me.DataGridViewTextBoxColumn14.Width = 5
+        Me.DataGridViewTextBoxColumn14.Width = 95
         '
         'PollutantName
         '
+        Me.PollutantName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.PollutantName.DataPropertyName = "PollutantName"
         Me.PollutantName.HeaderText = "Pollutant"
         Me.PollutantName.Name = "PollutantName"
@@ -1088,28 +1089,31 @@ Partial Class ProcessUserControl
         '
         'EmissionPeriodTypeName
         '
+        Me.EmissionPeriodTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.EmissionPeriodTypeName.DataPropertyName = "EmissionPeriodTypeName"
         Me.EmissionPeriodTypeName.HeaderText = "Period"
         Me.EmissionPeriodTypeName.Name = "EmissionPeriodTypeName"
-        Me.EmissionPeriodTypeName.Width = 74
+        Me.EmissionPeriodTypeName.Width = 65
         '
         'EmissionValue
         '
+        Me.EmissionValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.EmissionValue.DataPropertyName = "EmissionValue"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle7.Format = "#0.000"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.EmissionValue.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle6.Format = "#0.000"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.EmissionValue.DefaultCellStyle = DataGridViewCellStyle6
         Me.EmissionValue.HeaderText = "Emissions"
         Me.EmissionValue.Name = "EmissionValue"
         Me.EmissionValue.Width = 94
         '
         'UnitOfMeasurementName
         '
+        Me.UnitOfMeasurementName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.UnitOfMeasurementName.DataPropertyName = "UnitOfMeasurementName"
-        Me.UnitOfMeasurementName.HeaderText = "Emissions Units"
+        Me.UnitOfMeasurementName.HeaderText = "Units"
         Me.UnitOfMeasurementName.Name = "UnitOfMeasurementName"
-        Me.UnitOfMeasurementName.Width = 118
+        Me.UnitOfMeasurementName.Width = 65
         '
         'ProcessEmissionID
         '
@@ -1117,10 +1121,10 @@ Partial Class ProcessUserControl
         Me.ProcessEmissionID.HeaderText = "ProcessEmissionID"
         Me.ProcessEmissionID.Name = "ProcessEmissionID"
         Me.ProcessEmissionID.Visible = False
-        Me.ProcessEmissionID.Width = 5
         '
         'EmissionCalculationMethodName
         '
+        Me.EmissionCalculationMethodName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.EmissionCalculationMethodName.DataPropertyName = "EmissionCalculationMethodName"
         Me.EmissionCalculationMethodName.HeaderText = "Calculation Method"
         Me.EmissionCalculationMethodName.Name = "EmissionCalculationMethodName"
@@ -1129,18 +1133,19 @@ Partial Class ProcessUserControl
         '
         'EmissionFactorValue
         '
+        Me.EmissionFactorValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.EmissionFactorValue.DataPropertyName = "EmissionFactorValue"
-        Me.EmissionFactorValue.HeaderText = "Emission Factor"
+        Me.EmissionFactorValue.HeaderText = "Factor (lb)"
         Me.EmissionFactorValue.Name = "EmissionFactorValue"
-        Me.EmissionFactorValue.Width = 118
+        Me.EmissionFactorValue.Width = 88
         '
         'EFUnits
         '
         Me.EFUnits.DataPropertyName = "EFUnits"
-        Me.EFUnits.HeaderText = "EF Units"
+        Me.EFUnits.HeaderText = "EFUnits"
         Me.EFUnits.Name = "EFUnits"
         Me.EFUnits.ReadOnly = True
-        Me.EFUnits.Width = 76
+        Me.EFUnits.Visible = False
         '
         'ProcessUserControl
         '

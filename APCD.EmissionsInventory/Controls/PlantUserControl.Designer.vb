@@ -26,11 +26,11 @@ Partial Class PlantUserControl
         Dim PlantIDLabel As System.Windows.Forms.Label
         Dim PlantNameLabel As System.Windows.Forms.Label
         Dim PlantDescriptionLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PlantIDTextBox = New System.Windows.Forms.TextBox()
         Me.PlantNameTextBox = New System.Windows.Forms.TextBox()
         Me.PlantDescriptionTextBox = New System.Windows.Forms.TextBox()
@@ -158,13 +158,12 @@ Partial Class PlantUserControl
         Me.lblTotalHAPS.Name = "lblTotalHAPS"
         Me.lblTotalHAPS.Size = New System.Drawing.Size(888, 24)
         Me.lblTotalHAPS.TabIndex = 10
-        Me.lblTotalHAPS.Text = "Total HAPS"
+        Me.lblTotalHAPS.Text = "Total HAPS in tons"
         '
         'RptPlantEmissionsSummaryV2DataGridView
         '
         Me.RptPlantEmissionsSummaryV2DataGridView.AllowUserToAddRows = False
         Me.RptPlantEmissionsSummaryV2DataGridView.AllowUserToDeleteRows = False
-        Me.RptPlantEmissionsSummaryV2DataGridView.AllowUserToResizeRows = False
         Me.RptPlantEmissionsSummaryV2DataGridView.AutoGenerateColumns = False
         Me.RptPlantEmissionsSummaryV2DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.RptPlantEmissionsSummaryV2DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -191,8 +190,8 @@ Partial Class PlantUserControl
         'DataGridViewTextBoxColumn15
         '
         Me.DataGridViewTextBoxColumn15.DataPropertyName = "PollutantName"
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn15.HeaderText = "Pollutant"
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
         Me.DataGridViewTextBoxColumn15.ReadOnly = True
@@ -201,11 +200,11 @@ Partial Class PlantUserControl
         'DataGridViewTextBoxColumn17
         '
         Me.DataGridViewTextBoxColumn17.DataPropertyName = "SumOfEmissionValue"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.Format = "N4"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn17.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.Format = "N4"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn17.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridViewTextBoxColumn17.HeaderText = "Total"
         Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
         Me.DataGridViewTextBoxColumn17.ReadOnly = True
@@ -269,8 +268,8 @@ Partial Class PlantUserControl
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "EmissionUnitAPCDID"
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewTextBoxColumn12.HeaderText = "Emission Unit"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
@@ -279,8 +278,8 @@ Partial Class PlantUserControl
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.DataPropertyName = "ProcessAPCDID"
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn11.HeaderText = "Process"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
@@ -289,11 +288,11 @@ Partial Class PlantUserControl
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "EmissionValue"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.Format = "N4"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.Format = "N4"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn9.HeaderText = "Emissions"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
@@ -466,9 +465,9 @@ Partial Class PlantUserControl
         Me.ColumnSortLabel.Location = New System.Drawing.Point(371, 13)
         Me.ColumnSortLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ColumnSortLabel.Name = "ColumnSortLabel"
-        Me.ColumnSortLabel.Size = New System.Drawing.Size(322, 17)
+        Me.ColumnSortLabel.Size = New System.Drawing.Size(482, 17)
         Me.ColumnSortLabel.TabIndex = 13
-        Me.ColumnSortLabel.Text = "You can click on a heading to sort by that column."
+        Me.ColumnSortLabel.Text = "Emissions are all in tons. You can click on a heading to sort by that column."
         '
         'MainPanel
         '

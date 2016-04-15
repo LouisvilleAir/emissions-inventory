@@ -70,16 +70,6 @@ Partial Class ProcessEmissionsAddEditForm
         Me.emissionPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'PollutantLabel
-        '
-        Me.PollutantLabel.AutoSize = True
-        Me.PollutantLabel.Location = New System.Drawing.Point(13, 20)
-        Me.PollutantLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.PollutantLabel.Name = "PollutantLabel"
-        Me.PollutantLabel.Size = New System.Drawing.Size(76, 17)
-        Me.PollutantLabel.TabIndex = 41
-        Me.PollutantLabel.Text = "* Pollutant:"
-        '
         'CommentPublicLabel
         '
         CommentPublicLabel.Location = New System.Drawing.Point(19, 278)
@@ -97,6 +87,16 @@ Partial Class ProcessEmissionsAddEditForm
         CommentInternalLabel.Size = New System.Drawing.Size(140, 39)
         CommentInternalLabel.TabIndex = 45
         CommentInternalLabel.Text = "APCD Confidential Comment:"
+        '
+        'PollutantLabel
+        '
+        Me.PollutantLabel.AutoSize = True
+        Me.PollutantLabel.Location = New System.Drawing.Point(13, 20)
+        Me.PollutantLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.PollutantLabel.Name = "PollutantLabel"
+        Me.PollutantLabel.Size = New System.Drawing.Size(76, 17)
+        Me.PollutantLabel.TabIndex = 41
+        Me.PollutantLabel.Text = "* Pollutant:"
         '
         'EmissionsValueLabel
         '
@@ -134,9 +134,9 @@ Partial Class ProcessEmissionsAddEditForm
         Me.EmissionFactorValueLabel.Location = New System.Drawing.Point(13, 12)
         Me.EmissionFactorValueLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EmissionFactorValueLabel.Name = "EmissionFactorValueLabel"
-        Me.EmissionFactorValueLabel.Size = New System.Drawing.Size(121, 17)
+        Me.EmissionFactorValueLabel.Size = New System.Drawing.Size(112, 17)
         Me.EmissionFactorValueLabel.TabIndex = 50
-        Me.EmissionFactorValueLabel.Text = "* Emission Factor:"
+        Me.EmissionFactorValueLabel.Text = "Emission Factor:"
         '
         'btnCancel
         '
