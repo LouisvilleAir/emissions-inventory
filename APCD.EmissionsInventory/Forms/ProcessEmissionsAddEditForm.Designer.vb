@@ -173,7 +173,7 @@ Partial Class ProcessEmissionsAddEditForm
         '
         'CommentPublicTextBox
         '
-        Me.CommentPublicTextBox.Location = New System.Drawing.Point(164, 278)
+        Me.CommentPublicTextBox.Location = New System.Drawing.Point(170, 278)
         Me.CommentPublicTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.CommentPublicTextBox.MaxLength = 255
         Me.CommentPublicTextBox.Multiline = True
@@ -187,7 +187,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.PollutantComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.PollutantComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PollutantComboBox.FormattingEnabled = True
-        Me.PollutantComboBox.Location = New System.Drawing.Point(159, 16)
+        Me.PollutantComboBox.Location = New System.Drawing.Point(165, 16)
         Me.PollutantComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PollutantComboBox.Name = "PollutantComboBox"
         Me.PollutantComboBox.Size = New System.Drawing.Size(440, 24)
@@ -195,7 +195,7 @@ Partial Class ProcessEmissionsAddEditForm
         '
         'CommentInternalTextBox
         '
-        Me.CommentInternalTextBox.Location = New System.Drawing.Point(164, 383)
+        Me.CommentInternalTextBox.Location = New System.Drawing.Point(170, 383)
         Me.CommentInternalTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.CommentInternalTextBox.MaxLength = 255
         Me.CommentInternalTextBox.Multiline = True
@@ -205,7 +205,7 @@ Partial Class ProcessEmissionsAddEditForm
         '
         'EmissionValueTextBox
         '
-        Me.EmissionValueTextBox.Location = New System.Drawing.Point(164, 237)
+        Me.EmissionValueTextBox.Location = New System.Drawing.Point(170, 237)
         Me.EmissionValueTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmissionValueTextBox.MaxLength = 12
         Me.EmissionValueTextBox.Name = "EmissionValueTextBox"
@@ -215,7 +215,7 @@ Partial Class ProcessEmissionsAddEditForm
         '
         'EmissionFactorValueTextBox
         '
-        Me.EmissionFactorValueTextBox.Location = New System.Drawing.Point(159, 9)
+        Me.EmissionFactorValueTextBox.Location = New System.Drawing.Point(165, 9)
         Me.EmissionFactorValueTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmissionFactorValueTextBox.MaxLength = 15
         Me.EmissionFactorValueTextBox.Name = "EmissionFactorValueTextBox"
@@ -227,7 +227,7 @@ Partial Class ProcessEmissionsAddEditForm
         '
         Me.EmissionPeriodTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.EmissionPeriodTypeComboBox.FormattingEnabled = True
-        Me.EmissionPeriodTypeComboBox.Location = New System.Drawing.Point(159, 53)
+        Me.EmissionPeriodTypeComboBox.Location = New System.Drawing.Point(165, 53)
         Me.EmissionPeriodTypeComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmissionPeriodTypeComboBox.Name = "EmissionPeriodTypeComboBox"
         Me.EmissionPeriodTypeComboBox.Size = New System.Drawing.Size(235, 24)
@@ -237,7 +237,7 @@ Partial Class ProcessEmissionsAddEditForm
         '
         Me.EmissionCalculationMethodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.EmissionCalculationMethodComboBox.FormattingEnabled = True
-        Me.EmissionCalculationMethodComboBox.Location = New System.Drawing.Point(159, 93)
+        Me.EmissionCalculationMethodComboBox.Location = New System.Drawing.Point(165, 93)
         Me.EmissionCalculationMethodComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmissionCalculationMethodComboBox.Name = "EmissionCalculationMethodComboBox"
         Me.EmissionCalculationMethodComboBox.Size = New System.Drawing.Size(440, 24)
@@ -256,7 +256,7 @@ Partial Class ProcessEmissionsAddEditForm
         'EmissionFactorValueUnitOfMeasurementLabel
         '
         Me.EmissionFactorValueUnitOfMeasurementLabel.AutoSize = True
-        Me.EmissionFactorValueUnitOfMeasurementLabel.Location = New System.Drawing.Point(328, 12)
+        Me.EmissionFactorValueUnitOfMeasurementLabel.Location = New System.Drawing.Point(332, 12)
         Me.EmissionFactorValueUnitOfMeasurementLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EmissionFactorValueUnitOfMeasurementLabel.Name = "EmissionFactorValueUnitOfMeasurementLabel"
         Me.EmissionFactorValueUnitOfMeasurementLabel.Size = New System.Drawing.Size(13, 17)
@@ -272,7 +272,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.EmissionFactorPanel.Location = New System.Drawing.Point(3, 180)
         Me.EmissionFactorPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.EmissionFactorPanel.Name = "EmissionFactorPanel"
-        Me.EmissionFactorPanel.Size = New System.Drawing.Size(625, 41)
+        Me.EmissionFactorPanel.Size = New System.Drawing.Size(630, 41)
         Me.EmissionFactorPanel.TabIndex = 1
         '
         'ErrorProvider1
@@ -416,7 +416,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.emissionPanel.Location = New System.Drawing.Point(3, 34)
         Me.emissionPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.emissionPanel.Name = "emissionPanel"
-        Me.emissionPanel.Size = New System.Drawing.Size(625, 138)
+        Me.emissionPanel.Size = New System.Drawing.Size(630, 138)
         Me.emissionPanel.TabIndex = 0
         '
         'ProcessEmissionsAddEditForm
