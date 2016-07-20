@@ -110,7 +110,7 @@
         If (IsNumeric(obj)) Then
             total = CDbl(obj) / 2000
         End If
-        Me.lblTotalHAPS.Text = "Total HAPS: " & Format(Math.Round(total, 2), "#0,0.00")
+        Me.lblTotalHAPS.Text = "Total HAPS: " & Format(Math.Round(total, 2), "#0,0.00") & " tons"
 
     End Sub
 

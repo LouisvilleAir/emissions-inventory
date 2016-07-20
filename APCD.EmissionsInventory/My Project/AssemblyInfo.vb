@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("APCD Emissions Inventory")> 
-<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyDescription("APCD's point-source emissions inventory data system")> 
 <Assembly: AssemblyCompany("Air Pollution Control District, Louisville, KY")> 
 <Assembly: AssemblyProduct("APCD Emissions Inventory")> 
-<Assembly: AssemblyCopyright("Copyright © 2011-2013 Air Pollution Control District, Louisville, KY")> 
+<Assembly: AssemblyCopyright("Copyright © 2011-2016 Air Pollution Control District, Louisville, KY")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.2.0.68")> 
-<Assembly: AssemblyFileVersion("1.2.0.68")> 
+<Assembly: AssemblyVersion("1.2.0.69")> 
+<Assembly: AssemblyFileVersion("1.2.0.69")> 

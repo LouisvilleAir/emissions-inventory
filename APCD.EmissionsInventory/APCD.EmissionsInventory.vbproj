@@ -37,11 +37,11 @@
     <SupportUrl>http://apcbar02tryand1/APCDApplicationAndPCSupport/EmissionsInventory/emissionsInventoryHome.htm</SupportUrl>
     <ProductName>APCD Emissions Inventory</ProductName>
     <PublisherName>APCD</PublisherName>
-    <MinimumRequiredVersion>1.2.0.68</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.2.0.69</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>68</ApplicationRevision>
+    <ApplicationRevision>69</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
