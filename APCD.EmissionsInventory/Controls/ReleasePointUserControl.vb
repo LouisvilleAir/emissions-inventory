@@ -531,7 +531,7 @@ Public Class ReleasePointUserControl
         'min -85.4135
         'max -85.9586
 
-        Const errorMessage As String = "The longitude must be >= -85.9586 and <= -85.4135."
+        Const errorMessage As String = "Invalid data: The longitude must be >= -85.9586 and <= -85.4135."
         Dim dataIsValid As Boolean
 
         If (Me.XCoordinateTextBox.Text.Trim.Length = 0) Then
@@ -571,7 +571,7 @@ Public Class ReleasePointUserControl
     Private Function IsValidYCoordinate() As Boolean
         'min 37.9963
         'max 38.3837
-        Const errorMessage As String = "The latitude must be >= 37.9963 and <= 38.3837."
+        Const errorMessage As String = "Invalid data: The latitude must be >= 37.9963 and <= 38.3837."
         Dim dataIsValid As Boolean
 
         If (Me.YCoordinateTextBox.Text.Trim.Length = 0) Then
@@ -776,7 +776,7 @@ Public Class ReleasePointUserControl
 
     End Function
 
-    Private Function StackMeasurementsAreValid(ByVal type As ReleasePointHelper.ReleaseTypeSubType) As Boolean
+    Private Function StackMeasurementsAreValid(ByVal subType As ReleasePointHelper.ReleaseTypeSubType) As Boolean
 
         Dim ok As Boolean = True
         Dim errorMessage As New StringBuilder
@@ -785,33 +785,39 @@ Public Class ReleasePointUserControl
         Try
             For Each row As EmissionsDataSet.ReleasePointDetailRow In MainForm.EmissionsDataSet.ReleasePointDetail
                 Dim measurement As ReleasePointHelper.MeasurementEnum = CType(row.MeasurementID, ReleasePointHelper.MeasurementEnum)
-                releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, type)
+                Try
+                    releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, subType)
 
-                If ((row.DetailValue < releaseTypeMeasurement.MinimumValue) OrElse (row.DetailValue > releaseTypeMeasurement.MaximumValue)) Then
-                    If (measurement = ReleasePointHelper.MeasurementEnum.Height) Then
-                        errorMessage.Append("Height")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Diameter) Then
-                        errorMessage.Append("Diameter")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Length) Then
-                        errorMessage.Append("Length")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Width) Then
-                        errorMessage.Append("Width")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.FencelineDistance) Then
-                        errorMessage.Append("Fenceline Distance")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasTemperature) Then
-                        errorMessage.Append("Exit Gas Temperature")
-                    ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasFlowRate) Then
-                        errorMessage.Append("Exit Gas Flow Rate")
+                    If ((row.DetailValue < releaseTypeMeasurement.MinimumValue) OrElse (row.DetailValue > releaseTypeMeasurement.MaximumValue)) Then
+                        errorMessage.Append("Invalid data: ")
+                        If (measurement = ReleasePointHelper.MeasurementEnum.Height) Then
+                            errorMessage.Append("Height")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Diameter) Then
+                            errorMessage.Append("Diameter")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Length) Then
+                            errorMessage.Append("Length")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Width) Then
+                            errorMessage.Append("Width")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.FencelineDistance) Then
+                            errorMessage.Append("Fenceline Distance")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasTemperature) Then
+                            errorMessage.Append("Exit Gas Temperature")
+                        ElseIf (measurement = ReleasePointHelper.MeasurementEnum.ExitGasFlowRate) Then
+                            errorMessage.Append("Exit Gas Flow Rate")
+                        End If
+                        errorMessage.Append(" must be between ")
+                        errorMessage.Append(CStr(releaseTypeMeasurement.MinimumValue))
+                        errorMessage.Append(" and ")
+                        errorMessage.Append(CStr(releaseTypeMeasurement.MaximumValue))
+                        errorMessage.Append(" inclusive.")
+
+                        ok = False
+                        Exit For
                     End If
-                    errorMessage.Append(" must be between ")
-                    errorMessage.Append(CStr(releaseTypeMeasurement.MinimumValue))
-                    errorMessage.Append(" and ")
-                    errorMessage.Append(CStr(releaseTypeMeasurement.MaximumValue))
-                    errorMessage.Append(" inclusive.")
-
-                    ok = False
-                    Exit For
-                End If
+                Catch ex As Exception
+                    MessageBox.Show("Warning: Unable to look up control limits for stack property " & measurement.ToString() & " for subtype " & subType.ToString() & "!")
+                    GlobalMethods.HandleError(ex)
+                End Try
             Next
 
             If (ok = True) Then
@@ -830,7 +836,7 @@ Public Class ReleasePointUserControl
 
     End Function
 
-    Private Function FugitiveMeasurementsAreValid(ByVal type As ReleasePointHelper.ReleaseTypeSubType) As Boolean
+    Private Function FugitiveMeasurementsAreValid(ByVal subType As ReleasePointHelper.ReleaseTypeSubType) As Boolean
 
         Dim ok As Boolean = True
         Dim lengthExists As Boolean = False
@@ -842,9 +848,10 @@ Public Class ReleasePointUserControl
             For Each row As EmissionsDataSet.ReleasePointDetailRow In MainForm.EmissionsDataSet.ReleasePointDetail
                 Dim measurement As ReleasePointHelper.MeasurementEnum = CType(row.MeasurementID, ReleasePointHelper.MeasurementEnum)
                 Try
-                    releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, type)
+                    releaseTypeMeasurement = Me.EmissionsDataSet.ReleaseTypeMeasurement.FindByMeasurementIDReleaseTypeSubTypeID(measurement, subType)
 
                     If ((row.DetailValue < releaseTypeMeasurement.MinimumValue) OrElse (row.DetailValue > releaseTypeMeasurement.MaximumValue)) Then
+                        errorMessage.Append("Invalid data: ")
                         If (measurement = ReleasePointHelper.MeasurementEnum.Height) Then
                             errorMessage.Append("Height")
                         ElseIf (measurement = ReleasePointHelper.MeasurementEnum.Length) Then
@@ -858,21 +865,21 @@ Public Class ReleasePointUserControl
                         errorMessage.Append(CStr(releaseTypeMeasurement.MinimumValue))
                         errorMessage.Append(" and ")
                         errorMessage.Append(CStr(releaseTypeMeasurement.MaximumValue))
-                        errorMessage.Append(" inclusive.")
+                        errorMessage.Append(" inclusive. ")
 
                         ok = False
                         Exit For
                     End If
 
                 Catch ex As Exception
-                    MessageBox.Show("Unable to look up control limits for release point property " & measurement & " for " & type & "!")
+                    MessageBox.Show("Warning: Unable to look up control limits for fugitive release point property " & measurement.ToString() & " for subtype " & subType.ToString() & "!")
                     GlobalMethods.HandleError(ex)
                 End Try
             Next
 
             If (ok = True) Then
                 If (lengthExists = True AndAlso widthExists = False) OrElse (lengthExists = False AndAlso widthExists = True) Then
-                    errorMessage.Append("If length or width is provided both must be provided.")
+                    errorMessage.Append("Invalid data: If length or width is provided both must be provided.")
                     ok = False
                 End If
             Else
@@ -962,6 +969,13 @@ Public Class ReleasePointUserControl
             MainForm.ReleasePointDetailHistoryTableAdapter.Update(MainForm.EmissionsDataSet.ReleasePointDetailHistory)
 
             saved = True
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1000,8 +1014,5 @@ Public Class ReleasePointUserControl
 
     End Sub
 
-    Private Sub ButtonPanel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles ButtonPanel.Paint
-
-    End Sub
 End Class
 

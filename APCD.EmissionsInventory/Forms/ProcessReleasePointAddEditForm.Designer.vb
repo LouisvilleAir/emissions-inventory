@@ -54,78 +54,87 @@ Partial Class ProcessReleasePointAddEditForm
         'ReleasePointIDLabel
         '
         ReleasePointIDLabel.AutoSize = True
-        ReleasePointIDLabel.Location = New System.Drawing.Point(5, 52)
+        ReleasePointIDLabel.Location = New System.Drawing.Point(7, 64)
+        ReleasePointIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ReleasePointIDLabel.Name = "ReleasePointIDLabel"
-        ReleasePointIDLabel.Size = New System.Drawing.Size(83, 13)
+        ReleasePointIDLabel.Size = New System.Drawing.Size(109, 17)
         ReleasePointIDLabel.TabIndex = 5
         ReleasePointIDLabel.Text = "* Release Point:"
         '
         'EmissionsPercentLabel
         '
         EmissionsPercentLabel.AutoSize = True
-        EmissionsPercentLabel.Location = New System.Drawing.Point(5, 78)
+        EmissionsPercentLabel.Location = New System.Drawing.Point(7, 96)
+        EmissionsPercentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         EmissionsPercentLabel.Name = "EmissionsPercentLabel"
-        EmissionsPercentLabel.Size = New System.Drawing.Size(139, 13)
+        EmissionsPercentLabel.Size = New System.Drawing.Size(186, 17)
         EmissionsPercentLabel.TabIndex = 7
         EmissionsPercentLabel.Text = "* Emissions Stream Percent:"
         '
         'CommentPublicLabel
         '
-        CommentPublicLabel.Location = New System.Drawing.Point(13, 104)
+        CommentPublicLabel.Location = New System.Drawing.Point(17, 128)
+        CommentPublicLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentPublicLabel.Name = "CommentPublicLabel"
-        CommentPublicLabel.Size = New System.Drawing.Size(125, 32)
+        CommentPublicLabel.Size = New System.Drawing.Size(167, 39)
         CommentPublicLabel.TabIndex = 9
         CommentPublicLabel.Text = "APCD Public Comment:"
         '
         'CommentInternalLabel
         '
-        CommentInternalLabel.Location = New System.Drawing.Point(13, 189)
+        CommentInternalLabel.Location = New System.Drawing.Point(17, 233)
+        CommentInternalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentInternalLabel.Name = "CommentInternalLabel"
-        CommentInternalLabel.Size = New System.Drawing.Size(125, 36)
+        CommentInternalLabel.Size = New System.Drawing.Size(167, 44)
         CommentInternalLabel.TabIndex = 11
         CommentInternalLabel.Text = "APCD Confidential Comment:"
         '
         'EmissionsPercentTextBox
         '
-        Me.EmissionsPercentTextBox.Location = New System.Drawing.Point(145, 75)
+        Me.EmissionsPercentTextBox.Location = New System.Drawing.Point(193, 92)
+        Me.EmissionsPercentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.EmissionsPercentTextBox.MaxLength = 3
         Me.EmissionsPercentTextBox.Name = "EmissionsPercentTextBox"
-        Me.EmissionsPercentTextBox.Size = New System.Drawing.Size(30, 20)
+        Me.EmissionsPercentTextBox.Size = New System.Drawing.Size(39, 22)
         Me.EmissionsPercentTextBox.TabIndex = 1
         '
         'ReleasePointComboBox
         '
         Me.ReleasePointComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ReleasePointComboBox.FormattingEnabled = True
-        Me.ReleasePointComboBox.Location = New System.Drawing.Point(145, 48)
+        Me.ReleasePointComboBox.Location = New System.Drawing.Point(193, 59)
+        Me.ReleasePointComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ReleasePointComboBox.Name = "ReleasePointComboBox"
-        Me.ReleasePointComboBox.Size = New System.Drawing.Size(225, 21)
+        Me.ReleasePointComboBox.Size = New System.Drawing.Size(299, 24)
         Me.ReleasePointComboBox.TabIndex = 0
         '
         'CommentPublicTextBox
         '
-        Me.CommentPublicTextBox.Location = New System.Drawing.Point(145, 104)
+        Me.CommentPublicTextBox.Location = New System.Drawing.Point(193, 128)
+        Me.CommentPublicTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentPublicTextBox.MaxLength = 255
         Me.CommentPublicTextBox.Multiline = True
         Me.CommentPublicTextBox.Name = "CommentPublicTextBox"
-        Me.CommentPublicTextBox.Size = New System.Drawing.Size(295, 68)
+        Me.CommentPublicTextBox.Size = New System.Drawing.Size(392, 83)
         Me.CommentPublicTextBox.TabIndex = 2
         '
         'CommentInternalTextBox
         '
-        Me.CommentInternalTextBox.Location = New System.Drawing.Point(145, 189)
+        Me.CommentInternalTextBox.Location = New System.Drawing.Point(193, 233)
+        Me.CommentInternalTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentInternalTextBox.MaxLength = 255
         Me.CommentInternalTextBox.Multiline = True
         Me.CommentInternalTextBox.Name = "CommentInternalTextBox"
-        Me.CommentInternalTextBox.Size = New System.Drawing.Size(295, 68)
+        Me.CommentInternalTextBox.Size = New System.Drawing.Size(392, 83)
         Me.CommentInternalTextBox.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 9)
+        Me.Label1.Location = New System.Drawing.Point(7, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
+        Me.Label1.Size = New System.Drawing.Size(105, 17)
         Me.Label1.TabIndex = 24
         Me.Label1.Text = "* Required field"
         '
@@ -133,9 +142,10 @@ Partial Class ProcessReleasePointAddEditForm
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(375, 300)
+        Me.btnCancel.Location = New System.Drawing.Point(485, 341)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 5
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -143,9 +153,10 @@ Partial Class ProcessReleasePointAddEditForm
         'OKButton
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OKButton.Location = New System.Drawing.Point(294, 300)
+        Me.OKButton.Location = New System.Drawing.Point(377, 341)
+        Me.OKButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(75, 23)
+        Me.OKButton.Size = New System.Drawing.Size(100, 28)
         Me.OKButton.TabIndex = 4
         Me.OKButton.Text = "OK"
         Me.OKButton.UseVisualStyleBackColor = True
@@ -205,6 +216,10 @@ Partial Class ProcessReleasePointAddEditForm
         Me.TableAdapterManager.PollutantTableAdapter = Nothing
         Me.TableAdapterManager.PreBillingTableAdapter = Nothing
         Me.TableAdapterManager.ProcessClassLevel1TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel2TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel3TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel4TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureTableAdapter = Nothing
         Me.TableAdapterManager.ProcessDetailPeriodHistoryTableAdapter = Nothing
@@ -245,10 +260,10 @@ Partial Class ProcessReleasePointAddEditForm
         'ProcessReleasePointAddEditForm
         '
         Me.AcceptButton = Me.OKButton
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(462, 335)
+        Me.ClientSize = New System.Drawing.Size(616, 412)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.OKButton)
@@ -262,6 +277,7 @@ Partial Class ProcessReleasePointAddEditForm
         Me.Controls.Add(CommentPublicLabel)
         Me.Controls.Add(CommentInternalLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "ProcessReleasePointAddEditForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "ProcessReleasePointAddEditForm"

@@ -66,52 +66,58 @@ Partial Class ProcessControlMeasureAddEditForm
         'ControlMeasureIDLabel
         '
         ControlMeasureIDLabel.AutoSize = True
-        ControlMeasureIDLabel.Location = New System.Drawing.Point(9, 53)
+        ControlMeasureIDLabel.Location = New System.Drawing.Point(12, 65)
+        ControlMeasureIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ControlMeasureIDLabel.Name = "ControlMeasureIDLabel"
-        ControlMeasureIDLabel.Size = New System.Drawing.Size(94, 13)
+        ControlMeasureIDLabel.Size = New System.Drawing.Size(125, 17)
         ControlMeasureIDLabel.TabIndex = 30
         ControlMeasureIDLabel.Text = "* Control Measure:"
         '
         'CapturePercentLabel
         '
         CapturePercentLabel.AutoSize = True
-        CapturePercentLabel.Location = New System.Drawing.Point(9, 79)
+        CapturePercentLabel.Location = New System.Drawing.Point(12, 97)
+        CapturePercentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapturePercentLabel.Name = "CapturePercentLabel"
-        CapturePercentLabel.Size = New System.Drawing.Size(94, 13)
+        CapturePercentLabel.Size = New System.Drawing.Size(124, 17)
         CapturePercentLabel.TabIndex = 32
         CapturePercentLabel.Text = "* Capture Percent:"
         '
         'CommentPublicLabel
         '
-        CommentPublicLabel.Location = New System.Drawing.Point(17, 165)
+        CommentPublicLabel.Location = New System.Drawing.Point(23, 203)
+        CommentPublicLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentPublicLabel.Name = "CommentPublicLabel"
-        CommentPublicLabel.Size = New System.Drawing.Size(96, 39)
+        CommentPublicLabel.Size = New System.Drawing.Size(128, 48)
         CommentPublicLabel.TabIndex = 33
         CommentPublicLabel.Text = "APCD Public Comment:"
         '
         'CommentInternalLabel
         '
-        CommentInternalLabel.Location = New System.Drawing.Point(17, 250)
+        CommentInternalLabel.Location = New System.Drawing.Point(23, 308)
+        CommentInternalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentInternalLabel.Name = "CommentInternalLabel"
-        CommentInternalLabel.Size = New System.Drawing.Size(96, 34)
+        CommentInternalLabel.Size = New System.Drawing.Size(128, 42)
         CommentInternalLabel.TabIndex = 34
         CommentInternalLabel.Text = "APCD Confidential Comment:"
         '
         'UptimePercentLabel
         '
         UptimePercentLabel.AutoSize = True
-        UptimePercentLabel.Location = New System.Drawing.Point(12, 106)
+        UptimePercentLabel.Location = New System.Drawing.Point(16, 130)
+        UptimePercentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         UptimePercentLabel.Name = "UptimePercentLabel"
-        UptimePercentLabel.Size = New System.Drawing.Size(90, 13)
+        UptimePercentLabel.Size = New System.Drawing.Size(118, 17)
         UptimePercentLabel.TabIndex = 35
         UptimePercentLabel.Text = "* Uptime Percent:"
         '
         'SequenceLabel
         '
         SequenceLabel.AutoSize = True
-        SequenceLabel.Location = New System.Drawing.Point(12, 132)
+        SequenceLabel.Location = New System.Drawing.Point(16, 162)
+        SequenceLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         SequenceLabel.Name = "SequenceLabel"
-        SequenceLabel.Size = New System.Drawing.Size(66, 13)
+        SequenceLabel.Size = New System.Drawing.Size(85, 17)
         SequenceLabel.TabIndex = 36
         SequenceLabel.Text = "* Sequence:"
         '
@@ -119,9 +125,10 @@ Partial Class ProcessControlMeasureAddEditForm
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(383, 365)
+        Me.btnCancel.Location = New System.Drawing.Point(485, 423)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 6
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -129,9 +136,10 @@ Partial Class ProcessControlMeasureAddEditForm
         'OKButton
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OKButton.Location = New System.Drawing.Point(302, 365)
+        Me.OKButton.Location = New System.Drawing.Point(376, 423)
+        Me.OKButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(75, 23)
+        Me.OKButton.Size = New System.Drawing.Size(100, 28)
         Me.OKButton.TabIndex = 7
         Me.OKButton.Text = "OK"
         Me.OKButton.UseVisualStyleBackColor = True
@@ -139,37 +147,41 @@ Partial Class ProcessControlMeasureAddEditForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 10)
+        Me.Label1.Location = New System.Drawing.Point(12, 12)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
+        Me.Label1.Size = New System.Drawing.Size(105, 17)
         Me.Label1.TabIndex = 35
         Me.Label1.Text = "* Required field"
         '
         'CommentPublicTextBox
         '
-        Me.CommentPublicTextBox.Location = New System.Drawing.Point(115, 165)
+        Me.CommentPublicTextBox.Location = New System.Drawing.Point(153, 203)
+        Me.CommentPublicTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentPublicTextBox.MaxLength = 255
         Me.CommentPublicTextBox.Multiline = True
         Me.CommentPublicTextBox.Name = "CommentPublicTextBox"
-        Me.CommentPublicTextBox.Size = New System.Drawing.Size(325, 68)
+        Me.CommentPublicTextBox.Size = New System.Drawing.Size(432, 83)
         Me.CommentPublicTextBox.TabIndex = 4
         '
         'CommentInternalTextBox
         '
-        Me.CommentInternalTextBox.Location = New System.Drawing.Point(115, 250)
+        Me.CommentInternalTextBox.Location = New System.Drawing.Point(153, 308)
+        Me.CommentInternalTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentInternalTextBox.MaxLength = 255
         Me.CommentInternalTextBox.Multiline = True
         Me.CommentInternalTextBox.Name = "CommentInternalTextBox"
-        Me.CommentInternalTextBox.Size = New System.Drawing.Size(325, 68)
+        Me.CommentInternalTextBox.Size = New System.Drawing.Size(432, 83)
         Me.CommentInternalTextBox.TabIndex = 5
         '
         'ControlMeasureComboBox
         '
         Me.ControlMeasureComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ControlMeasureComboBox.FormattingEnabled = True
-        Me.ControlMeasureComboBox.Location = New System.Drawing.Point(115, 49)
+        Me.ControlMeasureComboBox.Location = New System.Drawing.Point(153, 60)
+        Me.ControlMeasureComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ControlMeasureComboBox.Name = "ControlMeasureComboBox"
-        Me.ControlMeasureComboBox.Size = New System.Drawing.Size(225, 21)
+        Me.ControlMeasureComboBox.Size = New System.Drawing.Size(299, 24)
         Me.ControlMeasureComboBox.TabIndex = 0
         '
         'ErrorProvider1
@@ -178,10 +190,11 @@ Partial Class ProcessControlMeasureAddEditForm
         '
         'CapturePercentTextBox
         '
-        Me.CapturePercentTextBox.Location = New System.Drawing.Point(115, 76)
+        Me.CapturePercentTextBox.Location = New System.Drawing.Point(153, 94)
+        Me.CapturePercentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CapturePercentTextBox.MaxLength = 4
         Me.CapturePercentTextBox.Name = "CapturePercentTextBox"
-        Me.CapturePercentTextBox.Size = New System.Drawing.Size(30, 20)
+        Me.CapturePercentTextBox.Size = New System.Drawing.Size(39, 22)
         Me.CapturePercentTextBox.TabIndex = 1
         '
         'EmissionsDataSet
@@ -235,6 +248,10 @@ Partial Class ProcessControlMeasureAddEditForm
         Me.TableAdapterManager.PollutantTableAdapter = Nothing
         Me.TableAdapterManager.PreBillingTableAdapter = Nothing
         Me.TableAdapterManager.ProcessClassLevel1TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel2TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel3TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel4TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureHistoryTableAdapter = Me.ProcessControlMeasureHistoryTableAdapter
         Me.TableAdapterManager.ProcessControlMeasureTableAdapter = Me.ProcessControlMeasureTableAdapter
         Me.TableAdapterManager.ProcessDetailPeriodHistoryTableAdapter = Nothing
@@ -283,19 +300,21 @@ Partial Class ProcessControlMeasureAddEditForm
         'UptimePercentTextBox
         '
         Me.UptimePercentTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProcessControlMeasureHistoryBindingSource, "UptimePercent", True))
-        Me.UptimePercentTextBox.Location = New System.Drawing.Point(115, 103)
+        Me.UptimePercentTextBox.Location = New System.Drawing.Point(153, 127)
+        Me.UptimePercentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UptimePercentTextBox.MaxLength = 3
         Me.UptimePercentTextBox.Name = "UptimePercentTextBox"
-        Me.UptimePercentTextBox.Size = New System.Drawing.Size(30, 20)
+        Me.UptimePercentTextBox.Size = New System.Drawing.Size(39, 22)
         Me.UptimePercentTextBox.TabIndex = 2
         '
         'SequenceTextBox
         '
         Me.SequenceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProcessControlMeasureHistoryBindingSource, "Sequence", True))
-        Me.SequenceTextBox.Location = New System.Drawing.Point(115, 132)
+        Me.SequenceTextBox.Location = New System.Drawing.Point(153, 162)
+        Me.SequenceTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SequenceTextBox.MaxLength = 2
         Me.SequenceTextBox.Name = "SequenceTextBox"
-        Me.SequenceTextBox.Size = New System.Drawing.Size(30, 20)
+        Me.SequenceTextBox.Size = New System.Drawing.Size(39, 22)
         Me.SequenceTextBox.TabIndex = 3
         '
         'ControlMeasureBindingSource
@@ -311,10 +330,10 @@ Partial Class ProcessControlMeasureAddEditForm
         'ProcessControlMeasureAddEditForm
         '
         Me.AcceptButton = Me.OKButton
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(470, 400)
+        Me.ClientSize = New System.Drawing.Size(627, 492)
         Me.ControlBox = False
         Me.Controls.Add(SequenceLabel)
         Me.Controls.Add(Me.SequenceTextBox)
@@ -332,6 +351,7 @@ Partial Class ProcessControlMeasureAddEditForm
         Me.Controls.Add(CommentPublicLabel)
         Me.Controls.Add(CommentInternalLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "ProcessControlMeasureAddEditForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "ProcessControlMeasureAddEditForm"

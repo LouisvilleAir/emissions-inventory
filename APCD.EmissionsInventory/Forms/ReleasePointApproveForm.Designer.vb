@@ -34,18 +34,20 @@ Partial Class ReleasePointApproveForm
         '
         Me.OperatingStatusTypeEISComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.OperatingStatusTypeEISComboBox.FormattingEnabled = True
-        Me.OperatingStatusTypeEISComboBox.Location = New System.Drawing.Point(16, 28)
+        Me.OperatingStatusTypeEISComboBox.Location = New System.Drawing.Point(21, 34)
+        Me.OperatingStatusTypeEISComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.OperatingStatusTypeEISComboBox.Name = "OperatingStatusTypeEISComboBox"
-        Me.OperatingStatusTypeEISComboBox.Size = New System.Drawing.Size(190, 21)
+        Me.OperatingStatusTypeEISComboBox.Size = New System.Drawing.Size(252, 24)
         Me.OperatingStatusTypeEISComboBox.TabIndex = 0
         '
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(297, 152)
+        Me.btnCancel.Location = New System.Drawing.Point(398, 186)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 3
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -53,47 +55,51 @@ Partial Class ReleasePointApproveForm
         'OKButton
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OKButton.Location = New System.Drawing.Point(216, 152)
+        Me.OKButton.Location = New System.Drawing.Point(290, 186)
+        Me.OKButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(75, 23)
+        Me.OKButton.Size = New System.Drawing.Size(100, 28)
         Me.OKButton.TabIndex = 2
         Me.OKButton.Text = "OK"
         Me.OKButton.UseVisualStyleBackColor = True
         '
         'CommentTextBox
         '
-        Me.CommentTextBox.Location = New System.Drawing.Point(13, 68)
+        Me.CommentTextBox.Location = New System.Drawing.Point(21, 85)
+        Me.CommentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentTextBox.MaxLength = 255
         Me.CommentTextBox.Multiline = True
         Me.CommentTextBox.Name = "CommentTextBox"
-        Me.CommentTextBox.Size = New System.Drawing.Size(359, 58)
+        Me.CommentTextBox.Size = New System.Drawing.Size(477, 70)
         Me.CommentTextBox.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 52)
+        Me.Label2.Location = New System.Drawing.Point(17, 64)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 13)
+        Me.Label2.Size = New System.Drawing.Size(67, 17)
         Me.Label2.TabIndex = 68
         Me.Label2.Text = "Comment"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 12)
+        Me.Label1.Location = New System.Drawing.Point(17, 15)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 13)
+        Me.Label1.Size = New System.Drawing.Size(115, 17)
         Me.Label1.TabIndex = 67
         Me.Label1.Text = "Operating Status"
         '
         'ReleasePointApproveForm
         '
         Me.AcceptButton = Me.OKButton
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(384, 187)
+        Me.ClientSize = New System.Drawing.Size(525, 262)
         Me.Controls.Add(Me.OperatingStatusTypeEISComboBox)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.OKButton)
@@ -101,9 +107,10 @@ Partial Class ReleasePointApproveForm
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "ReleasePointApproveForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "ReleasePointApproveForm"
+        Me.Text = "Approve Release Point"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

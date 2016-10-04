@@ -214,8 +214,8 @@
         Dim filter As String = "ProcessID = " _
                                & CStr(process.ProcessID) _
                                & " AND EmissionPeriodTypeID = 'A'" _
-                               & " AND PollutantID IN (589, 602, 624)" 'Carbon Monoxide, Nitrogen Oxides, Volatile Organic Compounds
-
+                               & " AND PollutantID IN (" & GlobalVariables.PollutantEnum.CO & ", " & GlobalVariables.PollutantEnum.NOX & ", " & GlobalVariables.PollutantEnum.VOC & ")"
+        '& " AND PollutantID IN (589, 602, 624)" 'Carbon Monoxide, Nitrogen Oxides, Volatile Organic Compounds
         Dim obj As Object = emissions.Compute(expression, filter)
         If (IsNumeric(obj)) Then
             sum = CDbl(obj)
@@ -230,7 +230,8 @@
         Dim o3dPollutants As New O3DPollutants
         Dim filter As String = "ProcessID = " _
                                & CStr(process.ProcessID) _
-                               & " AND PollutantID IN (589, 602, 624)" 'Carbon Monoxide, Nitrogen Oxides, Volatile Organic Compounds
+                               & " AND PollutantID IN (" & GlobalVariables.PollutantEnum.CO & ", " & GlobalVariables.PollutantEnum.NOX & ", " & GlobalVariables.PollutantEnum.VOC & ")"
+        '& " AND PollutantID IN (589, 602, 624)" 'Carbon Monoxide, Nitrogen Oxides, Volatile Organic Compounds
 
         Dim rows() As EmissionsDataSet.ProcessEmissionRow = CType(emissions.Select(filter), EmissionsDataSet.ProcessEmissionRow())
 
@@ -238,19 +239,19 @@
 
             Select Case row.EmissionPeriodTypeID
                 Case "A"
-                    If (row.PollutantID = 589) Then
+                    If (row.PollutantID = GlobalVariables.PollutantEnum.CO) Then
                         o3dPollutants.COAnnual = row.EmissionValue
-                    ElseIf (row.PollutantID = 602) Then
+                    ElseIf (row.PollutantID = GlobalVariables.PollutantEnum.NOX) Then
                         o3dPollutants.NOXAnnual = row.EmissionValue
-                    ElseIf (row.PollutantID = 624) Then
+                    ElseIf (row.PollutantID = GlobalVariables.PollutantEnum.VOC) Then
                         o3dPollutants.VOCAnnual = row.EmissionValue
                     End If
                 Case "O3D"
-                    If (row.PollutantID = 589) Then
+                    If (row.PollutantID = GlobalVariables.PollutantEnum.CO) Then
                         o3dPollutants.COO3D = row.EmissionValue
-                    ElseIf (row.PollutantID = 602) Then
+                    ElseIf (row.PollutantID = GlobalVariables.PollutantEnum.NOX) Then
                         o3dPollutants.NOXO3D = row.EmissionValue
-                    ElseIf (row.PollutantID = 624) Then
+                    ElseIf (row.PollutantID = GlobalVariables.PollutantEnum.VOC) Then
                         o3dPollutants.VOCO3D = row.EmissionValue
                     End If
             End Select

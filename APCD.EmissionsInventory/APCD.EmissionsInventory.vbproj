@@ -90,10 +90,10 @@
     <ApplicationIcon>Resources\Stacks.ICO</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CD2326224A65ABC384207EDFA6AD8A81E7126E2A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1BDF14392460C448DC9C1D9609AAE7977FBCBC9E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>APCD.EmissionsInventory_3_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>APCD.EmissionsInventory_4_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -627,6 +627,7 @@
     <None Include="APCD.EmissionsInventory_1_TemporaryKey.pfx" />
     <None Include="APCD.EmissionsInventory_2_TemporaryKey.pfx" />
     <None Include="APCD.EmissionsInventory_3_TemporaryKey.pfx" />
+    <None Include="APCD.EmissionsInventory_4_TemporaryKey.pfx" />
     <None Include="APCD.EmissionsInventory_TemporaryKey.pfx" />
     <None Include="App.config" />
     <None Include="AutomationTemplates\E91T-ReleasePoints.xls" />

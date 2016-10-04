@@ -564,6 +564,13 @@ Public Class EmissionUnitUserControl
             MainForm.PlantEmissionUnitHistoryTableAdapter.Update(MainForm.EmissionsDataSet.PlantEmissionUnitHistory)
 
             SaveEmissionUnit = True
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -580,6 +587,13 @@ Public Class EmissionUnitUserControl
             MainForm.PlantEmissionUnitYearTableAdapter.Update(MainForm.EmissionsDataSet.PlantEmissionUnitYear)
             MainForm.PlantEmissionUnitYearHistoryTableAdapter.Update(MainForm.EmissionsDataSet.PlantEmissionUnitYearHistory)
             saved = True
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -1401,9 +1401,16 @@ Public Class ProcessUserControl
         Return ok
 
     End Function
-
+    ''' <summary>
+    ''' Verify data before approval
+    ''' </summary>
+    ''' <returns>True if data are OK</returns>
+    ''' <remarks>
+    ''' 2016-10-04 BJF: Restructure so that all problems are combined in one error message.
+    ''' </remarks>
     Private Function OkToApprove_ThroughputAndEmissions() As Boolean
 
+        Dim errorMessage As String = String.Empty
         Dim ok As Boolean = True
 
         If Me.m_process.IsEndDateNull Then
@@ -1414,117 +1421,142 @@ Public Class ProcessUserControl
             Dim o3dPollutants As O3DPollutants = ProcessHelper.GetO3DPollutants(MainForm.EmissionsDataSet.ProcessEmission, Me.m_process)
 
             If (negativeEmissionsExist) Then
-                MessageBox.Show("1 or more emissions have negative values. Value must be >= 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                ok = False
-            ElseIf (negativeThroughputExist) Then
-                MessageBox.Show("1 or more throughput have negative values. Value must be >= 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                ok = False
-            ElseIf (sumOfEmissions_nonO3D = -1) Then
-                MessageBox.Show("No pollutants exist for this process.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                ok = False
-            Else
+                errorMessage &= "One or more emissions have negative values. Each value must be greater than or equal to 0. "
+            End If
 
-                If (MainForm.EmissionsDataSet.ProcessDetailPeriod.Rows.Count = 0) Then
-                    'if 0 rows:
-                    '   1 or more emissions; each >= 0
-                    '--------------------------------------------------------------------------------------------
-                    If (MainForm.EmissionsDataSet.ProcessEmission.Rows.Count = 0) Then
-                        MessageBox.Show("Emissions must exist to approve this process.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        ok = False
-                    Else
-                        With o3dPollutants
-                            If (.COO3D > 0 AndAlso .COAnnual = 0) OrElse (.NOXO3D > 0 AndAlso .NOXAnnual = 0) OrElse (.VOCO3D > 0 AndAlso .VOCAnnual = 0) Then
-                                MessageBox.Show("Ozone season pollutants with ozone season daily value > 0 must also have an Annual value that is > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                                ok = False
-                            End If
-                        End With
-                    End If
+            If (negativeThroughputExist) Then
+                errorMessage &= "One or more throughputs have negative values. Each value must be greater than or equal to 0. "
+            End If
 
+            If (sumOfEmissions_nonO3D < 0) Then
+                errorMessage &= "No pollutants exist for this process. "
+            End If
 
-                ElseIf (MainForm.EmissionsDataSet.ProcessDetailPeriod.Rows.Count > 0) Then
-                    Dim annualRow As EmissionsDataSet.ProcessDetailPeriodRow = Nothing
-                    Dim ozoneRow As EmissionsDataSet.ProcessDetailPeriodRow = Nothing
-                    For Each row As EmissionsDataSet.ProcessDetailPeriodRow In MainForm.EmissionsDataSet.ProcessDetailPeriod
-                        If row.ProcessParameterTypeID = GlobalVariables.ProcessParameterTypeEnum.AnnualThroughput Then
-                            annualRow = row
-                        ElseIf row.ProcessParameterTypeID = GlobalVariables.ProcessParameterTypeEnum.OzoneSeasonDailyThroughput Then
-                            ozoneRow = row
+            'If (negativeEmissionsExist) Then
+            '    MessageBox.Show("1 or more emissions have negative values. Value must be >= 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    ok = False
+            'ElseIf (negativeThroughputExist) Then
+            '    MessageBox.Show("1 or more throughputs have negative values. Value must be >= 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    ok = False
+            'ElseIf (sumOfEmissions_nonO3D = -1) Then
+            '    MessageBox.Show("No pollutants exist for this process.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    ok = False
+            'Else
+
+            If (MainForm.EmissionsDataSet.ProcessDetailPeriod.Rows.Count = 0) Then
+                'if 0 rows:
+                '   1 or more emissions; each >= 0
+                '--------------------------------------------------------------------------------------------
+                If (MainForm.EmissionsDataSet.ProcessEmission.Rows.Count = 0) Then
+                    'MessageBox.Show("Emissions must exist to approve this process.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    errorMessage &= "Emissions must exist in order to approve this process. "
+                    ok = False
+                Else
+                    With o3dPollutants
+                        If (.COO3D > 0 AndAlso .COAnnual = 0) OrElse (.NOXO3D > 0 AndAlso .NOXAnnual = 0) OrElse (.VOCO3D > 0 AndAlso .VOCAnnual = 0) Then
+                            'MessageBox.Show("Ozone season pollutants with ozone season daily value > 0 must also have an Annual value that is > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            errorMessage &= "Ozone season pollutants with ozone season daily value > 0 must also have an annual value that is > 0. "
+                            ok = False
                         End If
-                    Next
+                    End With
+                End If
 
-                    If ((annualRow IsNot Nothing) AndAlso (ozoneRow Is Nothing)) Then
-                        'if annual only...
-                        '... if value = 0 ; 1 or more emissions with 0 value each
-                        '... if value > 0 ; 1 or more emissions totaling > 0
-                        '--------------------------------------------------------------------------------------------
-                        If (annualRow.ProcessParameterValue = 0) Then
-                            If (sumOfEmissions_nonO3D > 0) Then
-                                MessageBox.Show("Annual throughput is 0 so emission values must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                                ok = False
-                            End If
+            ElseIf (MainForm.EmissionsDataSet.ProcessDetailPeriod.Rows.Count > 0) Then
+                Dim annualRow As EmissionsDataSet.ProcessDetailPeriodRow = Nothing
+                Dim ozoneRow As EmissionsDataSet.ProcessDetailPeriodRow = Nothing
+                For Each row As EmissionsDataSet.ProcessDetailPeriodRow In MainForm.EmissionsDataSet.ProcessDetailPeriod
+                    If row.ProcessParameterTypeID = GlobalVariables.ProcessParameterTypeEnum.AnnualThroughput Then
+                        annualRow = row
+                    ElseIf row.ProcessParameterTypeID = GlobalVariables.ProcessParameterTypeEnum.OzoneSeasonDailyThroughput Then
+                        ozoneRow = row
+                    End If
+                Next
 
-                        ElseIf (annualRow.ProcessParameterValue > 0) Then
-                            If (sumOfEmissions_nonO3D = 0) Then
-                                MessageBox.Show("Annual throughput is > 0 so emission values must also total > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                                ok = False
-                            End If
-
-                        Else
-                            MessageBox.Show("Annual throughput must be >= 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                If ((annualRow IsNot Nothing) AndAlso (ozoneRow Is Nothing)) Then
+                    'if annual only...
+                    '... if value = 0 ; 1 or more emissions with 0 value each
+                    '... if value > 0 ; 1 or more emissions totaling > 0
+                    '--------------------------------------------------------------------------------------------
+                    If (annualRow.ProcessParameterValue = 0) Then
+                        If (sumOfEmissions_nonO3D > 0) Then
+                            'MessageBox.Show("Annual throughput is 0 so emission values must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            errorMessage &= "Annual throughput is 0 so emission values must also be 0. "
                             ok = False
                         End If
 
+                    ElseIf (annualRow.ProcessParameterValue > 0) Then
+                        If (sumOfEmissions_nonO3D = 0) Then
+                            'MessageBox.Show("Annual throughput is > 0 so emission values must also total > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            errorMessage &= "Annual throughput is > 0 so emission values must also total > 0. "
+                            ok = False
+                        End If
 
-                    ElseIf ((annualRow IsNot Nothing) AndAlso (ozoneRow IsNot Nothing)) Then
-                        'if annual and o3d
-                        '   if annual = 0 then o3d must = 0; 1 or more emissions with 0 value each
-                        '   if annual > 0 then o3d may be >= 0; 1 or more emissions totaling > 0; 1 of which must be an o3d pollutant 
-                        '--------------------------------------------------------------------------------------------
-                        If (annualRow.ProcessParameterValue = 0) Then
-                            If (ozoneRow.ProcessParameterValue > 0) Then
-                                MessageBox.Show("Annual throughput is 0 so ozone season daily must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Else
+                        'MessageBox.Show("Annual throughput must be >= 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        errorMessage &= "Annual throughput must be greater than or equal to 0. "
+                        ok = False
+                    End If
+
+                ElseIf ((annualRow IsNot Nothing) AndAlso (ozoneRow IsNot Nothing)) Then
+                    'if annual and o3d
+                    '   if annual = 0 then o3d must = 0; 1 or more emissions with 0 value each
+                    '   if annual > 0 then o3d may be >= 0; 1 or more emissions totaling > 0; 1 of which must be an o3d pollutant 
+                    '--------------------------------------------------------------------------------------------
+                    If (annualRow.ProcessParameterValue = 0) Then
+                        If (ozoneRow.ProcessParameterValue > 0) Then
+                            'MessageBox.Show("Annual throughput is 0 so ozone season daily must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            errorMessage &= "Annual throughput is 0 so ozone season daily must also be 0. "
+                            ok = False
+                        Else
+                            If (sumOfEmissions_nonO3D > 0) Then
+                                'MessageBox.Show("Annual throughput is 0 so emission values must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                errorMessage &= "Annual throughput is 0 so emission values must also be 0. "
                                 ok = False
+                            End If
+                        End If
+
+                    Else
+
+                        If (sumOfEmissions_nonO3D <= 0) Then
+                            'MessageBox.Show("Annual throughput is > 0 so emission values must also total > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            errorMessage &= "Annual throughput is > 0 so emission values must also total > 0. "
+                            ok = False
+                        Else
+                            'if o3d = 0 then o3d pollutants must all be 0
+                            If (ozoneRow.ProcessParameterValue = 0) Then
+                                If (sumOfEmissions_O3DPollutant_O3D > 0) Then
+                                    'MessageBox.Show("Ozone season throughput is 0 so ozone season pollutants must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                    errorMessage &= "Ozone season throughput is 0 so ozone season pollutants must also be 0. "
+                                    ok = False
+                                End If
                             Else
-                                If (sumOfEmissions_nonO3D > 0) Then
-                                    MessageBox.Show("Annual throughput is 0 so emission values must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                'if o3d > 0 then at least 1 o3d pollutant must be > 0
+                                If (sumOfEmissions_O3DPollutant_O3D <= 0) Then
+                                    'MessageBox.Show("Ozone season throughput is > 0 so ozone season pollutants must also be > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                    errorMessage &= "Ozone season throughput is > 0 so ozone season pollutants must also be > 0. "
                                     ok = False
                                 End If
                             End If
 
-                        Else
-
-                            If (sumOfEmissions_nonO3D <= 0) Then
-                                MessageBox.Show("Annual throughput is > 0 so emission values must also total > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                                ok = False
-                            Else
-                                'if o3d = 0 then o3d pollutants must all be 0
-                                If (ozoneRow.ProcessParameterValue = 0) Then
-                                    If (sumOfEmissions_O3DPollutant_O3D > 0) Then
-                                        MessageBox.Show("Ozone season throughput is 0 so ozone season pollutants must also be 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                                        ok = False
-                                    End If
-                                Else
-                                    'if o3d > 0 then at least 1 o3d pollutant must be > 0
-                                    If (sumOfEmissions_O3DPollutant_O3D <= 0) Then
-                                        MessageBox.Show("Ozone season throughput is > 0 so ozone season pollutants must also be > 0.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                                        ok = False
-                                    End If
-                                End If
-
-                            End If
-
                         End If
 
-                    Else
-                        MessageBox.Show("Annual throughput is missing.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        ok = False
                     End If
 
+                Else
+                    'MessageBox.Show("Annual throughput is missing.", "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    errorMessage &= "Annual throughput is missing. "
+                    ok = False
                 End If
 
             End If
+
+            'End If
         Else
             ok = True
+        End If
+
+        If errorMessage.Length > 0 Then
+            MessageBox.Show(errorMessage, "Action Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
 
         Return ok
@@ -1615,6 +1647,13 @@ Public Class ProcessUserControl
             MainForm.ProcessTableAdapter.Update(MainForm.EmissionsDataSet.Process)
             MainForm.ProcessHistoryTableAdapter.Update(MainForm.EmissionsDataSet.ProcessHistory)
             saved = True
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1669,6 +1708,13 @@ Public Class ProcessUserControl
                     MainForm.Process_ReleasePointTabTableAdapter.FillByProcessID_EmissionYear(MainForm.EmissionsDataSet.Process_ReleasePointTab, Me.m_process.ProcessID, Me.m_emissionYear.EmissionYear)
                     Call Me.RefreshReleasePointPercentTotal()
                     saved = True
+                Catch ex As DataException
+                    If (ex.Message.Contains("duplicate values")) Then
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        GlobalMethods.HandleError(ex)
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 Catch ex As Exception
                     GlobalMethods.HandleError(ex)
                     MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1681,6 +1727,13 @@ Public Class ProcessUserControl
                 saved = True
             End If
 
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1738,6 +1791,13 @@ Public Class ProcessUserControl
                     MainForm.Process_ControlMeasureTabTableAdapter.FillByProcessID_EmissionYear(MainForm.EmissionsDataSet.Process_ControlMeasureTab, Me.m_process.ProcessID, Me.m_emissionYear.EmissionYear)
 
                     saved = True
+                Catch ex As DataException
+                    If (ex.Message.Contains("duplicate values")) Then
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        GlobalMethods.HandleError(ex)
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 Catch ex As Exception
                     GlobalMethods.HandleError(ex)
                     MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1750,6 +1810,13 @@ Public Class ProcessUserControl
                 saved = True
             End If
 
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1803,6 +1870,13 @@ Public Class ProcessUserControl
                     MainForm.Process_ThroughputTabTableAdapter.FillByProcessID_EmissionYear(MainForm.EmissionsDataSet.Process_ThroughputTab, Me.m_process.ProcessID, Me.m_emissionYear.EmissionYear)
 
                     saved = True
+                Catch ex As DataException
+                    If (ex.Message.Contains("duplicate values")) Then
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        GlobalMethods.HandleError(ex)
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 Catch ex As Exception
                     GlobalMethods.HandleError(ex)
                     MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1815,6 +1889,13 @@ Public Class ProcessUserControl
                 saved = True
             End If
 
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1873,6 +1954,13 @@ Public Class ProcessUserControl
 
             End If
 
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1959,6 +2047,13 @@ Public Class ProcessUserControl
                                                                                            Me.m_process.ProcessID, Me.m_emissionYear.EmissionYear)
 
                     saved = True
+                Catch ex As DataException
+                    If (ex.Message.Contains("duplicate values")) Then
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        GlobalMethods.HandleError(ex)
+                        MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 Catch ex As Exception
                     GlobalMethods.HandleError(ex)
                     MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1971,6 +2066,13 @@ Public Class ProcessUserControl
                 saved = True
             End If
 
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -2020,7 +2122,7 @@ Public Class ProcessUserControl
     End Sub
 
     ''' <summary>
-    ''' With user confirmation, call routine to recalculate emissions that use an emission factor from the appropriate throughput.
+    ''' With user confirmation, call routine to recalculate emissions from throughput where an emission factor is specified.
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>

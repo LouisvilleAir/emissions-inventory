@@ -689,7 +689,6 @@ Public Class ControlMeasureUserControl
             Next
         End If
 
-
         Try
             MainForm.ControlMeasureTableAdapter.Update(MainForm.EmissionsDataSet.ControlMeasure)
             MainForm.ControlMeasureHistoryTableAdapter.Update(MainForm.EmissionsDataSet.ControlMeasureHistory)
@@ -698,10 +697,13 @@ Public Class ControlMeasureUserControl
             MainForm.ControlMeasurePollutantHistoryTableAdapter.Update(MainForm.EmissionsDataSet.ControlMeasurePollutantHistory)
 
             saved = True
+
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
-            If (ex.Message.IndexOf("ReductionEfficiency") > 0) Then
-                '
+            If (ex.Message.Contains("ReductionEfficiency")) Then
+                ' Ignore error and continue.
+            ElseIf (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -720,6 +722,13 @@ Public Class ControlMeasureUserControl
             MainForm.ControlMeasureYearTableAdapter.Update(MainForm.EmissionsDataSet.ControlMeasureYear)
             MainForm.ControlMeasureYearHistoryTableAdapter.Update(MainForm.EmissionsDataSet.ControlMeasureYearHistory)
             saved = True
+        Catch ex As DataException
+            If (ex.Message.Contains("duplicate values")) Then
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.DuplicateKey, "Duplication Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                GlobalMethods.HandleError(ex)
+                MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Catch ex As Exception
             GlobalMethods.HandleError(ex)
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

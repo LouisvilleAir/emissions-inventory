@@ -142,22 +142,22 @@ Partial Class ProcessEmissionsAddEditForm
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(529, 507)
+        Me.btnCancel.Location = New System.Drawing.Point(510, 491)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(100, 28)
-        Me.btnCancel.TabIndex = 4
+        Me.btnCancel.TabIndex = 32
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'OKButton
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OKButton.Location = New System.Drawing.Point(421, 507)
+        Me.OKButton.Location = New System.Drawing.Point(403, 491)
         Me.OKButton.Margin = New System.Windows.Forms.Padding(4)
         Me.OKButton.Name = "OKButton"
         Me.OKButton.Size = New System.Drawing.Size(100, 28)
-        Me.OKButton.TabIndex = 5
+        Me.OKButton.TabIndex = 31
         Me.OKButton.Text = "OK"
         Me.OKButton.UseVisualStyleBackColor = True
         '
@@ -179,7 +179,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.CommentPublicTextBox.Multiline = True
         Me.CommentPublicTextBox.Name = "CommentPublicTextBox"
         Me.CommentPublicTextBox.Size = New System.Drawing.Size(440, 83)
-        Me.CommentPublicTextBox.TabIndex = 2
+        Me.CommentPublicTextBox.TabIndex = 22
         '
         'PollutantComboBox
         '
@@ -191,7 +191,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.PollutantComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PollutantComboBox.Name = "PollutantComboBox"
         Me.PollutantComboBox.Size = New System.Drawing.Size(440, 24)
-        Me.PollutantComboBox.TabIndex = 0
+        Me.PollutantComboBox.TabIndex = 1
         '
         'CommentInternalTextBox
         '
@@ -201,7 +201,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.CommentInternalTextBox.Multiline = True
         Me.CommentInternalTextBox.Name = "CommentInternalTextBox"
         Me.CommentInternalTextBox.Size = New System.Drawing.Size(440, 83)
-        Me.CommentInternalTextBox.TabIndex = 3
+        Me.CommentInternalTextBox.TabIndex = 23
         '
         'EmissionValueTextBox
         '
@@ -210,7 +210,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.EmissionValueTextBox.MaxLength = 12
         Me.EmissionValueTextBox.Name = "EmissionValueTextBox"
         Me.EmissionValueTextBox.Size = New System.Drawing.Size(112, 22)
-        Me.EmissionValueTextBox.TabIndex = 2
+        Me.EmissionValueTextBox.TabIndex = 21
         Me.EmissionValueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'EmissionFactorValueTextBox
@@ -220,7 +220,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.EmissionFactorValueTextBox.MaxLength = 15
         Me.EmissionFactorValueTextBox.Name = "EmissionFactorValueTextBox"
         Me.EmissionFactorValueTextBox.Size = New System.Drawing.Size(160, 22)
-        Me.EmissionFactorValueTextBox.TabIndex = 0
+        Me.EmissionFactorValueTextBox.TabIndex = 11
         Me.EmissionFactorValueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'EmissionPeriodTypeComboBox
@@ -231,7 +231,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.EmissionPeriodTypeComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.EmissionPeriodTypeComboBox.Name = "EmissionPeriodTypeComboBox"
         Me.EmissionPeriodTypeComboBox.Size = New System.Drawing.Size(235, 24)
-        Me.EmissionPeriodTypeComboBox.TabIndex = 1
+        Me.EmissionPeriodTypeComboBox.TabIndex = 2
         '
         'EmissionCalculationMethodComboBox
         '
@@ -442,7 +442,7 @@ Partial Class ProcessEmissionsAddEditForm
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "ProcessEmissionsAddEditForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "ProcessEmissionsAddEditForm"
+        Me.Text = "Add Emissions"
         Me.EmissionFactorPanel.ResumeLayout(False)
         Me.EmissionFactorPanel.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()

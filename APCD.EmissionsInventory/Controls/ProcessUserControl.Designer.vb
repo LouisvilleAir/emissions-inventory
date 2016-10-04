@@ -48,26 +48,6 @@ Partial Class ProcessUserControl
         Me.ProcessAPCDIDTextBox = New System.Windows.Forms.TextBox()
         Me.CommentPublicTextBox = New System.Windows.Forms.TextBox()
         Me.CommentInternalTextBox = New System.Windows.Forms.TextBox()
-        Me.ReleasePointsTabPage = New System.Windows.Forms.TabPage()
-        Me.Process_ReleasePointTabDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Process_ReleasePointTabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EmissionsDataSet = New APCD.EmissionsInventory.EmissionsDataSet()
-        Me.lblReleasePointPercentTotal = New System.Windows.Forms.Label()
-        Me.btnAddReleasePoint = New System.Windows.Forms.Button()
-        Me.ControlMeasuresTabPage = New System.Windows.Forms.TabPage()
-        Me.Process_ControlMeasureTabDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ControlMeasureAPCDID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProcessControlMeasureID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Process_ControlMeasureTabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnAddControlMeasure = New System.Windows.Forms.Button()
         Me.ThroughputTabPage = New System.Windows.Forms.TabPage()
         Me.Process_ThroughputTabDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -77,6 +57,7 @@ Partial Class ProcessUserControl
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Process_ThroughputTabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EmissionsDataSet = New APCD.EmissionsInventory.EmissionsDataSet()
         Me.btnLoadThroughputDefaults = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -91,6 +72,25 @@ Partial Class ProcessUserControl
         Me.SpringTextBox = New System.Windows.Forms.TextBox()
         Me.WinterTextBox = New System.Windows.Forms.TextBox()
         Me.btnAddThroughput = New System.Windows.Forms.Button()
+        Me.ControlMeasuresTabPage = New System.Windows.Forms.TabPage()
+        Me.Process_ControlMeasureTabDataGridView = New System.Windows.Forms.DataGridView()
+        Me.ControlMeasureAPCDID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProcessControlMeasureID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Process_ControlMeasureTabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnAddControlMeasure = New System.Windows.Forms.Button()
+        Me.ReleasePointsTabPage = New System.Windows.Forms.TabPage()
+        Me.Process_ReleasePointTabDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Process_ReleasePointTabBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.lblReleasePointPercentTotal = New System.Windows.Forms.Label()
+        Me.btnAddReleasePoint = New System.Windows.Forms.Button()
         Me.EmissionsTabPage = New System.Windows.Forms.TabPage()
         Me.TonsCheckBox = New System.Windows.Forms.CheckBox()
         Me.OzoneSeasonCheckBox = New System.Windows.Forms.CheckBox()
@@ -144,17 +144,17 @@ Partial Class ProcessUserControl
         Me.TabControl1.SuspendLayout()
         Me.GeneralTabPage.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.ReleasePointsTabPage.SuspendLayout()
-        CType(Me.Process_ReleasePointTabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Process_ReleasePointTabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmissionsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ControlMeasuresTabPage.SuspendLayout()
-        CType(Me.Process_ControlMeasureTabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Process_ControlMeasureTabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ThroughputTabPage.SuspendLayout()
         CType(Me.Process_ThroughputTabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Process_ThroughputTabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmissionsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        Me.ControlMeasuresTabPage.SuspendLayout()
+        CType(Me.Process_ControlMeasureTabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Process_ControlMeasureTabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ReleasePointsTabPage.SuspendLayout()
+        CType(Me.Process_ReleasePointTabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Process_ReleasePointTabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EmissionsTabPage.SuspendLayout()
         CType(Me.Process_EmissionsTabDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Process_EmissionsTabBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,9 +234,9 @@ Partial Class ProcessUserControl
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.GeneralTabPage)
-        Me.TabControl1.Controls.Add(Me.ReleasePointsTabPage)
-        Me.TabControl1.Controls.Add(Me.ControlMeasuresTabPage)
         Me.TabControl1.Controls.Add(Me.ThroughputTabPage)
+        Me.TabControl1.Controls.Add(Me.ControlMeasuresTabPage)
+        Me.TabControl1.Controls.Add(Me.ReleasePointsTabPage)
         Me.TabControl1.Controls.Add(Me.EmissionsTabPage)
         Me.TabControl1.Location = New System.Drawing.Point(0, 30)
         Me.TabControl1.Name = "TabControl1"
@@ -364,176 +364,6 @@ Partial Class ProcessUserControl
         Me.CommentInternalTextBox.Size = New System.Drawing.Size(721, 50)
         Me.CommentInternalTextBox.TabIndex = 5
         '
-        'ReleasePointsTabPage
-        '
-        Me.ReleasePointsTabPage.BackColor = System.Drawing.SystemColors.Control
-        Me.ReleasePointsTabPage.Controls.Add(Me.Process_ReleasePointTabDataGridView)
-        Me.ReleasePointsTabPage.Controls.Add(Me.lblReleasePointPercentTotal)
-        Me.ReleasePointsTabPage.Controls.Add(Me.btnAddReleasePoint)
-        Me.ReleasePointsTabPage.Location = New System.Drawing.Point(4, 27)
-        Me.ReleasePointsTabPage.Name = "ReleasePointsTabPage"
-        Me.ReleasePointsTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.ReleasePointsTabPage.Size = New System.Drawing.Size(888, 733)
-        Me.ReleasePointsTabPage.TabIndex = 1
-        Me.ReleasePointsTabPage.Text = "Release Points"
-        '
-        'Process_ReleasePointTabDataGridView
-        '
-        Me.Process_ReleasePointTabDataGridView.AllowUserToAddRows = False
-        Me.Process_ReleasePointTabDataGridView.AutoGenerateColumns = False
-        Me.Process_ReleasePointTabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.Process_ReleasePointTabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Process_ReleasePointTabDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
-        Me.Process_ReleasePointTabDataGridView.DataSource = Me.Process_ReleasePointTabBindingSource
-        Me.Process_ReleasePointTabDataGridView.Location = New System.Drawing.Point(6, 60)
-        Me.Process_ReleasePointTabDataGridView.Name = "Process_ReleasePointTabDataGridView"
-        Me.Process_ReleasePointTabDataGridView.Size = New System.Drawing.Size(566, 667)
-        Me.Process_ReleasePointTabDataGridView.TabIndex = 11
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "ProcessID"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "ProcessID"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "EmissionYear"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "EmissionYear"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.Visible = False
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "ReleasePointAPCDID"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "APCD ID"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.Width = 77
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "EmissionsPercent"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Emissions Stream %"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.Width = 129
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "ProcessReleasePointID"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "ProcessReleasePointID"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.Visible = False
-        '
-        'Process_ReleasePointTabBindingSource
-        '
-        Me.Process_ReleasePointTabBindingSource.DataMember = "Process_ReleasePointTab"
-        Me.Process_ReleasePointTabBindingSource.DataSource = Me.EmissionsDataSet
-        '
-        'EmissionsDataSet
-        '
-        Me.EmissionsDataSet.DataSetName = "EmissionsDataSet"
-        Me.EmissionsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'lblReleasePointPercentTotal
-        '
-        Me.lblReleasePointPercentTotal.Location = New System.Drawing.Point(53, 25)
-        Me.lblReleasePointPercentTotal.Name = "lblReleasePointPercentTotal"
-        Me.lblReleasePointPercentTotal.Size = New System.Drawing.Size(109, 25)
-        Me.lblReleasePointPercentTotal.TabIndex = 77
-        Me.lblReleasePointPercentTotal.Text = "lblReleasePointPercentTotal"
-        Me.lblReleasePointPercentTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'btnAddReleasePoint
-        '
-        Me.btnAddReleasePoint.Location = New System.Drawing.Point(6, 20)
-        Me.btnAddReleasePoint.Name = "btnAddReleasePoint"
-        Me.btnAddReleasePoint.Size = New System.Drawing.Size(41, 34)
-        Me.btnAddReleasePoint.TabIndex = 10
-        Me.btnAddReleasePoint.Text = "Add"
-        Me.btnAddReleasePoint.UseVisualStyleBackColor = True
-        '
-        'ControlMeasuresTabPage
-        '
-        Me.ControlMeasuresTabPage.BackColor = System.Drawing.SystemColors.Control
-        Me.ControlMeasuresTabPage.Controls.Add(Me.Process_ControlMeasureTabDataGridView)
-        Me.ControlMeasuresTabPage.Controls.Add(Me.btnAddControlMeasure)
-        Me.ControlMeasuresTabPage.Location = New System.Drawing.Point(4, 27)
-        Me.ControlMeasuresTabPage.Name = "ControlMeasuresTabPage"
-        Me.ControlMeasuresTabPage.Size = New System.Drawing.Size(888, 733)
-        Me.ControlMeasuresTabPage.TabIndex = 2
-        Me.ControlMeasuresTabPage.Text = "Control Measures"
-        '
-        'Process_ControlMeasureTabDataGridView
-        '
-        Me.Process_ControlMeasureTabDataGridView.AllowUserToAddRows = False
-        Me.Process_ControlMeasureTabDataGridView.AutoGenerateColumns = False
-        Me.Process_ControlMeasureTabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.Process_ControlMeasureTabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Process_ControlMeasureTabDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ControlMeasureAPCDID, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.ProcessControlMeasureID})
-        Me.Process_ControlMeasureTabDataGridView.DataSource = Me.Process_ControlMeasureTabBindingSource
-        Me.Process_ControlMeasureTabDataGridView.Location = New System.Drawing.Point(6, 62)
-        Me.Process_ControlMeasureTabDataGridView.Name = "Process_ControlMeasureTabDataGridView"
-        Me.Process_ControlMeasureTabDataGridView.Size = New System.Drawing.Size(711, 654)
-        Me.Process_ControlMeasureTabDataGridView.TabIndex = 21
-        '
-        'ControlMeasureAPCDID
-        '
-        Me.ControlMeasureAPCDID.DataPropertyName = "ControlMeasureAPCDID"
-        Me.ControlMeasureAPCDID.HeaderText = "APCD ID"
-        Me.ControlMeasureAPCDID.Name = "ControlMeasureAPCDID"
-        Me.ControlMeasureAPCDID.Width = 83
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "CapturePercent"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Capture %"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 96
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "UptimePercent"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Uptime %"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 92
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Sequence"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Sequence"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.Width = 94
-        '
-        'ProcessControlMeasureID
-        '
-        Me.ProcessControlMeasureID.DataPropertyName = "ProcessControlMeasureID"
-        Me.ProcessControlMeasureID.HeaderText = "ProcessControlMeasureID"
-        Me.ProcessControlMeasureID.Name = "ProcessControlMeasureID"
-        Me.ProcessControlMeasureID.Visible = False
-        '
-        'Process_ControlMeasureTabBindingSource
-        '
-        Me.Process_ControlMeasureTabBindingSource.DataMember = "Process_ControlMeasureTab"
-        Me.Process_ControlMeasureTabBindingSource.DataSource = Me.EmissionsDataSet
-        '
-        'btnAddControlMeasure
-        '
-        Me.btnAddControlMeasure.Location = New System.Drawing.Point(6, 20)
-        Me.btnAddControlMeasure.Name = "btnAddControlMeasure"
-        Me.btnAddControlMeasure.Size = New System.Drawing.Size(41, 30)
-        Me.btnAddControlMeasure.TabIndex = 20
-        Me.btnAddControlMeasure.Text = "Add"
-        Me.btnAddControlMeasure.UseVisualStyleBackColor = True
-        '
         'ThroughputTabPage
         '
         Me.ThroughputTabPage.AutoScroll = True
@@ -557,6 +387,7 @@ Partial Class ProcessUserControl
         Me.Process_ThroughputTabDataGridView.DataSource = Me.Process_ThroughputTabBindingSource
         Me.Process_ThroughputTabDataGridView.Location = New System.Drawing.Point(6, 58)
         Me.Process_ThroughputTabDataGridView.Name = "Process_ThroughputTabDataGridView"
+        Me.Process_ThroughputTabDataGridView.RowHeadersWidth = 20
         Me.Process_ThroughputTabDataGridView.Size = New System.Drawing.Size(495, 437)
         Me.Process_ThroughputTabDataGridView.TabIndex = 32
         '
@@ -571,9 +402,9 @@ Partial Class ProcessUserControl
         'DataGridViewTextBoxColumn28
         '
         Me.DataGridViewTextBoxColumn28.DataPropertyName = "ProcessParameterValue"
-        DataGridViewCellStyle5.Format = "N2"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn28.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Format = "N2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn28.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn28.HeaderText = "Value"
         Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
         Me.DataGridViewTextBoxColumn28.Width = 75
@@ -611,6 +442,11 @@ Partial Class ProcessUserControl
         '
         Me.Process_ThroughputTabBindingSource.DataMember = "Process_ThroughputTab"
         Me.Process_ThroughputTabBindingSource.DataSource = Me.EmissionsDataSet
+        '
+        'EmissionsDataSet
+        '
+        Me.EmissionsDataSet.DataSetName = "EmissionsDataSet"
+        Me.EmissionsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnLoadThroughputDefaults
         '
@@ -755,6 +591,175 @@ Partial Class ProcessUserControl
         Me.btnAddThroughput.TabIndex = 30
         Me.btnAddThroughput.Text = "Add"
         Me.btnAddThroughput.UseVisualStyleBackColor = True
+        '
+        'ControlMeasuresTabPage
+        '
+        Me.ControlMeasuresTabPage.BackColor = System.Drawing.SystemColors.Control
+        Me.ControlMeasuresTabPage.Controls.Add(Me.Process_ControlMeasureTabDataGridView)
+        Me.ControlMeasuresTabPage.Controls.Add(Me.btnAddControlMeasure)
+        Me.ControlMeasuresTabPage.Location = New System.Drawing.Point(4, 27)
+        Me.ControlMeasuresTabPage.Name = "ControlMeasuresTabPage"
+        Me.ControlMeasuresTabPage.Size = New System.Drawing.Size(888, 733)
+        Me.ControlMeasuresTabPage.TabIndex = 2
+        Me.ControlMeasuresTabPage.Text = "Control Measures"
+        '
+        'Process_ControlMeasureTabDataGridView
+        '
+        Me.Process_ControlMeasureTabDataGridView.AllowUserToAddRows = False
+        Me.Process_ControlMeasureTabDataGridView.AutoGenerateColumns = False
+        Me.Process_ControlMeasureTabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.Process_ControlMeasureTabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Process_ControlMeasureTabDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ControlMeasureAPCDID, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.ProcessControlMeasureID})
+        Me.Process_ControlMeasureTabDataGridView.DataSource = Me.Process_ControlMeasureTabBindingSource
+        Me.Process_ControlMeasureTabDataGridView.Location = New System.Drawing.Point(6, 62)
+        Me.Process_ControlMeasureTabDataGridView.Name = "Process_ControlMeasureTabDataGridView"
+        Me.Process_ControlMeasureTabDataGridView.RowHeadersWidth = 20
+        Me.Process_ControlMeasureTabDataGridView.Size = New System.Drawing.Size(711, 654)
+        Me.Process_ControlMeasureTabDataGridView.TabIndex = 21
+        '
+        'ControlMeasureAPCDID
+        '
+        Me.ControlMeasureAPCDID.DataPropertyName = "ControlMeasureAPCDID"
+        Me.ControlMeasureAPCDID.HeaderText = "APCD ID"
+        Me.ControlMeasureAPCDID.Name = "ControlMeasureAPCDID"
+        Me.ControlMeasureAPCDID.Width = 87
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "CapturePercent"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Capture %"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "UptimePercent"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Uptime %"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 96
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Sequence"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Sequence"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.Width = 98
+        '
+        'ProcessControlMeasureID
+        '
+        Me.ProcessControlMeasureID.DataPropertyName = "ProcessControlMeasureID"
+        Me.ProcessControlMeasureID.HeaderText = "ProcessControlMeasureID"
+        Me.ProcessControlMeasureID.Name = "ProcessControlMeasureID"
+        Me.ProcessControlMeasureID.Visible = False
+        '
+        'Process_ControlMeasureTabBindingSource
+        '
+        Me.Process_ControlMeasureTabBindingSource.DataMember = "Process_ControlMeasureTab"
+        Me.Process_ControlMeasureTabBindingSource.DataSource = Me.EmissionsDataSet
+        '
+        'btnAddControlMeasure
+        '
+        Me.btnAddControlMeasure.Location = New System.Drawing.Point(6, 20)
+        Me.btnAddControlMeasure.Name = "btnAddControlMeasure"
+        Me.btnAddControlMeasure.Size = New System.Drawing.Size(41, 30)
+        Me.btnAddControlMeasure.TabIndex = 20
+        Me.btnAddControlMeasure.Text = "Add"
+        Me.btnAddControlMeasure.UseVisualStyleBackColor = True
+        '
+        'ReleasePointsTabPage
+        '
+        Me.ReleasePointsTabPage.BackColor = System.Drawing.SystemColors.Control
+        Me.ReleasePointsTabPage.Controls.Add(Me.Process_ReleasePointTabDataGridView)
+        Me.ReleasePointsTabPage.Controls.Add(Me.lblReleasePointPercentTotal)
+        Me.ReleasePointsTabPage.Controls.Add(Me.btnAddReleasePoint)
+        Me.ReleasePointsTabPage.Location = New System.Drawing.Point(4, 27)
+        Me.ReleasePointsTabPage.Name = "ReleasePointsTabPage"
+        Me.ReleasePointsTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.ReleasePointsTabPage.Size = New System.Drawing.Size(888, 733)
+        Me.ReleasePointsTabPage.TabIndex = 1
+        Me.ReleasePointsTabPage.Text = "Release Points"
+        '
+        'Process_ReleasePointTabDataGridView
+        '
+        Me.Process_ReleasePointTabDataGridView.AllowUserToAddRows = False
+        Me.Process_ReleasePointTabDataGridView.AutoGenerateColumns = False
+        Me.Process_ReleasePointTabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.Process_ReleasePointTabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Process_ReleasePointTabDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
+        Me.Process_ReleasePointTabDataGridView.DataSource = Me.Process_ReleasePointTabBindingSource
+        Me.Process_ReleasePointTabDataGridView.Location = New System.Drawing.Point(6, 60)
+        Me.Process_ReleasePointTabDataGridView.Name = "Process_ReleasePointTabDataGridView"
+        Me.Process_ReleasePointTabDataGridView.RowHeadersWidth = 20
+        Me.Process_ReleasePointTabDataGridView.Size = New System.Drawing.Size(566, 667)
+        Me.Process_ReleasePointTabDataGridView.TabIndex = 11
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "ProcessID"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "ProcessID"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        Me.DataGridViewTextBoxColumn7.Width = 97
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "EmissionYear"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "EmissionYear"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Visible = False
+        Me.DataGridViewTextBoxColumn8.Width = 118
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "ReleasePointAPCDID"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "APCD ID"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 81
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "EmissionsPercent"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Emissions Stream %"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.Width = 133
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "ProcessReleasePointID"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "ProcessReleasePointID"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.Visible = False
+        Me.DataGridViewTextBoxColumn12.Width = 179
+        '
+        'Process_ReleasePointTabBindingSource
+        '
+        Me.Process_ReleasePointTabBindingSource.DataMember = "Process_ReleasePointTab"
+        Me.Process_ReleasePointTabBindingSource.DataSource = Me.EmissionsDataSet
+        '
+        'lblReleasePointPercentTotal
+        '
+        Me.lblReleasePointPercentTotal.Location = New System.Drawing.Point(53, 25)
+        Me.lblReleasePointPercentTotal.Name = "lblReleasePointPercentTotal"
+        Me.lblReleasePointPercentTotal.Size = New System.Drawing.Size(109, 25)
+        Me.lblReleasePointPercentTotal.TabIndex = 77
+        Me.lblReleasePointPercentTotal.Text = "lblReleasePointPercentTotal"
+        Me.lblReleasePointPercentTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'btnAddReleasePoint
+        '
+        Me.btnAddReleasePoint.Location = New System.Drawing.Point(6, 20)
+        Me.btnAddReleasePoint.Name = "btnAddReleasePoint"
+        Me.btnAddReleasePoint.Size = New System.Drawing.Size(41, 34)
+        Me.btnAddReleasePoint.TabIndex = 10
+        Me.btnAddReleasePoint.Text = "Add"
+        Me.btnAddReleasePoint.UseVisualStyleBackColor = True
         '
         'EmissionsTabPage
         '
@@ -1085,7 +1090,7 @@ Partial Class ProcessUserControl
         Me.PollutantName.DataPropertyName = "PollutantName"
         Me.PollutantName.HeaderText = "Pollutant"
         Me.PollutantName.Name = "PollutantName"
-        Me.PollutantName.Width = 90
+        Me.PollutantName.Width = 94
         '
         'EmissionPeriodTypeName
         '
@@ -1100,12 +1105,12 @@ Partial Class ProcessUserControl
         Me.EmissionValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.EmissionValue.DataPropertyName = "EmissionValue"
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle6.Format = "#0.000"
+        DataGridViewCellStyle6.Format = "#0.0000#"
         DataGridViewCellStyle6.NullValue = Nothing
         Me.EmissionValue.DefaultCellStyle = DataGridViewCellStyle6
         Me.EmissionValue.HeaderText = "Emissions"
         Me.EmissionValue.Name = "EmissionValue"
-        Me.EmissionValue.Width = 94
+        Me.EmissionValue.Width = 98
         '
         'UnitOfMeasurementName
         '
@@ -1129,7 +1134,7 @@ Partial Class ProcessUserControl
         Me.EmissionCalculationMethodName.HeaderText = "Calculation Method"
         Me.EmissionCalculationMethodName.Name = "EmissionCalculationMethodName"
         Me.EmissionCalculationMethodName.ReadOnly = True
-        Me.EmissionCalculationMethodName.Width = 140
+        Me.EmissionCalculationMethodName.Width = 144
         '
         'EmissionFactorValue
         '
@@ -1137,7 +1142,7 @@ Partial Class ProcessUserControl
         Me.EmissionFactorValue.DataPropertyName = "EmissionFactorValue"
         Me.EmissionFactorValue.HeaderText = "Factor (lb)"
         Me.EmissionFactorValue.Name = "EmissionFactorValue"
-        Me.EmissionFactorValue.Width = 88
+        Me.EmissionFactorValue.Width = 92
         '
         'EFUnits
         '
@@ -1161,18 +1166,18 @@ Partial Class ProcessUserControl
         Me.GeneralTabPage.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.ReleasePointsTabPage.ResumeLayout(False)
-        CType(Me.Process_ReleasePointTabDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Process_ReleasePointTabBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmissionsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ControlMeasuresTabPage.ResumeLayout(False)
-        CType(Me.Process_ControlMeasureTabDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Process_ControlMeasureTabBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ThroughputTabPage.ResumeLayout(False)
         CType(Me.Process_ThroughputTabDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Process_ThroughputTabBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmissionsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.ControlMeasuresTabPage.ResumeLayout(False)
+        CType(Me.Process_ControlMeasureTabDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Process_ControlMeasureTabBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ReleasePointsTabPage.ResumeLayout(False)
+        CType(Me.Process_ReleasePointTabDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Process_ReleasePointTabBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.EmissionsTabPage.ResumeLayout(False)
         Me.EmissionsTabPage.PerformLayout()
         CType(Me.Process_EmissionsTabDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1273,16 +1278,16 @@ Partial Class ProcessUserControl
     Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn30 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ControlMeasureAPCDID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProcessControlMeasureID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PollutantName As System.Windows.Forms.DataGridViewTextBoxColumn

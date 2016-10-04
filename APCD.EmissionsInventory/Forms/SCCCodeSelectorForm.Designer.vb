@@ -47,7 +47,7 @@ Partial Class SCCCodeSelectorForm
         'btnLookupProcessClass
         '
         Me.btnLookupProcessClass.Location = New System.Drawing.Point(121, 44)
-        Me.btnLookupProcessClass.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnLookupProcessClass.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLookupProcessClass.Name = "btnLookupProcessClass"
         Me.btnLookupProcessClass.Size = New System.Drawing.Size(75, 28)
         Me.btnLookupProcessClass.TabIndex = 39
@@ -61,7 +61,7 @@ Partial Class SCCCodeSelectorForm
         Me.ProcessClassLevel1TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProcessClassLevel1TypeComboBox.FormattingEnabled = True
         Me.ProcessClassLevel1TypeComboBox.Location = New System.Drawing.Point(233, 47)
-        Me.ProcessClassLevel1TypeComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ProcessClassLevel1TypeComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProcessClassLevel1TypeComboBox.Name = "ProcessClassLevel1TypeComboBox"
         Me.ProcessClassLevel1TypeComboBox.Size = New System.Drawing.Size(472, 24)
         Me.ProcessClassLevel1TypeComboBox.TabIndex = 40
@@ -83,7 +83,7 @@ Partial Class SCCCodeSelectorForm
         Me.ProcessClassLevel2TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProcessClassLevel2TypeComboBox.FormattingEnabled = True
         Me.ProcessClassLevel2TypeComboBox.Location = New System.Drawing.Point(233, 80)
-        Me.ProcessClassLevel2TypeComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ProcessClassLevel2TypeComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProcessClassLevel2TypeComboBox.Name = "ProcessClassLevel2TypeComboBox"
         Me.ProcessClassLevel2TypeComboBox.Size = New System.Drawing.Size(472, 24)
         Me.ProcessClassLevel2TypeComboBox.TabIndex = 41
@@ -95,7 +95,7 @@ Partial Class SCCCodeSelectorForm
         Me.ProcessClassLevel3TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProcessClassLevel3TypeComboBox.FormattingEnabled = True
         Me.ProcessClassLevel3TypeComboBox.Location = New System.Drawing.Point(233, 113)
-        Me.ProcessClassLevel3TypeComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ProcessClassLevel3TypeComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProcessClassLevel3TypeComboBox.Name = "ProcessClassLevel3TypeComboBox"
         Me.ProcessClassLevel3TypeComboBox.Size = New System.Drawing.Size(472, 24)
         Me.ProcessClassLevel3TypeComboBox.TabIndex = 42
@@ -107,7 +107,7 @@ Partial Class SCCCodeSelectorForm
         Me.ProcessClassLevel4TypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProcessClassLevel4TypeComboBox.FormattingEnabled = True
         Me.ProcessClassLevel4TypeComboBox.Location = New System.Drawing.Point(305, 146)
-        Me.ProcessClassLevel4TypeComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ProcessClassLevel4TypeComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProcessClassLevel4TypeComboBox.Name = "ProcessClassLevel4TypeComboBox"
         Me.ProcessClassLevel4TypeComboBox.Size = New System.Drawing.Size(368, 24)
         Me.ProcessClassLevel4TypeComboBox.TabIndex = 43
@@ -117,7 +117,7 @@ Partial Class SCCCodeSelectorForm
         'ProcessClassIDTextBox
         '
         Me.ProcessClassIDTextBox.Location = New System.Drawing.Point(20, 47)
-        Me.ProcessClassIDTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ProcessClassIDTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProcessClassIDTextBox.MaxLength = 10
         Me.ProcessClassIDTextBox.Name = "ProcessClassIDTextBox"
         Me.ProcessClassIDTextBox.Size = New System.Drawing.Size(92, 22)
@@ -126,8 +126,8 @@ Partial Class SCCCodeSelectorForm
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(607, 307)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCancel.Location = New System.Drawing.Point(605, 283)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(100, 31)
         Me.btnCancel.TabIndex = 45
@@ -138,8 +138,8 @@ Partial Class SCCCodeSelectorForm
         '
         Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnOK.Enabled = False
-        Me.btnOK.Location = New System.Drawing.Point(499, 307)
-        Me.btnOK.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnOK.Location = New System.Drawing.Point(499, 283)
+        Me.btnOK.Margin = New System.Windows.Forms.Padding(4)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(100, 31)
         Me.btnOK.TabIndex = 46
@@ -232,7 +232,6 @@ Partial Class SCCCodeSelectorForm
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(686, 61)
         Me.Label2.TabIndex = 47
-        Me.Label2.Text = "Label2"
         '
         'Label3
         '
@@ -251,7 +250,7 @@ Partial Class SCCCodeSelectorForm
         Me.ProcessClassComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProcessClassComboBox.FormattingEnabled = True
         Me.ProcessClassComboBox.Location = New System.Drawing.Point(233, 146)
-        Me.ProcessClassComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ProcessClassComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProcessClassComboBox.Name = "ProcessClassComboBox"
         Me.ProcessClassComboBox.Size = New System.Drawing.Size(472, 24)
         Me.ProcessClassComboBox.TabIndex = 50
@@ -260,7 +259,7 @@ Partial Class SCCCodeSelectorForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(733, 373)
+        Me.ClientSize = New System.Drawing.Size(737, 364)
         Me.ControlBox = False
         Me.Controls.Add(Me.ProcessClassComboBox)
         Me.Controls.Add(Me.ProcessClassLevel4TypeComboBox)
@@ -274,7 +273,7 @@ Partial Class SCCCodeSelectorForm
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnOK)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "SCCCodeSelectorForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "SCC Lookup"

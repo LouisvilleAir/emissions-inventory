@@ -38,10 +38,10 @@ Partial Class ProcessThroughputAddEditForm
         Me.ProcessDetailPeriodTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ProcessDetailPeriodTableAdapter()
         Me.TableAdapterManager = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.TableAdapterManager()
         Me.ProcessDetailPeriodHistoryTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.ProcessDetailPeriodHistoryTableAdapter()
+        Me.UnitOfMeasurementTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.UnitOfMeasurementTableAdapter()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ProcessDetailPeriodHistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UnitOfMeasurementBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UnitOfMeasurementTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.UnitOfMeasurementTableAdapter()
         ControlMeasureIDLabel = New System.Windows.Forms.Label()
         CapturePercentLabel = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -55,27 +55,30 @@ Partial Class ProcessThroughputAddEditForm
         'ControlMeasureIDLabel
         '
         ControlMeasureIDLabel.AutoSize = True
-        ControlMeasureIDLabel.Location = New System.Drawing.Point(7, 51)
+        ControlMeasureIDLabel.Location = New System.Drawing.Point(9, 63)
+        ControlMeasureIDLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ControlMeasureIDLabel.Name = "ControlMeasureIDLabel"
-        ControlMeasureIDLabel.Size = New System.Drawing.Size(65, 13)
+        ControlMeasureIDLabel.Size = New System.Drawing.Size(87, 17)
         ControlMeasureIDLabel.TabIndex = 41
         ControlMeasureIDLabel.Text = "* Parameter:"
         '
         'CapturePercentLabel
         '
         CapturePercentLabel.AutoSize = True
-        CapturePercentLabel.Location = New System.Drawing.Point(7, 77)
+        CapturePercentLabel.Location = New System.Drawing.Point(9, 95)
+        CapturePercentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CapturePercentLabel.Name = "CapturePercentLabel"
-        CapturePercentLabel.Size = New System.Drawing.Size(44, 13)
+        CapturePercentLabel.Size = New System.Drawing.Size(57, 17)
         CapturePercentLabel.TabIndex = 43
         CapturePercentLabel.Text = "* Value:"
         '
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(7, 103)
+        Label2.Location = New System.Drawing.Point(9, 127)
+        Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
-        Label2.Size = New System.Drawing.Size(41, 13)
+        Label2.Size = New System.Drawing.Size(53, 17)
         Label2.TabIndex = 41
         Label2.Text = "* Units:"
         '
@@ -83,9 +86,10 @@ Partial Class ProcessThroughputAddEditForm
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(357, 152)
+        Me.btnCancel.Location = New System.Drawing.Point(401, 186)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 4
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -93,9 +97,10 @@ Partial Class ProcessThroughputAddEditForm
         'OKButton
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OKButton.Location = New System.Drawing.Point(276, 152)
+        Me.OKButton.Location = New System.Drawing.Point(295, 186)
+        Me.OKButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(75, 23)
+        Me.OKButton.Size = New System.Drawing.Size(100, 28)
         Me.OKButton.TabIndex = 3
         Me.OKButton.Text = "OK"
         Me.OKButton.UseVisualStyleBackColor = True
@@ -103,9 +108,10 @@ Partial Class ProcessThroughputAddEditForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 8)
+        Me.Label1.Location = New System.Drawing.Point(9, 10)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
+        Me.Label1.Size = New System.Drawing.Size(105, 17)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "* Required field"
         '
@@ -113,9 +119,10 @@ Partial Class ProcessThroughputAddEditForm
         '
         Me.ProcessParameterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProcessParameterComboBox.FormattingEnabled = True
-        Me.ProcessParameterComboBox.Location = New System.Drawing.Point(113, 47)
+        Me.ProcessParameterComboBox.Location = New System.Drawing.Point(151, 58)
+        Me.ProcessParameterComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ProcessParameterComboBox.Name = "ProcessParameterComboBox"
-        Me.ProcessParameterComboBox.Size = New System.Drawing.Size(225, 21)
+        Me.ProcessParameterComboBox.Size = New System.Drawing.Size(350, 24)
         Me.ProcessParameterComboBox.TabIndex = 0
         '
         'ErrorProvider1
@@ -124,19 +131,21 @@ Partial Class ProcessThroughputAddEditForm
         '
         'ProcessParameterValueTextBox
         '
-        Me.ProcessParameterValueTextBox.Location = New System.Drawing.Point(113, 74)
+        Me.ProcessParameterValueTextBox.Location = New System.Drawing.Point(151, 91)
+        Me.ProcessParameterValueTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ProcessParameterValueTextBox.MaxLength = 10
         Me.ProcessParameterValueTextBox.Name = "ProcessParameterValueTextBox"
-        Me.ProcessParameterValueTextBox.Size = New System.Drawing.Size(79, 20)
+        Me.ProcessParameterValueTextBox.Size = New System.Drawing.Size(104, 22)
         Me.ProcessParameterValueTextBox.TabIndex = 1
         '
         'UnitOfMeasurementComboBox
         '
         Me.UnitOfMeasurementComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.UnitOfMeasurementComboBox.FormattingEnabled = True
-        Me.UnitOfMeasurementComboBox.Location = New System.Drawing.Point(113, 100)
+        Me.UnitOfMeasurementComboBox.Location = New System.Drawing.Point(151, 123)
+        Me.UnitOfMeasurementComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.UnitOfMeasurementComboBox.Name = "UnitOfMeasurementComboBox"
-        Me.UnitOfMeasurementComboBox.Size = New System.Drawing.Size(225, 21)
+        Me.UnitOfMeasurementComboBox.Size = New System.Drawing.Size(350, 24)
         Me.UnitOfMeasurementComboBox.TabIndex = 2
         '
         'EmissionsDataSet
@@ -157,6 +166,10 @@ Partial Class ProcessThroughputAddEditForm
         '
         Me.TableAdapterManager.AffiliationTypeEISTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BillingContactsTableAdapter = Nothing
+        Me.TableAdapterManager.BillingFeeConfigTableAdapter = Nothing
+        Me.TableAdapterManager.BillingHistoryTableAdapter = Nothing
+        Me.TableAdapterManager.BillingTableAdapter = Nothing
         Me.TableAdapterManager.ControlMeasureHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ControlMeasurePollutantHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ControlMeasurePollutantTableAdapter = Nothing
@@ -170,6 +183,7 @@ Partial Class ProcessThroughputAddEditForm
         Me.TableAdapterManager.EmissionYearTableAdapter = Nothing
         Me.TableAdapterManager.FacilityCategoryEISTableAdapter = Nothing
         Me.TableAdapterManager.FacilitySiteStatusTypeEISTableAdapter = Nothing
+        Me.TableAdapterManager.FormTableAdapter = Nothing
         Me.TableAdapterManager.MeasurementTableAdapter = Nothing
         Me.TableAdapterManager.OperatingStatusTypeEISTableAdapter = Nothing
         Me.TableAdapterManager.PlantEmissionUnitDetailTableAdapter = Nothing
@@ -177,9 +191,18 @@ Partial Class ProcessThroughputAddEditForm
         Me.TableAdapterManager.PlantEmissionUnitTableAdapter = Nothing
         Me.TableAdapterManager.PlantEmissionUnitYearHistoryTableAdapter = Nothing
         Me.TableAdapterManager.PlantEmissionUnitYearTableAdapter = Nothing
+        Me.TableAdapterManager.PlantTableAdapter = Nothing
+        Me.TableAdapterManager.PlantYearContactsTableAdapter = Nothing
+        Me.TableAdapterManager.PlantYearFormTableAdapter = Nothing
+        Me.TableAdapterManager.PlantYearHistoryTableAdapter = Nothing
         Me.TableAdapterManager.PlantYearTableAdapter = Nothing
         Me.TableAdapterManager.PollutantTableAdapter = Nothing
+        Me.TableAdapterManager.PreBillingTableAdapter = Nothing
         Me.TableAdapterManager.ProcessClassLevel1TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel2TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel3TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassLevel4TypeTableAdapter = Nothing
+        Me.TableAdapterManager.ProcessClassTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureHistoryTableAdapter = Nothing
         Me.TableAdapterManager.ProcessControlMeasureTableAdapter = Nothing
         Me.TableAdapterManager.ProcessDetailPeriodHistoryTableAdapter = Me.ProcessDetailPeriodHistoryTableAdapter
@@ -212,6 +235,10 @@ Partial Class ProcessThroughputAddEditForm
         '
         Me.ProcessDetailPeriodHistoryTableAdapter.ClearBeforeFill = True
         '
+        'UnitOfMeasurementTableAdapter
+        '
+        Me.UnitOfMeasurementTableAdapter.ClearBeforeFill = True
+        '
         'ProcessDetailPeriodHistoryBindingSource
         '
         Me.ProcessDetailPeriodHistoryBindingSource.DataMember = "ProcessDetailPeriodHistory"
@@ -222,17 +249,13 @@ Partial Class ProcessThroughputAddEditForm
         Me.UnitOfMeasurementBindingSource.DataMember = "UnitOfMeasurement"
         Me.UnitOfMeasurementBindingSource.DataSource = Me.EmissionsDataSet
         '
-        'UnitOfMeasurementTableAdapter
-        '
-        Me.UnitOfMeasurementTableAdapter.ClearBeforeFill = True
-        '
         'ProcessThroughputAddEditForm
         '
         Me.AcceptButton = Me.OKButton
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(444, 187)
+        Me.ClientSize = New System.Drawing.Size(591, 253)
         Me.ControlBox = False
         Me.Controls.Add(Me.UnitOfMeasurementComboBox)
         Me.Controls.Add(Me.btnCancel)
@@ -243,6 +266,7 @@ Partial Class ProcessThroughputAddEditForm
         Me.Controls.Add(ControlMeasureIDLabel)
         Me.Controls.Add(CapturePercentLabel)
         Me.Controls.Add(Me.ProcessParameterValueTextBox)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "ProcessThroughputAddEditForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "ProcessThroughputAddEditForm"

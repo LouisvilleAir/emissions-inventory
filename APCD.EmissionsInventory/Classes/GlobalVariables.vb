@@ -39,9 +39,23 @@ Public Class GlobalVariables
         View
     End Enum
 
+    ''' <summary>
+    ''' Some common pollutants
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Enum PollutantEnum
+        CO = 589
+        NOX = 602
+        PM10FILT = 611
+        PM10PRIM = 612
+        PM25FILT = 614
+        PM25PRIM = 615
+        SO2 = 621
+        VOC = 624
+    End Enum
 
     ''' <summary>
-    ''' 
+    ''' Some common units of measurement
     ''' </summary>
     ''' <remarks>Values must match those in the UnitOfMeasurement table.</remarks>
     Public Enum UnitOfMeasurementEnum
@@ -252,6 +266,7 @@ Public Class GlobalVariables
             Const APCDIDAlreadyExists As String = "The specified APCD ID is already being used."
             Const DeletingRecord As String = "An error occurred while deleting a record. Please contact APCD IT support for assistance."
             Const SavingRecord As String = "An error occurred while saving the record. Please contact APCD IT support for assistance."
+            Const DuplicateKey As String = "It appears you are trying a add a new record whose identifying information is the same as that of an existing record!"
         End Structure
 
         Friend Structure Misc

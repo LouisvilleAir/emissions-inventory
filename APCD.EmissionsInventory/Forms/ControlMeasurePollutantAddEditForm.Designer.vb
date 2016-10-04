@@ -45,36 +45,40 @@ Partial Class ControlMeasurePollutantAddEditForm
         'PollutantLabel
         '
         PollutantLabel.AutoSize = True
-        PollutantLabel.Location = New System.Drawing.Point(9, 53)
+        PollutantLabel.Location = New System.Drawing.Point(12, 65)
+        PollutantLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         PollutantLabel.Name = "PollutantLabel"
-        PollutantLabel.Size = New System.Drawing.Size(58, 13)
+        PollutantLabel.Size = New System.Drawing.Size(76, 17)
         PollutantLabel.TabIndex = 41
         PollutantLabel.Text = "* Pollutant:"
         '
         'ControlPercentLabel
         '
         ControlPercentLabel.AutoSize = True
-        ControlPercentLabel.Location = New System.Drawing.Point(9, 79)
+        ControlPercentLabel.Location = New System.Drawing.Point(12, 97)
+        ControlPercentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ControlPercentLabel.Name = "ControlPercentLabel"
-        ControlPercentLabel.Size = New System.Drawing.Size(90, 13)
+        ControlPercentLabel.Size = New System.Drawing.Size(119, 17)
         ControlPercentLabel.TabIndex = 43
         ControlPercentLabel.Text = "* Control Percent:"
         '
         'CommentPublicLabel
         '
         CommentPublicLabel.AutoSize = True
-        CommentPublicLabel.Location = New System.Drawing.Point(17, 105)
+        CommentPublicLabel.Location = New System.Drawing.Point(23, 129)
+        CommentPublicLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentPublicLabel.Name = "CommentPublicLabel"
-        CommentPublicLabel.Size = New System.Drawing.Size(86, 13)
+        CommentPublicLabel.Size = New System.Drawing.Size(113, 17)
         CommentPublicLabel.TabIndex = 44
         CommentPublicLabel.Text = "Comment Public:"
         '
         'CommentInternalLabel
         '
         CommentInternalLabel.AutoSize = True
-        CommentInternalLabel.Location = New System.Drawing.Point(17, 190)
+        CommentInternalLabel.Location = New System.Drawing.Point(23, 234)
+        CommentInternalLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CommentInternalLabel.Name = "CommentInternalLabel"
-        CommentInternalLabel.Size = New System.Drawing.Size(92, 13)
+        CommentInternalLabel.Size = New System.Drawing.Size(122, 17)
         CommentInternalLabel.TabIndex = 45
         CommentInternalLabel.Text = "Comment Internal:"
         '
@@ -82,9 +86,10 @@ Partial Class ControlMeasurePollutantAddEditForm
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(367, 292)
+        Me.btnCancel.Location = New System.Drawing.Point(485, 343)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCancel.TabIndex = 42
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -92,9 +97,10 @@ Partial Class ControlMeasurePollutantAddEditForm
         'OKButton
         '
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OKButton.Location = New System.Drawing.Point(286, 292)
+        Me.OKButton.Location = New System.Drawing.Point(377, 343)
+        Me.OKButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.OKButton.Name = "OKButton"
-        Me.OKButton.Size = New System.Drawing.Size(75, 23)
+        Me.OKButton.Size = New System.Drawing.Size(100, 28)
         Me.OKButton.TabIndex = 40
         Me.OKButton.Text = "OK"
         Me.OKButton.UseVisualStyleBackColor = True
@@ -102,37 +108,41 @@ Partial Class ControlMeasurePollutantAddEditForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 10)
+        Me.Label1.Location = New System.Drawing.Point(12, 12)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
+        Me.Label1.Size = New System.Drawing.Size(105, 17)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "* Required field"
         '
         'CommentPublicTextBox
         '
-        Me.CommentPublicTextBox.Location = New System.Drawing.Point(115, 105)
+        Me.CommentPublicTextBox.Location = New System.Drawing.Point(153, 129)
+        Me.CommentPublicTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentPublicTextBox.MaxLength = 255
         Me.CommentPublicTextBox.Multiline = True
         Me.CommentPublicTextBox.Name = "CommentPublicTextBox"
-        Me.CommentPublicTextBox.Size = New System.Drawing.Size(325, 68)
+        Me.CommentPublicTextBox.Size = New System.Drawing.Size(432, 83)
         Me.CommentPublicTextBox.TabIndex = 38
         '
         'PollutantComboBox
         '
         Me.PollutantComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PollutantComboBox.FormattingEnabled = True
-        Me.PollutantComboBox.Location = New System.Drawing.Point(115, 49)
+        Me.PollutantComboBox.Location = New System.Drawing.Point(153, 60)
+        Me.PollutantComboBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PollutantComboBox.Name = "PollutantComboBox"
-        Me.PollutantComboBox.Size = New System.Drawing.Size(325, 21)
+        Me.PollutantComboBox.Size = New System.Drawing.Size(432, 24)
         Me.PollutantComboBox.TabIndex = 36
         '
         'CommentInternalTextBox
         '
-        Me.CommentInternalTextBox.Location = New System.Drawing.Point(115, 190)
+        Me.CommentInternalTextBox.Location = New System.Drawing.Point(153, 234)
+        Me.CommentInternalTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CommentInternalTextBox.MaxLength = 255
         Me.CommentInternalTextBox.Multiline = True
         Me.CommentInternalTextBox.Name = "CommentInternalTextBox"
-        Me.CommentInternalTextBox.Size = New System.Drawing.Size(325, 68)
+        Me.CommentInternalTextBox.Size = New System.Drawing.Size(432, 83)
         Me.CommentInternalTextBox.TabIndex = 39
         '
         'ErrorProvider1
@@ -141,19 +151,20 @@ Partial Class ControlMeasurePollutantAddEditForm
         '
         'ControlPercentTextBox
         '
-        Me.ControlPercentTextBox.Location = New System.Drawing.Point(115, 76)
+        Me.ControlPercentTextBox.Location = New System.Drawing.Point(153, 94)
+        Me.ControlPercentTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ControlPercentTextBox.MaxLength = 5
         Me.ControlPercentTextBox.Name = "ControlPercentTextBox"
-        Me.ControlPercentTextBox.Size = New System.Drawing.Size(40, 20)
+        Me.ControlPercentTextBox.Size = New System.Drawing.Size(52, 22)
         Me.ControlPercentTextBox.TabIndex = 37
         '
         'ControlMeasurePollutantAddEditForm
         '
         Me.AcceptButton = Me.OKButton
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(454, 327)
+        Me.ClientSize = New System.Drawing.Size(619, 412)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.OKButton)
@@ -167,9 +178,10 @@ Partial Class ControlMeasurePollutantAddEditForm
         Me.Controls.Add(CommentPublicLabel)
         Me.Controls.Add(CommentInternalLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "ControlMeasurePollutantAddEditForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "ControlMeasurePollutantAddEditForm"
+        Me.Text = "Add or Edit Pollutant on Control Measure"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

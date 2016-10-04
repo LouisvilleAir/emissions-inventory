@@ -65,6 +65,13 @@ Public Class ProcessEmissionsAddEditForm
 
     End Sub
 
+    ''' <summary>
+    ''' Load the pollutant combo box with pollutants that have _not_ yet been
+    ''' used on this process, except that the three ozone season daily
+    ''' pollutants (CO, NOx, VOC) can be used twice (once for the annual total
+    ''' and once for the ozone season daily average).
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Sub LoadComboBox_Pollutant()
 
         Select Case Me.m_DMLMode
@@ -85,20 +92,73 @@ Public Class ProcessEmissionsAddEditForm
                         .Append(GlobalVariables.Words._In)
                         .Append(Tools.Constants.Character.Space)
                         .Append(Tools.Constants.Character.LeftParenthesis)
-                        For rowCount As Int32 = 0 To MainForm.EmissionsDataSet.ProcessEmission.Rows.Count - 1
-                            If (rowCount > 0) Then
-                                .Append(Tools.Constants.Character.Comma)
-                            End If
-                            Dim pollutantID As Int32 = CInt(MainForm.EmissionsDataSet.ProcessEmission.Rows(rowCount)(Constants.PollutantConstants.FieldName.PollutantID))
+                        'For rowCount As Int32 = 0 To MainForm.EmissionsDataSet.ProcessEmission.Rows.Count - 1
+                        '    Dim pollutantID As Int32 = CInt(MainForm.EmissionsDataSet.ProcessEmission.Rows(rowCount)(Constants.PollutantConstants.FieldName.PollutantID))
 
+                        '    Select Case pollutantID
+                        '        ' Allow CO, NOx, VOC to always be in the list.
+                        '        Case 589, 602, 624
+                        '            .Append("-1") ' needed so we don't get "(," or ",,".
+                        '        Case Else
+                        '            If (rowCount > 0) Then
+                        '                .Append(Tools.Constants.Character.Comma)
+                        '            End If
+                        '            .Append(pollutantID.ToString)
+                        '    End Select
+
+                        'Next
+
+                        ' 20160912 BJF: Replaced the commented-out loop above
+                        ' with these declarations and this loop:
+                        Dim itemCount As Integer = 0
+                        Dim isCOFound As Boolean = False
+                        Dim isNOxFound As Boolean = False
+                        Dim isVOCFound As Boolean = False
+
+                        For Each ro As EmissionsDataSet.ProcessEmissionRow In MainForm.EmissionsDataSet.ProcessEmission.Rows
+                            Dim pollutantID As Int32 = CInt(ro(Constants.PollutantConstants.FieldName.PollutantID))
                             Select Case pollutantID
-                                'allow CO, NOx, VOC to always be in the list
-                                Case 589, 602, 624
-                                    .Append("-1")
+                                Case GlobalVariables.PollutantEnum.CO
+                                    If (isCOFound) Then
+                                        ' This is the second occurrence of CO.
+                                        ' Add it to the exclusion.
+                                        If (itemCount > 0) Then
+                                            .Append(Tools.Constants.Character.Comma)
+                                        End If
+                                        .Append(pollutantID.ToString)
+                                        itemCount += 1
+                                    Else
+                                        isCOFound = True
+                                        ' We have found CO only once so far.
+                                        ' Don't add it to the exclusion (yet).
+                                    End If
+                                Case GlobalVariables.PollutantEnum.NOX
+                                    If (isNOxFound) Then
+                                        If (itemCount > 0) Then
+                                            .Append(Tools.Constants.Character.Comma)
+                                        End If
+                                        .Append(pollutantID.ToString)
+                                        itemCount += 1
+                                    Else
+                                        isNOxFound = True
+                                    End If
+                                Case GlobalVariables.PollutantEnum.VOC
+                                    If (isVOCFound) Then
+                                        If (itemCount > 0) Then
+                                            .Append(Tools.Constants.Character.Comma)
+                                        End If
+                                        .Append(pollutantID.ToString)
+                                        itemCount += 1
+                                    Else
+                                        isVOCFound = True
+                                    End If
                                 Case Else
+                                    If (itemCount > 0) Then
+                                        .Append(Tools.Constants.Character.Comma)
+                                    End If
                                     .Append(pollutantID.ToString)
+                                    itemCount += 1
                             End Select
-
                         Next
                         .Append(Tools.Constants.Character.RightParenthesis)
                     End With
@@ -138,7 +198,7 @@ Public Class ProcessEmissionsAddEditForm
                 'TODO 2015-09-17 BJF - Allow entry of an emission factor for 
                 ' calculation methods Stack Test, Material Balance, and
                 ' EPA Speciation Profile as well as requiring one for the
-                ' emission-factor methods.
+                ' emission-factor methods. This requires changing the library.
                 ' In the meantime, we'll display the field regardless,
                 ' but adjust its label.
                 Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
@@ -177,7 +237,7 @@ Public Class ProcessEmissionsAddEditForm
                 Me.Text = "View Emission"
                 Me.PollutantComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.PollutantComboBox, Me.m_processEmission.PollutantID)
                 Me.EmissionPeriodTypeComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.EmissionPeriodTypeComboBox, Me.m_processEmission.EmissionPeriodTypeID)
-                Me.EmissionValueTextBox.Text = CStr(Me.m_processEmission.EmissionValue)
+                Me.EmissionValueTextBox.Text = Me.m_processEmission.EmissionValue.ToString("#0.0000#")
                 Me.EmissionValueTextBox.Enabled = False
 
                 Me.EmissionCalculationMethodComboBox.SelectedIndex = Tools.WindowsForms.GetIndexForValueMember(Me.EmissionCalculationMethodComboBox, Me.m_processEmission.EmissionCalculationMethodID)
@@ -187,7 +247,7 @@ Public Class ProcessEmissionsAddEditForm
                 Call Me.SetEmissionValueUnitOfMeasurementLabelText()
 
                 'TODO: See above under Update.
-                Me.EmissionFactorValueTextBox.Text = CStr(Me.m_processEmission.EmissionFactorValue)
+                Me.EmissionFactorValueTextBox.Text = Me.m_processEmission.EmissionFactorValue.ToString()
                 Me.EmissionFactorValueTextBox.Enabled = False
                 Call Me.SetEmissionFactorValueUnitOfMeasurementLabelText()
                 Me.EmissionFactorPanel.Visible = True
@@ -468,13 +528,17 @@ Public Class ProcessEmissionsAddEditForm
             Me.m_pollutant = GlobalVariables.LookupTable.Pollutant.FindByPollutantID(CInt(Me.PollutantComboBox.SelectedValue))
             Me.m_processEmission.PollutantID = CInt(Me.PollutantComboBox.SelectedValue)
             Select Case CInt(Me.PollutantComboBox.SelectedValue)
-                Case 589, 602, 624  ' CO, NOx, and VOC are the only ozone season pollutants.
+                ' CO, NOx, and VOC are the only ozone season pollutants.
+                'Case 589, 602, 624
+                Case GlobalVariables.PollutantEnum.CO, GlobalVariables.PollutantEnum.NOX, GlobalVariables.PollutantEnum.VOC
                     Me.EmissionPeriodTypeComboBox.Enabled = True
                     Me.EmissionPeriodTypeComboBox.SelectedIndex = -1
                 Case Else
                     Me.EmissionPeriodTypeComboBox.Enabled = False
                     Me.EmissionPeriodTypeComboBox.SelectedValue = "A"
             End Select
+            Call Me.SetEmissionsUnitOfMeasurement()
+            Call Me.SetEmissionValueUnitOfMeasurementLabelText()
         End If
 
     End Sub
