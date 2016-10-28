@@ -576,6 +576,7 @@ Public Class EmissionUnitUserControl
             MessageBox.Show(GlobalVariables.ErrorPrompt.Database.SavingRecord, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             SaveEmissionUnit = False
         End Try
+        Return SaveEmissionUnit
 
     End Function
 

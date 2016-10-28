@@ -211,6 +211,7 @@ Partial Class MainForm
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.AdminToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ProgrammerToolStripMenuItem, Me.ToolsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -229,7 +230,7 @@ Partial Class MainForm
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(108, 26)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'AdminToolStripMenuItem
@@ -242,13 +243,13 @@ Partial Class MainForm
         'GenerateInvoicesToolStripMenuItem
         '
         Me.GenerateInvoicesToolStripMenuItem.Name = "GenerateInvoicesToolStripMenuItem"
-        Me.GenerateInvoicesToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
+        Me.GenerateInvoicesToolStripMenuItem.Size = New System.Drawing.Size(283, 26)
         Me.GenerateInvoicesToolStripMenuItem.Text = "Generate Invoices"
         '
         'GenerateAnnaulNotificationsToolStripMenuItem
         '
         Me.GenerateAnnaulNotificationsToolStripMenuItem.Name = "GenerateAnnaulNotificationsToolStripMenuItem"
-        Me.GenerateAnnaulNotificationsToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
+        Me.GenerateAnnaulNotificationsToolStripMenuItem.Size = New System.Drawing.Size(283, 26)
         Me.GenerateAnnaulNotificationsToolStripMenuItem.Text = "Generate Annual Notifications"
         '
         'HelpToolStripMenuItem
@@ -261,23 +262,23 @@ Partial Class MainForm
         'SupportWebsiteMenuItem
         '
         Me.SupportWebsiteMenuItem.Name = "SupportWebsiteMenuItem"
-        Me.SupportWebsiteMenuItem.Size = New System.Drawing.Size(189, 24)
+        Me.SupportWebsiteMenuItem.Size = New System.Drawing.Size(194, 26)
         Me.SupportWebsiteMenuItem.Text = "Support Website"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(186, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(191, 6)
         '
         'toolStripSeparator7
         '
         Me.toolStripSeparator7.Name = "toolStripSeparator7"
-        Me.toolStripSeparator7.Size = New System.Drawing.Size(186, 6)
+        Me.toolStripSeparator7.Size = New System.Drawing.Size(191, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(189, 24)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(194, 26)
         Me.AboutToolStripMenuItem.Text = "&About..."
         '
         'ProgrammerToolStripMenuItem
@@ -290,60 +291,60 @@ Partial Class MainForm
         'WhosLoggedOnToolStripMenuItem
         '
         Me.WhosLoggedOnToolStripMenuItem.Name = "WhosLoggedOnToolStripMenuItem"
-        Me.WhosLoggedOnToolStripMenuItem.Size = New System.Drawing.Size(219, 24)
+        Me.WhosLoggedOnToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
         Me.WhosLoggedOnToolStripMenuItem.Text = "&Who's logged on?"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(216, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(222, 6)
         '
         'ExportFacilityDataToolStripMenuItem
         '
         Me.ExportFacilityDataToolStripMenuItem.Name = "ExportFacilityDataToolStripMenuItem"
-        Me.ExportFacilityDataToolStripMenuItem.Size = New System.Drawing.Size(219, 24)
+        Me.ExportFacilityDataToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
         Me.ExportFacilityDataToolStripMenuItem.Text = "Export &Facility Data"
         '
         'ExportPointDataToolStripMenuItem
         '
         Me.ExportPointDataToolStripMenuItem.Name = "ExportPointDataToolStripMenuItem"
-        Me.ExportPointDataToolStripMenuItem.Size = New System.Drawing.Size(219, 24)
+        Me.ExportPointDataToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
         Me.ExportPointDataToolStripMenuItem.Text = "Export Point Data"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(216, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(222, 6)
         '
         'CheckPollutantUOMToolStripMenuItem
         '
         Me.CheckPollutantUOMToolStripMenuItem.Name = "CheckPollutantUOMToolStripMenuItem"
-        Me.CheckPollutantUOMToolStripMenuItem.Size = New System.Drawing.Size(219, 24)
+        Me.CheckPollutantUOMToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
         Me.CheckPollutantUOMToolStripMenuItem.Text = "Check pollutant UOM"
         Me.CheckPollutantUOMToolStripMenuItem.Visible = False
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(216, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(222, 6)
         '
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Import91TFormToolStripMenuItem, Me.Import92TFormToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(57, 24)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(56, 24)
         Me.ToolsToolStripMenuItem.Text = "&Tools"
         '
         'Import91TFormToolStripMenuItem
         '
         Me.Import91TFormToolStripMenuItem.Name = "Import91TFormToolStripMenuItem"
-        Me.Import91TFormToolStripMenuItem.Size = New System.Drawing.Size(195, 24)
+        Me.Import91TFormToolStripMenuItem.Size = New System.Drawing.Size(201, 26)
         Me.Import91TFormToolStripMenuItem.Text = "Import E91T form"
         '
         'Import92TFormToolStripMenuItem
         '
         Me.Import92TFormToolStripMenuItem.Name = "Import92TFormToolStripMenuItem"
-        Me.Import92TFormToolStripMenuItem.Size = New System.Drawing.Size(195, 24)
+        Me.Import92TFormToolStripMenuItem.Size = New System.Drawing.Size(201, 26)
         Me.Import92TFormToolStripMenuItem.Text = "Import E92T form"
         '
         'SplitContainerMain
@@ -388,7 +389,7 @@ Partial Class MainForm
         Me.SplitContainerLeft.Panel2.Controls.Add(Me.btnPlantsAndReleasePoints)
         Me.SplitContainerLeft.Panel2.Controls.Add(Me.btnPlantsAndProcesses)
         Me.SplitContainerLeft.Size = New System.Drawing.Size(366, 954)
-        Me.SplitContainerLeft.SplitterDistance = 595
+        Me.SplitContainerLeft.SplitterDistance = 500
         Me.SplitContainerLeft.SplitterWidth = 5
         Me.SplitContainerLeft.TabIndex = 0
         Me.SplitContainerLeft.TabStop = False
@@ -400,7 +401,7 @@ Partial Class MainForm
         Me.TreeViewMain.Location = New System.Drawing.Point(0, 0)
         Me.TreeViewMain.Margin = New System.Windows.Forms.Padding(4)
         Me.TreeViewMain.Name = "TreeViewMain"
-        Me.TreeViewMain.Size = New System.Drawing.Size(364, 593)
+        Me.TreeViewMain.Size = New System.Drawing.Size(364, 498)
         Me.TreeViewMain.TabIndex = 0
         '
         'btnControlMeasures
@@ -450,18 +451,19 @@ Partial Class MainForm
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.statusMode, Me.ToolStripSplitButton1, Me.statusLevel})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 954)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 953)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
-        Me.StatusStrip1.Size = New System.Drawing.Size(1262, 25)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1262, 26)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'statusMode
         '
         Me.statusMode.Name = "statusMode"
-        Me.statusMode.Size = New System.Drawing.Size(50, 20)
+        Me.statusMode.Size = New System.Drawing.Size(50, 21)
         Me.statusMode.Text = "Ready"
         Me.statusMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -471,13 +473,13 @@ Partial Class MainForm
         Me.ToolStripSplitButton1.Image = CType(resources.GetObject("ToolStripSplitButton1.Image"), System.Drawing.Image)
         Me.ToolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripSplitButton1.Name = "ToolStripSplitButton1"
-        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(32, 23)
+        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(39, 24)
         Me.ToolStripSplitButton1.Text = "ToolStripSplitButton1"
         '
         'statusLevel
         '
         Me.statusLevel.Name = "statusLevel"
-        Me.statusLevel.Size = New System.Drawing.Size(0, 20)
+        Me.statusLevel.Size = New System.Drawing.Size(0, 21)
         Me.statusLevel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'EmissionsDataSet
@@ -666,7 +668,7 @@ Partial Class MainForm
         Me.EmissionYearLabel.Location = New System.Drawing.Point(4, 4)
         Me.EmissionYearLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.EmissionYearLabel.Name = "EmissionYearLabel"
-        Me.EmissionYearLabel.Size = New System.Drawing.Size(100, 20)
+        Me.EmissionYearLabel.Size = New System.Drawing.Size(99, 20)
         Me.EmissionYearLabel.TabIndex = 4
         Me.EmissionYearLabel.Text = "Emission Year"
         '

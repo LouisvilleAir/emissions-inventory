@@ -94,10 +94,12 @@ Public Class splashScreenForm
 
         Dim main As String = String.Empty
         Dim obj As APCD.DataProviderLibrary.MainService
+        'Dim url As String = "tcp://apcbar02tryand1:6000/MainServiceDataProvider"
+        Dim url As String = "tcp://svapps164:6000/MainServiceDataProvider"
 
         Try
             obj = CType(Activator.GetObject(Type.GetType("APCD.DataProviderLibrary.MainService, APCD.DataProviderLibrary"), _
-                 "tcp://apcbar02tryand1:6000/MainServiceDataProvider"),  _
+                 url),  _
                   APCD.DataProviderLibrary.MainService)
             main = obj.GetMain
         Catch ex As Exception

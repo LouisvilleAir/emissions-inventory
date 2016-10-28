@@ -1105,7 +1105,7 @@ Partial Class ProcessUserControl
         Me.EmissionValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.EmissionValue.DataPropertyName = "EmissionValue"
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle6.Format = "#0.0000#"
+        DataGridViewCellStyle6.Format = "N4"
         DataGridViewCellStyle6.NullValue = Nothing
         Me.EmissionValue.DefaultCellStyle = DataGridViewCellStyle6
         Me.EmissionValue.HeaderText = "Emissions"

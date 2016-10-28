@@ -2134,7 +2134,7 @@ Public Class ProcessUserControl
             msg = "Some data values have been entered or modified but not yet saved.  "
             'Else
         End If
-        msg &= "This function will use the current year's SAVED throughput and SAVED emission factors to recalculate emissions where an emission factor has been entered.  If the emission factor is greater than zero, the function does the calculation even if the calculation method does not use an emission factor.  Existing emissions values will be overwritten."
+        msg &= "This function will use the current year's SAVED throughput and SAVED emission factors to recalculate emissions where an emission factor has been entered. If the emission factor is greater than zero, the function does the calculation even if the calculation method does not use an emission factor.  Existing emissions values will be overwritten."
         If MessageBox.Show(msg, "Recalculate from Throughput", MessageBoxButtons.OKCancel) = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Call Me.EmissionsRecalculateFromThroughput()
