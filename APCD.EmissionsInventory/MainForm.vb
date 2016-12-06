@@ -1850,7 +1850,7 @@ Public Class MainForm
     Private Sub GenerateInvoicesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GenerateInvoicesToolStripMenuItem.Click
         'MessageBox.Show("UNDER CONSTRUCTION")
 
-        Dim frm As New GeneratePreBill(CShort(Me.EmissionYearComboBox.SelectedValue))
+        Dim frm As New GenerateBills(CShort(Me.EmissionYearComboBox.SelectedValue))
         frm.ShowDialog()
 
     End Sub

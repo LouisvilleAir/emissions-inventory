@@ -2,7 +2,7 @@
 Imports System.IO
 Imports System.Text
 
-Public Class GeneratePreBill
+Public Class GenerateBills
 
     Public Sub New(ByVal emissionYear As Int16)
         InitializeComponent()
@@ -27,17 +27,16 @@ Public Class GeneratePreBill
         Const Production As String = "S:\Emissions Inventory\Billing\Invoices\"
     End Structure
 
-
     Private m_billingFeeConfig As EmissionsDataSet.BillingFeeConfigRow
 
-    Private Enum PollutantEnum
-        NH3 = 597
-        NO2 = 602
-        PM10 = 611
-        PMC = 616
-        SO2 = 621
-        VOC = 624
-    End Enum
+    'Private Enum PollutantEnum ' replaced by GlobalVariables.PollutantEnum 20161103 BJF
+    '    NH3 = 597
+    '    NO2 = 602
+    '    PM10 = 611
+    '    PMC = 616
+    '    SO2 = 621
+    '    VOC = 624
+    'End Enum
 
     Private Structure PollutantName
         Const VOC As String = "VOC"
@@ -246,8 +245,10 @@ Public Class GeneratePreBill
         For Each row As EmissionsDataSet.PlantRow In GlobalVariables.LookupTable.Plant
             Dim billingContact As EmissionsDataSet.BillingContactsRow = Me.EmissionsDataSet.BillingContacts.FindByPLANT_ID(row.PlantID)
             If (Not billingContact Is Nothing) Then
-                Me.RptPlantEmissionsSummaryV2TableAdapter.FillByPlantID_EmissionYear(Me.EmissionsDataSet.rptPlantEmissionsSummaryV2, row.PlantID, Me.m_emissionYear)
-                Call Me.AddPreBillRecord(row, billingContact)
+                If (Me.CheckBillingContact(billingContact)) Then
+                    Me.RptPlantEmissionsSummaryV2TableAdapter.FillByPlantID_EmissionYear(Me.EmissionsDataSet.rptPlantEmissionsSummaryV2, row.PlantID, Me.m_emissionYear)
+                    Call Me.AddPreBillRecord(row, billingContact)
+                End If
             End If
         Next
 
@@ -300,6 +301,40 @@ Public Class GeneratePreBill
         End Try
     End Sub
 
+    Private Function CheckBillingContact(ByVal billingContact As EmissionsDataSet.BillingContactsRow) As Boolean
+        Dim result As Boolean = True
+        Dim messageBuilder As New StringBuilder
+
+        With billingContact
+            If (.PLANT_ID < 1) Then
+                messageBuilder.AppendLine(" - Invalid plant ID: " & .PLANT_ID.ToString())
+            End If
+            If (.IsCNTCTLASTNull OrElse .CNTCTLAST.Length = 0) Then
+                messageBuilder.AppendLine(" - Last name is blank or null.")
+            End If
+            If (.IsADDR1Null OrElse .ADDR1.Length = 0) Then
+                messageBuilder.AppendLine(" - Address is blank or null.")
+            End If
+            If (.IsCITYNull OrElse .CITY.Length = 0) Then
+                messageBuilder.AppendLine(" - City is blank or null.")
+            End If
+            If (.IsSTATENull OrElse .STATE.Length = 0) Then
+                messageBuilder.AppendLine(" - State is blank or null.")
+            End If
+            If (.IsZIPNull OrElse .ZIP.Length = 0) Then
+                messageBuilder.AppendLine(" - ZIP code is blank or null.")
+            End If
+
+            If (messageBuilder.Length > 0) Then
+                result = False
+                Me.m_exceptionDetailLog.AppendLine("Error in billing contact for plant " & .PLANT_ID.ToString() & ":")
+                Me.m_exceptionDetailLog.Append(messageBuilder)
+            End If
+        End With
+
+        Return result
+    End Function
+
     'Returns a valid invoice if the current data is different than the preBill data, otherwise returns nothing
     Private Function GetNewInvoiceData(ByVal row As EmissionsDataSet.PreBillingRow) As Invoice
 
@@ -308,16 +343,16 @@ Public Class GeneratePreBill
         Dim newInvoice As New Invoice
         With newInvoice
             'assign the current values...
-            .TVEmissionVOC = Me.GetPollutantTotal(PollutantEnum.VOC)
-            .TVEmissionPMC = Me.GetPollutantTotal(PollutantEnum.PMC)
-            .TVEmissionPM10 = Me.GetPollutantTotal(PollutantEnum.PM10)
+            .TVEmissionVOC = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.VOC)
+            .TVEmissionPMC = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.PMC)
+            .TVEmissionPM10 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.PM10FILT)
 
-            .TVEmissionNO2 = Me.GetPollutantTotal(PollutantEnum.NO2)
+            .TVEmissionNO2 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.NOX)
             If (.TVEmissionNO2 > 4000) Then
                 .TVEmissionNO2 = 4000
             End If
 
-            .TVEmissionSO2 = Me.GetPollutantTotal(PollutantEnum.SO2)
+            .TVEmissionSO2 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.SO2)
             If (.TVEmissionSO2 > 4000) Then
                 .TVEmissionSO2 = 4000
             End If
@@ -328,7 +363,7 @@ Public Class GeneratePreBill
                 .StarNH3 = 0
             Else
                 .StarHAPS = Me.CalculateTotalHAPS(False)
-                .StarNH3 = Me.GetPollutantTotal(PollutantEnum.NH3)
+                .StarNH3 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.NH3)
             End If
 
             '...now see if they are the same in the prebill, if they are return nothing
@@ -354,7 +389,7 @@ Public Class GeneratePreBill
 
                 If (.TVEmissionHAPS <> row.TVEmissionHAPS) Then
                     Me.m_exceptionDetailLog.Append(vbTab)
-                    Me.m_exceptionDetailLog.AppendLine(GeneratePreBill.PollutantName.HAPS)
+                    Me.m_exceptionDetailLog.AppendLine(GenerateBills.PollutantName.HAPS)
                     Me.m_exceptionDetailLog.Append(vbTab)
                     Me.m_exceptionDetailLog.Append("  Old Value:")
                     Me.m_exceptionDetailLog.AppendLine(String.Format("{0,10}", FormatNumber(row.TVEmissionHAPS)))
@@ -366,7 +401,7 @@ Public Class GeneratePreBill
 
                 If (.TVEmissionNO2 <> row.TVEmissionNO2) Then
                     Me.m_exceptionDetailLog.Append(vbTab)
-                    Me.m_exceptionDetailLog.AppendLine(GeneratePreBill.PollutantName.NOX)
+                    Me.m_exceptionDetailLog.AppendLine(GenerateBills.PollutantName.NOX)
                     Me.m_exceptionDetailLog.Append(vbTab)
                     Me.m_exceptionDetailLog.Append("  Old Value:")
                     Me.m_exceptionDetailLog.AppendLine(String.Format("{0,10}", FormatNumber(row.TVEmissionNO2)))
@@ -378,7 +413,7 @@ Public Class GeneratePreBill
 
                 If (.TVEmissionPM10 <> row.TVEmissionPM10) Then
                     Me.m_exceptionDetailLog.Append(vbTab)
-                    Me.m_exceptionDetailLog.AppendLine(GeneratePreBill.PollutantName.PM10Filterable)
+                    Me.m_exceptionDetailLog.AppendLine(GenerateBills.PollutantName.PM10Filterable)
                     Me.m_exceptionDetailLog.Append(vbTab)
                     Me.m_exceptionDetailLog.Append("  Old Value:")
                     Me.m_exceptionDetailLog.AppendLine(String.Format("{0,10}", FormatNumber(row.TVEmissionPM10)))
@@ -390,7 +425,7 @@ Public Class GeneratePreBill
 
                 If (.TVEmissionSO2 <> row.TVEmissionSO2) Then
                     Me.m_exceptionDetailLog.Append(vbTab)
-                    Me.m_exceptionDetailLog.AppendLine(GeneratePreBill.PollutantName.SO2)
+                    Me.m_exceptionDetailLog.AppendLine(GenerateBills.PollutantName.SO2)
                     Me.m_exceptionDetailLog.Append(vbTab)
                     Me.m_exceptionDetailLog.Append("  Old Value:")
                     Me.m_exceptionDetailLog.AppendLine(String.Format("{0,10}", FormatNumber(row.TVEmissionSO2)))
@@ -402,7 +437,7 @@ Public Class GeneratePreBill
 
                 If (.TVEmissionVOC <> row.TVEmissionVOC) Then
                     Me.m_exceptionDetailLog.Append(vbTab)
-                    Me.m_exceptionDetailLog.AppendLine(GeneratePreBill.PollutantName.VOC)
+                    Me.m_exceptionDetailLog.AppendLine(GenerateBills.PollutantName.VOC)
                     Me.m_exceptionDetailLog.Append(vbTab)
                     Me.m_exceptionDetailLog.Append("  Old Value:")
                     Me.m_exceptionDetailLog.AppendLine(String.Format("{0,10}", FormatNumber(row.TVEmissionVOC)))
@@ -421,7 +456,7 @@ Public Class GeneratePreBill
 
                 If (.StarHAPS <> row.StarHAPS) Then
                     Me.m_exceptionDetailLog.Append(vbTab)
-                    Me.m_exceptionDetailLog.AppendLine(GeneratePreBill.PollutantName.HAPS)
+                    Me.m_exceptionDetailLog.AppendLine(GenerateBills.PollutantName.HAPS)
                     Me.m_exceptionDetailLog.Append(vbTab)
                     Me.m_exceptionDetailLog.Append("  Old Value:")
                     Me.m_exceptionDetailLog.AppendLine(String.Format("{0,10}", FormatNumber(row.StarHAPS)))
@@ -433,7 +468,7 @@ Public Class GeneratePreBill
 
                 If (.StarNH3 <> row.StarNH3) Then
                     Me.m_exceptionDetailLog.Append(vbTab)
-                    Me.m_exceptionDetailLog.AppendLine(GeneratePreBill.PollutantName.NH3)
+                    Me.m_exceptionDetailLog.AppendLine(GenerateBills.PollutantName.NH3)
                     Me.m_exceptionDetailLog.Append(vbTab)
                     Me.m_exceptionDetailLog.Append("  Old Value:")
                     Me.m_exceptionDetailLog.AppendLine(String.Format("{0,10}", FormatNumber(row.StarNH3)))
@@ -464,23 +499,31 @@ Public Class GeneratePreBill
             .PlantName = row.PlantName
             .EmissionYear = Me.m_emissionYear
             .PrintDate = Now.Date
-            .FirstName = StrConv(billingContact.CNTCTFIRST, vbProperCase)
+            If (billingContact.IsCNTCTFIRSTNull) Then
+                .FirstName = String.Empty
+            Else
+                .FirstName = StrConv(billingContact.CNTCTFIRST, vbProperCase)
+            End If
             .LastName = StrConv(billingContact.CNTCTLAST, vbProperCase)
-            .Address = StrConv(billingContact.ADDR1, vbProperCase)
+            If (billingContact.IsADDR2Null OrElse billingContact.ADDR2.Length = 0) Then
+                .Address = StrConv(billingContact.ADDR1, vbProperCase)
+            Else
+                .Address = StrConv(billingContact.ADDR1, vbProperCase) & ", " & StrConv(billingContact.ADDR2, vbProperCase)
+            End If
             .City = StrConv(billingContact.CITY, vbProperCase)
             .State = billingContact.STATE
             .Zip = billingContact.ZIP.Substring(0, 5)
 
-            .TVEmissionVOC = Me.GetPollutantTotal(PollutantEnum.VOC)
-            .TVEmissionPMC = Me.GetPollutantTotal(PollutantEnum.PMC)
-            .TVEmissionPM10 = Me.GetPollutantTotal(PollutantEnum.PM10)
+            .TVEmissionVOC = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.VOC)
+            .TVEmissionPMC = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.PMC)
+            .TVEmissionPM10 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.PM10FILT)
 
-            .TVEmissionNO2 = Me.GetPollutantTotal(PollutantEnum.NO2)
+            .TVEmissionNO2 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.NOX)
             If (.TVEmissionNO2 > 4000) Then
                 .TVEmissionNO2 = 4000
             End If
 
-            .TVEmissionSO2 = Me.GetPollutantTotal(PollutantEnum.SO2)
+            .TVEmissionSO2 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.SO2)
             If (.TVEmissionSO2 > 4000) Then
                 .TVEmissionSO2 = 4000
             End If
@@ -495,7 +538,7 @@ Public Class GeneratePreBill
                 .StarNH3 = 0
             Else
                 .StarHAPS = Me.CalculateTotalHAPS(False)
-                .StarNH3 = Me.GetPollutantTotal(PollutantEnum.NH3)
+                .StarNH3 = Me.GetPollutantTotal(GlobalVariables.PollutantEnum.NH3)
             End If
 
             .STAREmissionTotal = Me.CalculateSTAREmissionTotal(.StarHAPS, .StarNH3)
@@ -513,43 +556,52 @@ Public Class GeneratePreBill
         'get the latest latestBillingContact info for this plant
         Dim latestBillingContact As EmissionsDataSet.BillingContactsRow = Me.EmissionsDataSet.BillingContacts.FindByPLANT_ID(row.PlantID)
 
+        If (Me.CheckBillingContact(latestBillingContact)) Then
+            Dim bill As EmissionsDataSet.BillingRow = Me.EmissionsDataSet.Billing.NewBillingRow
+            With bill
+                Dim id As Guid = Guid.NewGuid
+                .BillingID = id.ToString()
+                .PlantID = row.PlantID
+                .PlantName = row.PlantName
+                .EmissionYear = row.EmissionYear
+                .PrintDate = Date.Now.Date
+                If latestBillingContact.IsCNTCTFIRSTNull Then
+                    .FirstName = String.Empty
+                Else
+                    .FirstName = StrConv(latestBillingContact.CNTCTFIRST, vbProperCase)
+                End If
+                .LastName = StrConv(latestBillingContact.CNTCTLAST, vbProperCase)
+                If (latestBillingContact.IsADDR2Null OrElse latestBillingContact.ADDR2.Length = 0) Then
+                    .Address = StrConv(latestBillingContact.ADDR1, vbProperCase)
+                Else
+                    .Address = StrConv(latestBillingContact.ADDR1, vbProperCase) & ", " & StrConv(latestBillingContact.ADDR2, vbProperCase)
+                End If
+                .City = StrConv(latestBillingContact.CITY, vbProperCase)
+                .State = latestBillingContact.STATE
+                .Zip = latestBillingContact.ZIP.Substring(0, 5)
 
-        Dim bill As EmissionsDataSet.BillingRow = Me.EmissionsDataSet.Billing.NewBillingRow
-        With bill
-            Dim id As Guid = Guid.NewGuid
-            .BillingID = id.ToString()
-            .PlantID = row.PlantID
-            .PlantName = row.PlantName
-            .EmissionYear = row.EmissionYear
-            .PrintDate = Date.Now.Date
+                .TVEmissionVOC = row.TVEmissionVOC
+                .TVEmissionPMC = row.TVEmissionPMC
+                .TVEmissionPM10 = row.TVEmissionPM10
+                .TVEmissionNO2 = row.TVEmissionNO2
+                .TVEmissionSO2 = row.TVEmissionSO2
+                .TVEmissionHAPS = row.TVEmissionHAPS
 
-            .FirstName = StrConv(latestBillingContact.CNTCTFIRST, vbProperCase)
-            .LastName = StrConv(latestBillingContact.CNTCTLAST, vbProperCase)
-            .Address = StrConv(latestBillingContact.ADDR1, vbProperCase)
-            .City = StrConv(latestBillingContact.CITY, vbProperCase)
-            .State = latestBillingContact.STATE
-            .Zip = latestBillingContact.ZIP.Substring(0, 5)
+                .TVEmissionTotal = row.TVEmissionTotal
+                .TVBillTotal = row.TVBillTotal
 
-            .TVEmissionVOC = row.TVEmissionVOC
-            .TVEmissionPMC = row.TVEmissionPMC
-            .TVEmissionPM10 = row.TVEmissionPM10
-            .TVEmissionNO2 = row.TVEmissionNO2
-            .TVEmissionSO2 = row.TVEmissionSO2
-            .TVEmissionHAPS = row.TVEmissionHAPS
+                .StarHAPS = row.StarHAPS
+                .StarNH3 = row.StarNH3
 
-            .TVEmissionTotal = row.TVEmissionTotal
-            .TVBillTotal = row.TVBillTotal
+                .STAREmissionTotal = row.STAREmissionTotal
+                .STARBillTotal = row.STARBillTotal
 
-            .StarHAPS = row.StarHAPS
-            .StarNH3 = row.StarNH3
+                .AddDate = Date.Now
+                .AddedBy = GlobalVariables.Employee.EmployeeID
+            End With
+            Me.EmissionsDataSet.Billing.Rows.Add(bill)
 
-            .STAREmissionTotal = row.STAREmissionTotal
-            .STARBillTotal = row.STARBillTotal
-
-            .AddDate = Date.Now
-            .AddedBy = GlobalVariables.Employee.EmployeeID
-        End With
-        Me.EmissionsDataSet.Billing.Rows.Add(bill)
+        End If
 
     End Sub
 
@@ -660,7 +712,7 @@ Public Class GeneratePreBill
 
     End Sub
 
-    Private Function GetPollutantTotal(ByVal pollutant As PollutantEnum) As Double
+    Private Function GetPollutantTotal(ByVal pollutant As GlobalVariables.PollutantEnum) As Double
 
         Dim total As Double
 
@@ -735,7 +787,11 @@ Public Class GeneratePreBill
                         Me.WriteBookmark(BookMark.plantName, .PlantName)
                         Me.WriteBookmark(BookMark.addressLine1, .Address)
                         Me.WriteBookmark(BookMark.addressLine2, .City & ", " & .State & " " & .Zip)
-                        Me.WriteBookmark(BookMark.billingContact, .FirstName & " " & .LastName)
+                        If .FirstName.Length > 0 Then
+                            Me.WriteBookmark(BookMark.billingContact, .FirstName & " " & .LastName)
+                        Else
+                            Me.WriteBookmark(BookMark.billingContact, .LastName)
+                        End If
 
                         Me.WriteBookmark(BookMark.fiscalYear, CStr(.EmissionYear + 2))
                         Me.WriteBookmark(BookMark.emissionYear1, CStr(.EmissionYear))
@@ -921,9 +977,9 @@ Public Class GeneratePreBill
         With filename
 
 #If DEBUG Then
-            .Append(GeneratePreBill.DestinationDirectory.Development)
+            .Append(GenerateBills.DestinationDirectory.Development)
 #Else
-            .Append(GeneratePreBill.DestinationDirectory.Production)
+            .Append(GenerateBills.DestinationDirectory.Production)
 #End If
             .Append(Tools.Constants.Character.BackSlash)
             .Append("FY ")
@@ -950,9 +1006,9 @@ Public Class GeneratePreBill
         With filename
 
 #If DEBUG Then
-            .Append(GeneratePreBill.DestinationDirectory.Development)
+            .Append(GenerateBills.DestinationDirectory.Development)
 #Else
-            .Append(GeneratePreBill.DestinationDirectory.Production)
+            .Append(GenerateBills.DestinationDirectory.Production)
 #End If
             .Append(Tools.Constants.Character.BackSlash)
             .Append("FY ")

@@ -15,7 +15,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -24,9 +24,9 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <PublishUrl>http://apcbar02tryand1/InstallEmissionsInventory/</PublishUrl>
+    <PublishUrl>http://svapps164.metro.lou.ky/InstallEmissionsInventory/</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
+    <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -34,6 +34,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\svapps164\InstallEmissionsInventory\</InstallUrl>
     <SupportUrl>http://apcbar02tryand1/APCDApplicationAndPCSupport/EmissionsInventory/emissionsInventoryHome.htm</SupportUrl>
     <ProductName>APCD Emissions Inventory</ProductName>
     <PublisherName>APCD</PublisherName>
@@ -238,10 +239,10 @@
     <Compile Include="Forms\Automation\AnnualNotification.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Billing\GeneratePreBill.Designer.vb">
-      <DependentUpon>GeneratePreBill.vb</DependentUpon>
+    <Compile Include="Forms\Billing\GenerateBills.Designer.vb">
+      <DependentUpon>GenerateBills.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Billing\GeneratePreBill.vb">
+    <Compile Include="Forms\Billing\GenerateBills.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ControlMeasurePollutantAddEditForm.Designer.vb">
@@ -508,8 +509,8 @@
     <EmbeddedResource Include="Forms\Automation\AnnualNotification.resx">
       <DependentUpon>AnnualNotification.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Billing\GeneratePreBill.resx">
-      <DependentUpon>GeneratePreBill.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Billing\GenerateBills.resx">
+      <DependentUpon>GenerateBills.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ControlMeasurePollutantAddEditForm.resx">
       <DependentUpon>ControlMeasurePollutantAddEditForm.vb</DependentUpon>
@@ -768,12 +769,12 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.VisualBasic.PowerPacks.Vs">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

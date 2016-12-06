@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class GeneratePreBill
+Partial Class GenerateBills
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class GeneratePreBill
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GeneratePreBill))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GenerateBills))
         Me.EmissionsDataSet = New APCD.EmissionsInventory.EmissionsDataSet()
         Me.PreBillingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PreBillingTableAdapter = New APCD.EmissionsInventory.EmissionsDataSetTableAdapters.PreBillingTableAdapter()

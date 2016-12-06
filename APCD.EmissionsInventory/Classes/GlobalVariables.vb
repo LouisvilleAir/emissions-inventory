@@ -45,11 +45,13 @@ Public Class GlobalVariables
     ''' <remarks></remarks>
     Public Enum PollutantEnum
         CO = 589
+        NH3 = 597
         NOX = 602
         PM10FILT = 611
         PM10PRIM = 612
         PM25FILT = 614
         PM25PRIM = 615
+        PMC = 616
         SO2 = 621
         VOC = 624
     End Enum
