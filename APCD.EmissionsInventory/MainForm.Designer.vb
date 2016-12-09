@@ -230,12 +230,12 @@ Partial Class MainForm
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(108, 26)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'AdminToolStripMenuItem
         '
-        Me.AdminToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateInvoicesToolStripMenuItem, Me.GenerateAnnaulNotificationsToolStripMenuItem})
+        Me.AdminToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateInvoicesToolStripMenuItem, Me.GenerateAnnaulNotificationsToolStripMenuItem, Me.ToolStripSeparator1, Me.ExportFacilityDataToolStripMenuItem, Me.ExportPointDataToolStripMenuItem})
         Me.AdminToolStripMenuItem.Name = "AdminToolStripMenuItem"
         Me.AdminToolStripMenuItem.Size = New System.Drawing.Size(65, 24)
         Me.AdminToolStripMenuItem.Text = "&Admin"
@@ -251,6 +251,18 @@ Partial Class MainForm
         Me.GenerateAnnaulNotificationsToolStripMenuItem.Name = "GenerateAnnaulNotificationsToolStripMenuItem"
         Me.GenerateAnnaulNotificationsToolStripMenuItem.Size = New System.Drawing.Size(283, 26)
         Me.GenerateAnnaulNotificationsToolStripMenuItem.Text = "Generate Annual Notifications"
+        '
+        'ExportFacilityDataToolStripMenuItem
+        '
+        Me.ExportFacilityDataToolStripMenuItem.Name = "ExportFacilityDataToolStripMenuItem"
+        Me.ExportFacilityDataToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
+        Me.ExportFacilityDataToolStripMenuItem.Text = "Export &Facility Data"
+        '
+        'ExportPointDataToolStripMenuItem
+        '
+        Me.ExportPointDataToolStripMenuItem.Name = "ExportPointDataToolStripMenuItem"
+        Me.ExportPointDataToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
+        Me.ExportPointDataToolStripMenuItem.Text = "Export Point Data"
         '
         'HelpToolStripMenuItem
         '
@@ -283,7 +295,7 @@ Partial Class MainForm
         '
         'ProgrammerToolStripMenuItem
         '
-        Me.ProgrammerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.WhosLoggedOnToolStripMenuItem, Me.ToolStripSeparator1, Me.ExportFacilityDataToolStripMenuItem, Me.ExportPointDataToolStripMenuItem, Me.ToolStripSeparator3, Me.CheckPollutantUOMToolStripMenuItem, Me.ToolStripSeparator4})
+        Me.ProgrammerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.WhosLoggedOnToolStripMenuItem, Me.ToolStripSeparator3, Me.CheckPollutantUOMToolStripMenuItem, Me.ToolStripSeparator4})
         Me.ProgrammerToolStripMenuItem.Name = "ProgrammerToolStripMenuItem"
         Me.ProgrammerToolStripMenuItem.Size = New System.Drawing.Size(104, 24)
         Me.ProgrammerToolStripMenuItem.Text = "&Programmer"
@@ -298,18 +310,6 @@ Partial Class MainForm
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(222, 6)
-        '
-        'ExportFacilityDataToolStripMenuItem
-        '
-        Me.ExportFacilityDataToolStripMenuItem.Name = "ExportFacilityDataToolStripMenuItem"
-        Me.ExportFacilityDataToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
-        Me.ExportFacilityDataToolStripMenuItem.Text = "Export &Facility Data"
-        '
-        'ExportPointDataToolStripMenuItem
-        '
-        Me.ExportPointDataToolStripMenuItem.Name = "ExportPointDataToolStripMenuItem"
-        Me.ExportPointDataToolStripMenuItem.Size = New System.Drawing.Size(225, 26)
-        Me.ExportPointDataToolStripMenuItem.Text = "Export Point Data"
         '
         'ToolStripSeparator3
         '

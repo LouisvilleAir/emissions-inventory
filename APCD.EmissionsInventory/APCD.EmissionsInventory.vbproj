@@ -15,7 +15,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -24,9 +24,9 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <PublishUrl>http://svapps164.metro.lou.ky/InstallEmissionsInventory/</PublishUrl>
+    <PublishUrl>\\svapps164\InstallEmissionsInventory\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -34,16 +34,16 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\svapps164\InstallEmissionsInventory\</InstallUrl>
+    <InstallUrl>https://svapps164.metro.lou.ky/InstallEmissionsInventory/</InstallUrl>
     <SupportUrl>http://apcbar02tryand1/APCDApplicationAndPCSupport/EmissionsInventory/emissionsInventoryHome.htm</SupportUrl>
     <ProductName>APCD Emissions Inventory</ProductName>
     <PublisherName>APCD</PublisherName>
-    <MinimumRequiredVersion>1.2.0.69</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.3.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>69</ApplicationRevision>
-    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -769,12 +769,12 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.VisualBasic.PowerPacks.Vs">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
